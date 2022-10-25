@@ -11,13 +11,13 @@ export const ViewLogo = styled.View`
   align-items: center;
 `;
 export const InputArea = styled.View`
+  flex: 1;
   margin-top: 40px;
   align-self: center;
   width: 70%;
 `;
 
 export const ViewPassword = styled.View`
-  left: 65px;
 `;
 
 export const TextForgotPassword = styled.Text`
@@ -28,5 +28,15 @@ export const TextForgotPassword = styled.Text`
 
 export const ViewTabBar = styled.View`
   flex: 1;
+  flex-direction: row;
+  background-color: ${Colors.backgroundInput};
   justify-content: flex-end;
+  max-height: 70px;
+
+`;
+export const FlatListBar = styled.FlatList`
+    flex: 1;
+    max-height: 70px;
+    width: 100%;
+    background-color: ${Colors.backgroundInput};
 `;

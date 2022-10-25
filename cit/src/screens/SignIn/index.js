@@ -10,6 +10,7 @@ import { Colors } from '../../config/Colors';
 import Logo from '../../assets/svg/Logo.svg';
 import InputCustom from '../../components/InputCustom';
 import ButtonCustom from '../../components/ButtonCustom';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 //-----------------------Services---------------------------------
 import { apiServices } from '../../Services/Auth';
 import Mensagem from '../../Services/Mensagem';
@@ -22,6 +23,8 @@ import {
   ViewPassword,
   TextForgotPassword,
   ViewTabBar,
+  FlatListBar,
+  ViewBar,
 } from './styles';
 import TabBar from '../../components/TabBar';
 
@@ -31,6 +34,9 @@ export default () => {
   const [isLoading, setIsLoading] = useState(false);
   const [selected, setSelected] = useState('');
   const [hidePass, setHidePass] = useState(false);
+
+  const { navigate } = useNavigation()
+
 
   // const [user, setUser] = useState({
   //   tipo: 3,
@@ -89,6 +95,28 @@ export default () => {
     navigation.navigate('SignUp');
   };
 
+  const menus = [
+    {
+      id: 1,
+      title: 'Suporte',
+      icon: <Icon name="face-agent" size={33} color={Colors.ButtonSecondary} />,
+      screen: 'Home',
+    },
+    {
+      id: 2,
+      title: 'Contrate',
+      icon: <Icon name="cart-outline" size={33} color={Colors.ButtonSecondary} />,
+      screen: 'SignUp',
+    },
+    {
+      id: 3,
+      title: 'Termos e Condições',
+      icon: <Icon name="book-open-variant" size={33} color={Colors.ButtonSecondary} />,
+      screen: 'TermsConditions',
+    },
+  ];
+
+
   return (
     <Container>
       <ViewLogo>
@@ -113,18 +141,23 @@ export default () => {
           password={hidePass ? false : true}
           onPress={() => setHidePass(!hidePass)}
         />
+        <ViewPassword>
+
+          <TextForgotPassword>
+            Esqueceu sua senha ?
+          </TextForgotPassword>
+
+        </ViewPassword>
       </InputArea>
-      <ViewPassword>
-
-        <TextForgotPassword>
-          Esqueceu sua senha ?
-        </TextForgotPassword>
-
-      </ViewPassword>
 
       <ViewTabBar>
-        <TabBar />
-
+        {menus.map((item, index) => (
+          <TabBar
+            onPress={() => navigate(item.screen)}
+            icon={item?.icon}
+            title={item?.title}
+          />
+        ))}
       </ViewTabBar>
     </Container>
   );
