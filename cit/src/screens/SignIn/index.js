@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { useNavigation } from '@react-navigation/native';
-import { Keyboard } from 'react-native';
+import { Button, Keyboard } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 //-----------------------Components---------------------------------
 import Eye from '../../assets/icons/eye.svg';
@@ -25,6 +25,7 @@ import {
   ViewTabBar,
   FlatListBar,
   ViewBar,
+  ButtonLogin,
 } from './styles';
 import TabBar from '../../components/TabBar';
 
@@ -146,6 +147,11 @@ export default () => {
           <TextForgotPassword>
             Esqueceu sua senha ?
           </TextForgotPassword>
+
+          <ButtonLogin
+           title='Entrar'
+            onPress={() => navigate('HomeResident')}
+           />
 
         </ViewPassword>
       </InputArea>
