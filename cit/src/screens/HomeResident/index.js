@@ -15,6 +15,13 @@ import {
   ButtonPanel,
   TaskList,
   IconView,
+  IconCallText,
+  IconMessageText,
+  IconImageView,
+  IconTextView,
+  ButtonText,
+  IconColorCallView,
+  IconColorMessageView,
 } from './styles';
 import TabBarLocations from '../../components/TabBarLocations';
 import {generallocations} from '../../Services/Locations';
@@ -28,7 +35,7 @@ export default () => {
       id: 1,
       title: 'Suporte',
       icon: <Icon name="face-agent" size={33} color={Colors.ButtonSecondary} />,
-      screen: 'Home',
+      screen: 'FAQ',
     },
     {
       id: 2,
@@ -56,7 +63,7 @@ export default () => {
       icon: (
         <Icon name="account-outline" size={33} color={Colors.ButtonSecondary} />
       ),
-      screen: 'Home',
+      screen: 'ProfileResident',
     },
   ];
 
@@ -78,8 +85,12 @@ export default () => {
         <Logo width="250" height="90" />
 
         <InviteAndCallPanel>
-          <ButtonPanel title="Ligar" onPress={() => navigate('')} />
-          <ButtonPanel title="Convidar" onPress={() => navigate('')} />
+          <ButtonPanel onPress={() => navigate('SignIn')}>
+            <ButtonText>LIGAR</ButtonText>
+          </ButtonPanel>
+          <ButtonPanel onPress={() => navigate('InviteList')}>
+            <ButtonText>CONVIDAR</ButtonText>
+          </ButtonPanel>
         </InviteAndCallPanel>
       </ViewLogo>
 
@@ -102,9 +113,18 @@ export default () => {
       />
 
       <IconView>
-        <Icon name="phone" size={85} />
-
-        <Icon name="message-processing-outline" size={85} />
+        <IconImageView>
+          <IconColorCallView>
+            <Icon name="phone" size={70} color="white" />
+          </IconColorCallView>
+          <IconCallText>LIGAR</IconCallText>
+        </IconImageView>
+        <IconTextView>
+          <IconColorMessageView>
+            <Icon name="message-processing-outline" size={70} color="white" />
+          </IconColorMessageView>
+          <IconMessageText>MENSAGEM</IconMessageText>
+        </IconTextView>
       </IconView>
 
       <ViewTabBar>

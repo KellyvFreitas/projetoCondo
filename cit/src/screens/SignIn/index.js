@@ -1,20 +1,20 @@
-import React, { useState, useContext } from 'react';
-import { useNavigation } from '@react-navigation/native';
-import { Button, Keyboard } from 'react-native';
+import React, {useState, useContext} from 'react';
+import {useNavigation} from '@react-navigation/native';
+import {Button, Keyboard} from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 //-----------------------Components---------------------------------
 import Eye from '../../assets/icons/eye.svg';
 import EyeOff from '../../assets/icons/eyeOff.svg';
-import { UserContext } from '../../contexts/UserContext';
-import { Colors } from '../../config/Colors';
+import {UserContext} from '../../contexts/UserContext';
+import {Colors} from '../../config/Colors';
 import Logo from '../../assets/svg/Logo.svg';
 import InputCustom from '../../components/InputCustom';
 import ButtonCustom from '../../components/ButtonCustom';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 //-----------------------Services---------------------------------
-import { apiServices } from '../../Services/Auth';
+import {apiServices} from '../../Services/Auth';
 import Mensagem from '../../Services/Mensagem';
-import { notification } from '../../Services/notification';
+import {notification} from '../../Services/notification';
 //-----------------------Styles------------------------------------
 import {
   Container,
@@ -31,13 +31,12 @@ import TabBar from '../../components/TabBar';
 
 export default () => {
   const navigation = useNavigation();
-  const { dispatch: userDispatch } = useContext(UserContext);
+  const {dispatch: userDispatch} = useContext(UserContext);
   const [isLoading, setIsLoading] = useState(false);
   const [selected, setSelected] = useState('');
   const [hidePass, setHidePass] = useState(false);
 
-  const { navigate } = useNavigation()
-
+  const {navigate} = useNavigation();
 
   // const [user, setUser] = useState({
   //   tipo: 3,
@@ -101,22 +100,29 @@ export default () => {
       id: 1,
       title: 'Suporte',
       icon: <Icon name="face-agent" size={33} color={Colors.ButtonSecondary} />,
-      screen: 'Home',
+      screen: 'FAQ',
     },
     {
       id: 2,
       title: 'Contrate',
-      icon: <Icon name="cart-outline" size={33} color={Colors.ButtonSecondary} />,
+      icon: (
+        <Icon name="cart-outline" size={33} color={Colors.ButtonSecondary} />
+      ),
       screen: 'SignUp',
     },
     {
       id: 3,
       title: 'Termos e Condições',
-      icon: <Icon name="book-open-variant" size={33} color={Colors.ButtonSecondary} />,
+      icon: (
+        <Icon
+          name="book-open-variant"
+          size={33}
+          color={Colors.ButtonSecondary}
+        />
+      ),
       screen: 'TermsConditions',
     },
   ];
-
 
   return (
     <Container>
@@ -129,9 +135,9 @@ export default () => {
         <InputCustom
           placeholder="Login ou Número do Telefone"
           autoCapitalize="none"
-        // value={user.email}    
-        // onChangeText={(t) => setUser({ ...user, email: t })}
-        // onPressIn={() => setSelected('email')}
+          // value={user.email}
+          // onChangeText={(t) => setUser({ ...user, email: t })}
+          // onPressIn={() => setSelected('email')}
         />
         <InputCustom
           typeInput="password"
@@ -143,16 +149,12 @@ export default () => {
           onPress={() => setHidePass(!hidePass)}
         />
         <ViewPassword>
-
-          <TextForgotPassword>
-            Esqueceu sua senha ?
-          </TextForgotPassword>
+          <TextForgotPassword>Esqueceu sua senha ?</TextForgotPassword>
 
           <ButtonLogin
-           title='Entrar'
+            title="Entrar"
             onPress={() => navigate('HomeResident')}
-           />
-
+          />
         </ViewPassword>
       </InputArea>
 

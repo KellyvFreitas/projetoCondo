@@ -1,13 +1,16 @@
 import React from 'react';
 
-import { createStackNavigator } from '@react-navigation/stack';
+import {createStackNavigator} from '@react-navigation/stack';
 import Preload from '../screens/Preload';
 import SignIn from '../screens/SignIn';
 import SignUp from '../screens/SignUp';
 
-import Home from '../screens/Home'
+import Home from '../screens/Home';
 import TermsConditions from '../screens/TermsConditions';
 import HomeResident from '../screens/HomeResident';
+import FAQ from '../screens/FAQ';
+import InviteList from '../screens/InviteList';
+import ProfileResident from '../screens/ProfileResident';
 
 const Stack = createStackNavigator();
 
@@ -23,6 +26,8 @@ export default () => (
     <Stack.Screen name="Home" component={Home} />
     <Stack.Screen name="TermsConditions" component={TermsConditions} />
     <Stack.Screen name="HomeResident" component={HomeResident} />
-
+    <Stack.Screen name="FAQ" component={FAQ} />
+    <Stack.Screen name="InviteList" component={InviteList} />
+    <Stack.Screen name="ProfileResident" component={ProfileResident} />
   </Stack.Navigator>
 );

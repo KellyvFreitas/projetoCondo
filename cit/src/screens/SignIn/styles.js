@@ -1,6 +1,6 @@
 import styled from 'styled-components/native';
-import { Colors } from '../../config/Colors';
-import { Fonts } from '../../config/Fonts';
+import {Colors} from '../../config/Colors';
+import {Fonts} from '../../config/Fonts';
 
 export const Container = styled.SafeAreaView`
   background-color: ${Colors.background};
@@ -17,14 +17,13 @@ export const InputArea = styled.View`
   width: 70%;
 `;
 
-export const ViewPassword = styled.View`
-`;
+export const ViewPassword = styled.View``;
 
 export const TextForgotPassword = styled.Text`
   font-family: ${Fonts.fontRegularPoppins};
   color: ${Colors.primary};
   font-size: 14px;
-  `;
+`;
 
 export const ViewTabBar = styled.View`
   flex: 1;
@@ -32,13 +31,11 @@ export const ViewTabBar = styled.View`
   background-color: ${Colors.backgroundInput};
   justify-content: flex-end;
   max-height: 70px;
-
 `;
 export const FlatListBar = styled.FlatList`
-    flex: 1;
-    max-height: 70px;
-    width: 100%;
-    background-color: ${Colors.backgroundInput};
+  flex: 1;
+  height: 70px;
+  width: 100%;
+  background-color: ${Colors.backgroundInput};
 `;
-export const ButtonLogin = styled.Button`
-`;
+export const ButtonLogin = styled.Button``;
