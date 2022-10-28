@@ -3,6 +3,7 @@ import React, {useCallback, useState} from 'react';
 //-----------------------Components---------------------------------
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import Logo from '../../assets/svg/Logo-noback.svg';
+
 import {Colors} from '../../config/Colors';
 //-----------------------Services---------------------------------
 //-----------------------Styles------------------------------------
@@ -35,7 +36,7 @@ export default () => {
       id: 1,
       title: 'Suporte',
       icon: <Icon name="face-agent" size={33} color={Colors.ButtonSecondary} />,
-      screen: 'FAQ',
+      screen: 'FAQLogged',
     },
     {
       id: 2,
@@ -43,7 +44,7 @@ export default () => {
       icon: (
         <Icon name="email-outline" size={33} color={Colors.ButtonSecondary} />
       ),
-      screen: 'SignUp',
+      screen: 'InviteList',
     },
     {
       id: 3,
@@ -55,7 +56,7 @@ export default () => {
           color={Colors.ButtonSecondary}
         />
       ),
-      screen: 'TermsConditions',
+      screen: 'TermsConditionsLogged',
     },
     {
       id: 4,
@@ -69,7 +70,7 @@ export default () => {
 
   const handleGetLocations = async () => {
     const response = await generallocations.locations;
-    console.log('\n\nRESPONSE-LOCATION', JSON.stringify(response));
+    // console.log('\n\nRESPONSE-LOCATION', JSON.stringify(response));
     setLocation(response);
   };
 
@@ -85,7 +86,7 @@ export default () => {
         <Logo width="250" height="90" />
 
         <InviteAndCallPanel>
-          <ButtonPanel onPress={() => navigate('SignIn')}>
+          <ButtonPanel onPress={() => navigate('Calling')}>
             <ButtonText>LIGAR</ButtonText>
           </ButtonPanel>
           <ButtonPanel onPress={() => navigate('InviteList')}>
@@ -113,7 +114,7 @@ export default () => {
       />
 
       <IconView>
-        <IconImageView>
+        <IconImageView onPress={() => navigate('Calling')}>
           <IconColorCallView>
             <Icon name="phone" size={70} color="white" />
           </IconColorCallView>

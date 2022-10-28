@@ -37,7 +37,7 @@ export default () => {
       icon: (
         <Icon name="home-outline" size={33} color={Colors.ButtonSecondary} />
       ),
-      screen: 'SignIn',
+      screen: 'HomeResident',
     },
     {
       id: 2,
@@ -51,7 +51,7 @@ export default () => {
       id: 3,
       title: 'Suporte',
       icon: <Icon name="face-agent" size={33} color={Colors.ButtonSecondary} />,
-      screen: 'FAQ',
+      screen: 'FAQLogged',
     },
     {
       id: 4,
@@ -63,7 +63,7 @@ export default () => {
           color={Colors.ButtonSecondary}
         />
       ),
-      screen: 'TermsConditions',
+      screen: 'TermsConditionsLogged',
     },
   ];
 
@@ -73,10 +73,10 @@ export default () => {
         <Logo width="250" height="90" />
 
         <InviteAndCallPanel>
-          <ButtonPanel onPress={() => navigate('SignIn')}>
+          <ButtonPanel onPress={() => navigate('HomeResident')}>
             <ButtonText>LIGAR</ButtonText>
           </ButtonPanel>
-          <ButtonPanel onPress={() => navigate('SignIn')}>
+          <ButtonPanel onPress={() => navigate('InviteList')}>
             <ButtonText>CONVIDAR</ButtonText>
           </ButtonPanel>
         </InviteAndCallPanel>
@@ -93,22 +93,26 @@ export default () => {
           placeholder="058.352.924-12"
           autoCapitalize="none"
           type="text"
+          editable={false}
         />
         <InputProfile
           placeholder="Data Nasc."
           autoCapitalize="none"
           type="text"
+          editable={false}
         />
         <InputProfile
           placeholder="(84) 9 99115-1832"
           autoCapitalize="none"
           type="text"
+          placeholderTextColor="black"
+          keyboardType={Platform.OS === 'ios' ? 'number-pad' : 'numeric'}
         />
         <InputProfile
           placeholder="jbatistas@gmail.com"
           autoCapitalize="none"
           type="number"
-          keyboardType={Platform.OS === 'ios' ? 'number-pad' : 'numeric'}
+          placeholderTextColor="black"
         />
         <InvitationPanel>
           <InvitationOptions>

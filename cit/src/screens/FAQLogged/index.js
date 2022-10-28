@@ -7,22 +7,21 @@ import {Colors} from '../../config/Colors';
 //-----------------------Services---------------------------------
 //-----------------------Styles------------------------------------
 import TabBar from '../../components/TabBar';
+import InputObs from '../../components/InputObs';
 import {
   ButtonPanel,
   Container,
   InviteAndCallPanel,
+  TextTerms,
+  TextTitle,
   ViewLogo,
   ViewTabBar,
+  ViewTermsAndConditions,
+  QuestionsView,
   ButtonText,
   InputArea,
-  InvitationOptions,
-  InvitationPanel,
-  TextTitle,
-  ButtonInviteText,
+  TextTitleAdmin,
 } from './styles';
-import InputCustom from '../../components/InputCustom';
-import {Platform} from 'react-native';
-import InputObs from '../../components/InputObs';
 
 export default () => {
   const {navigate} = useNavigation();
@@ -38,13 +37,15 @@ export default () => {
     },
     {
       id: 2,
-      title: 'Suporte',
-      icon: <Icon name="face-agent" size={33} color={Colors.ButtonSecondary} />,
-      screen: 'FAQLogged',
+      title: 'Convites',
+      icon: (
+        <Icon name="email-outline" size={33} color={Colors.ButtonSecondary} />
+      ),
+      screen: 'InviteList',
     },
     {
       id: 3,
-      title: 'Termos e Cond.',
+      title: 'Termos e Condições',
       icon: (
         <Icon
           name="book-open-variant"
@@ -79,39 +80,37 @@ export default () => {
         </InviteAndCallPanel>
       </ViewLogo>
 
-      <InputArea>
-        <TextTitle>LISTA DE CONVIDADOS</TextTitle>
-        <InputCustom
-          placeholder="Nome do Convidado"
-          autoCapitalize="none"
-          type="text"
-        />
-        <InputCustom
-          placeholder="Telefone do Convidado"
-          autoCapitalize="none"
-          type="number"
-          keyboardType={Platform.OS === 'ios' ? 'number-pad' : 'numeric'}
-        />
-        <InvitationPanel>
-          <InvitationOptions>
-            <Icon name="plus" size={20} color="white" />
-            <ButtonInviteText>Adicionar novo convidado</ButtonInviteText>
-          </InvitationOptions>
-          <InvitationOptions>
-            <Icon name="email-outline" size={20} color="white" />
-            <ButtonInviteText>Enviar</ButtonInviteText>
-          </InvitationOptions>
-        </InvitationPanel>
-      </InputArea>
-
-      <InputArea>
-        <TextTitle>OBSERVAÇÕES</TextTitle>
-        <InputObs
-          placeholder="Digite aqui caso tenha alguma observação ou comentário para a portaria ou para a administração."
-          autoCapitalize="none"
-          type="text"
-        />
-      </InputArea>
+      <ViewTermsAndConditions>
+        <TextTitle>Duvidas Frequentes</TextTitle>
+        <QuestionsView>
+          <Icon name="arrow-right-drop-circle" size={25} />
+          <TextTerms>Como posso resetar a minha senha?</TextTerms>
+        </QuestionsView>
+        <QuestionsView>
+          <Icon name="arrow-right-drop-circle" size={25} />
+          <TextTerms>Como reativar o meu X1SP?</TextTerms>
+        </QuestionsView>
+        <QuestionsView>
+          <Icon name="arrow-right-drop-circle" size={25} />
+          <TextTerms>
+            Porque não consigo falar com a portaria do meu segundo condomínio?
+          </TextTerms>
+        </QuestionsView>
+        <QuestionsView>
+          <Icon name="arrow-right-drop-circle" size={25} />
+          <TextTerms>
+            Criando uma lista de convidados para eventos em minha residência
+          </TextTerms>
+        </QuestionsView>
+        <InputArea>
+          <TextTitleAdmin>FALAR COM O ADMINISTRADOR</TextTitleAdmin>
+          <InputObs
+            placeholder="Digite uma mensagem para a administração do condomínio e em breve retornarão o contato..."
+            autoCapitalize="none"
+            type="text"
+          />
+        </InputArea>
+      </ViewTermsAndConditions>
 
       <ViewTabBar>
         {menus.map((item, index) => (

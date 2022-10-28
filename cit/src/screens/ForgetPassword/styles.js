@@ -17,9 +17,6 @@ export const InputArea = styled.View`
   width: 70%;
 `;
 
-export const ViewPassword = styled.TouchableOpacity``;
-export const ForgetPasswordTouchable = styled.TouchableOpacity``;
-
 export const TextForgotPassword = styled.Text`
   font-family: ${Fonts.fontRegularPoppins};
   color: ${Colors.primary};
@@ -40,4 +37,14 @@ export const FlatListBar = styled.FlatList`
   width: 100%;
   background-color: ${Colors.backgroundInput};
 `;
-export const ButtonLogin = styled.Button``;
+
+export const ViewPassword = styled.TouchableOpacity`
+  justify-content: center;
+  align-items: center;
+`;
+
+export const ButtonLogin = styled.Text`
+  color: darkblue;
+  font-size: 16px;
+  font-family: ${Fonts.fontRegularPoppins};
+`;

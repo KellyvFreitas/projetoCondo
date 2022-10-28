@@ -1,7 +1,7 @@
 import React from 'react';
-import { InputArea, Input } from './styles';
-import { Colors } from '../../config/Colors';
-import { useColorScheme } from 'react-native';
+import {InputArea, Input} from './styles';
+import {Colors} from '../../config/Colors';
+import {useColorScheme} from 'react-native';
 
 export default ({
   IconSvg,
@@ -9,6 +9,7 @@ export default ({
   value,
   onChangeText,
   password,
+  keyboardType,
   ...props
 }) => {
   return (
@@ -19,6 +20,7 @@ export default ({
         value={value}
         onChangeText={onChangeText}
         secureTextEntry={password}
+        keyboardType={keyboardType}
       />
       {IconSvg && (
         <IconSvg

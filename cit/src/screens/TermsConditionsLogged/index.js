@@ -11,18 +11,13 @@ import {
   ButtonPanel,
   Container,
   InviteAndCallPanel,
+  TextTerms,
+  TextTitle,
   ViewLogo,
   ViewTabBar,
+  ViewTermsAndConditions,
   ButtonText,
-  InputArea,
-  InvitationOptions,
-  InvitationPanel,
-  TextTitle,
-  ButtonInviteText,
 } from './styles';
-import InputCustom from '../../components/InputCustom';
-import {Platform} from 'react-native';
-import InputObs from '../../components/InputObs';
 
 export default () => {
   const {navigate} = useNavigation();
@@ -38,21 +33,17 @@ export default () => {
     },
     {
       id: 2,
-      title: 'Suporte',
-      icon: <Icon name="face-agent" size={33} color={Colors.ButtonSecondary} />,
-      screen: 'FAQLogged',
+      title: 'Convites',
+      icon: (
+        <Icon name="email-outline" size={33} color={Colors.ButtonSecondary} />
+      ),
+      screen: 'InviteList',
     },
     {
       id: 3,
-      title: 'Termos e Cond.',
-      icon: (
-        <Icon
-          name="book-open-variant"
-          size={33}
-          color={Colors.ButtonSecondary}
-        />
-      ),
-      screen: 'TermsConditionsLogged',
+      title: 'Suporte',
+      icon: <Icon name="face-agent" size={33} color={Colors.ButtonSecondary} />,
+      screen: 'FAQLogged',
     },
     {
       id: 4,
@@ -79,39 +70,24 @@ export default () => {
         </InviteAndCallPanel>
       </ViewLogo>
 
-      <InputArea>
-        <TextTitle>LISTA DE CONVIDADOS</TextTitle>
-        <InputCustom
-          placeholder="Nome do Convidado"
-          autoCapitalize="none"
-          type="text"
-        />
-        <InputCustom
-          placeholder="Telefone do Convidado"
-          autoCapitalize="none"
-          type="number"
-          keyboardType={Platform.OS === 'ios' ? 'number-pad' : 'numeric'}
-        />
-        <InvitationPanel>
-          <InvitationOptions>
-            <Icon name="plus" size={20} color="white" />
-            <ButtonInviteText>Adicionar novo convidado</ButtonInviteText>
-          </InvitationOptions>
-          <InvitationOptions>
-            <Icon name="email-outline" size={20} color="white" />
-            <ButtonInviteText>Enviar</ButtonInviteText>
-          </InvitationOptions>
-        </InvitationPanel>
-      </InputArea>
-
-      <InputArea>
-        <TextTitle>OBSERVAÇÕES</TextTitle>
-        <InputObs
-          placeholder="Digite aqui caso tenha alguma observação ou comentário para a portaria ou para a administração."
-          autoCapitalize="none"
-          type="text"
-        />
-      </InputArea>
+      <ViewTermsAndConditions>
+        <TextTitle>TERMOS E CONDIÇÕES</TextTitle>
+        <TextTerms>
+          At vero eos et accusamus et iusto odio dignissimos ducimus qui blandit
+          iis praesentium voluptatum deleniti atque corrupti quos dolores et qua
+          s molestias excepturi sint occaecati cupiditate non provident, similiq
+          ue sunt in culpa qui officia deserunt mollitia animi, id est laborum e
+          t dolorum fuga. Et harum quidem rerum facilis est et expedita distinct
+          io. Nam libero tempore At vero eos et accusamus et iusto odio
+          dignissimos ducimus qui blandit iis praesentium voluptatum deleniti
+          atque corrupti quos dolores et qua s molestias excepturi sint
+          occaecati cupiditate non provident, similiq ue sunt in culpa qui
+          officia deserunt mollitia animi, id est laborum et dolorum fuga. Et
+          harum quidem rerum facilis est et expedita distinc tio. Nam libero
+          tempore At vero eos et accusamus et iusto odio dignissimos ducimus qui
+          blandit iis praesentium voluptatum deleniti
+        </TextTerms>
+      </ViewTermsAndConditions>
 
       <ViewTabBar>
         {menus.map((item, index) => (

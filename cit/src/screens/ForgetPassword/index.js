@@ -23,7 +23,7 @@ import {
   ViewPassword,
   TextForgotPassword,
   ViewTabBar,
-  ForgetPasswordTouchable,
+  FlatListBar,
   ViewBar,
   ButtonLogin,
 } from './styles';
@@ -132,32 +132,26 @@ export default () => {
 
       <InputArea>
         {/* <InputText>E-mail</InputText> */}
+        <TextForgotPassword>Digite o e-mail cadastrado</TextForgotPassword>
         <InputCustom
-          placeholder="Login ou Número do Telefone"
+          placeholder="seuemail@dominio.com.br"
           autoCapitalize="none"
           // value={user.email}
           // onChangeText={(t) => setUser({ ...user, email: t })}
           // onPressIn={() => setSelected('email')}
         />
+        <TextForgotPassword>Confirmar o e-mail cadastrado</TextForgotPassword>
         <InputCustom
-          typeInput="password"
-          placeholder="Senha"
-          secureTextEntry
-          // value={user.password}
-          // onChangeText={(t) => setUser({ ...user, password: t })}
-          password={hidePass ? false : true}
-          onPress={() => setHidePass(!hidePass)}
+          placeholder="seuemail@dominio.com.br"
+          autoCapitalize="none"
+          // value={user.email}
+          // onChangeText={(t) => setUser({ ...user, email: t })}
+          // onPressIn={() => setSelected('email')}
         />
-
         <ViewPassword>
-          <ForgetPasswordTouchable onPress={() => navigate('ForgetPassword')}>
-            <TextForgotPassword>Esqueci minha senha</TextForgotPassword>
-          </ForgetPasswordTouchable>
-
-          <ButtonLogin
-            title="Entrar"
-            onPress={() => navigate('HomeResident')}
-          />
+          <ButtonLogin onPress={() => navigate('SignIn')}>
+            ENVIAR SOLICITAÇÃO
+          </ButtonLogin>
         </ViewPassword>
       </InputArea>
 

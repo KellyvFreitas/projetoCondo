@@ -14,10 +14,11 @@ export const InputArea = styled.View`
   margin-bottom: 15px;
 `;
 export const Input = styled.TextInput.attrs({})`
-  color: ${Colors.textColor};
+  color: gray;
   font-weight: 600;
   font-family: ${Fonts.fontRegular};
   text-align: justify;
   flex: 1;
+  align-self: baseline;
   font-size: 14px;
 `;

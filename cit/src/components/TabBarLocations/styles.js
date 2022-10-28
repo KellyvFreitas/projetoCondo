@@ -4,7 +4,7 @@ import {Colors} from '../../config/Colors';
 export const LocationsView = styled.View`
   flex: 1;
   flex-direction: row;
-  margin-bottom: 12px;
+  margin-top: 8px;
   background-color: ${Colors.backgroundInput};
   min-height: 100px;
   align-items: center;
@@ -37,9 +37,9 @@ export const InfoCardView = styled.View`
   justify-content: center;
 `;
 export const ImageLocation = styled.Image`
-  width: 90px;
-  height: 90px;
-  border-radius: 45px;
+  width: 80px;
+  height: 80px;
+  border-radius: 40px;
   border: 1px solid black;
   margin-right: 20px;
   border-color: black;

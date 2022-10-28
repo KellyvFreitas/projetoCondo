@@ -15,7 +15,7 @@ export default ({
     <InputArea>
       <Input
         placeholder={placeholder}
-        placeholderTextColor={Colors.black}
+        placeholderTextColor="gray"
         value={value}
         onChangeText={onChangeText}
         secureTextEntry={password}
