@@ -38,11 +38,15 @@ export default () => {
 
   const {navigate} = useNavigation();
 
-  // const [user, setUser] = useState({
-  //   tipo: 3,
-  //   email: 'clientetrixx@gmail.com',
-  //   password: 'Teste@01',
-  // });
+  const [user, setUser] = useState('');
+
+  function handleSignUp() {
+    if (user === 'admin') {
+      navigation.navigate('HomeAdmin');
+    } else {
+      navigation.navigate('HomeAdmin');
+    }
+  }
 
   // async function handleSignIn() {
   //   setSelected('');
@@ -91,9 +95,6 @@ export default () => {
   const handleHomeButton = () => {
     navigation.navigate('MainDrawer');
   };
-  const handleSignUp = () => {
-    navigation.navigate('SignUp');
-  };
 
   const menus = [
     {
@@ -135,6 +136,7 @@ export default () => {
         <InputCustom
           placeholder="Login ou Número do Telefone"
           autoCapitalize="none"
+          onChangeText={t => setUser(t)}
           // value={user.email}
           // onChangeText={(t) => setUser({ ...user, email: t })}
           // onPressIn={() => setSelected('email')}
@@ -156,7 +158,8 @@ export default () => {
 
           <ButtonLogin
             title="Entrar"
-            onPress={() => navigate('HomeResident')}
+            // onPress={() => navigate('HomeResident')}
+            onPress={() => handleSignUp()}
           />
         </ViewPassword>
       </InputArea>

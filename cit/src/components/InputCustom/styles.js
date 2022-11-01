@@ -1,6 +1,6 @@
 import styled from 'styled-components/native';
-import { Colors } from '../../config/Colors';
-import { Fonts } from '../../config/Fonts';
+import {Colors} from '../../config/Colors';
+import {Fonts} from '../../config/Fonts';
 export const InputArea = styled.View`
   flex-direction: row;
   elevation: 3;
@@ -14,9 +14,8 @@ export const InputArea = styled.View`
   align-items: center;
   margin-bottom: 15px;
 `;
-export const Input = styled.TextInput.attrs({
-})`
-  color: ${Colors.textColor};
+export const Input = styled.TextInput.attrs({})`
+  color: ${Colors.black};
   font-weight: 600;
   font-family: ${Fonts.fontRegular};
   flex: 1;

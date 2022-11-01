@@ -16,20 +16,13 @@ export default ({
     <InputArea>
       <Input
         placeholder={placeholder}
-        placeholderTextColor={Colors.black}
+        placeholderTextColor="black"
         value={value}
         onChangeText={onChangeText}
         secureTextEntry={password}
         keyboardType={keyboardType}
+        color="black"
       />
-      {IconSvg && (
-        <IconSvg
-          width="24"
-          height="24"
-          fill={Colors.tertiary}
-          onPress={props.onPress}
-        />
-      )}
     </InputArea>
   );
 };

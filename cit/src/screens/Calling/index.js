@@ -2,7 +2,7 @@ import {useFocusEffect, useNavigation} from '@react-navigation/native';
 import React, {useCallback, useState} from 'react';
 //-----------------------Components---------------------------------
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import Logo from '../../assets/svg/Logo-noback.svg';
+import Logo from '../../assets/svg/LogoEscuro.svg';
 //-----------------------Services---------------------------------
 //-----------------------Styles------------------------------------
 import {generallocations} from '../../Services/Locations';
@@ -21,7 +21,7 @@ import {
 } from './styles';
 
 export default () => {
-  const {navigate} = useNavigation();
+  const {navigate, goBack} = useNavigation();
   const [location, setLocation] = useState();
 
   const handleGetLocations = async () => {
@@ -55,7 +55,7 @@ export default () => {
           Aguarde, em alguns instantes o porteiro irá atendê-lo!!
         </AdressText>
         <ChangeIdeaText>Mudou de ideia?</ChangeIdeaText>
-        <IconTextView onPress={() => navigate('HomeResident')}>
+        <IconTextView onPress={() => goBack()}>
           <IconColorMessageView>
             <Icon name="close" size={60} color="white" />
           </IconColorMessageView>
