@@ -9,19 +9,17 @@ export default ({
   value,
   onChangeText,
   password,
-  keyboardType,
   ...props
 }) => {
   return (
     <InputArea>
       <Input
         placeholder={placeholder}
-        placeholderTextColor="black"
+        placeholderTextColor="gray"
         value={value}
         onChangeText={onChangeText}
         secureTextEntry={password}
-        keyboardType={keyboardType}
-        color="black"
+        multiline={true}
       />
     </InputArea>
   );

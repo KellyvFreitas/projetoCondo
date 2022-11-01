@@ -35,13 +35,13 @@ export const InviteAndCallPanel = styled.View`
   height: 45px;
   align-items: center;
   background-color: ${Colors.primary};
+  justify-content: space-around;
 `;
 
 export const ButtonPanel = styled.TouchableOpacity`
-  width: 100px;
+  width: 110px;
   height: 30px;
   background-color: white;
-  left: 30px;
   justify-content: center;
   align-items: center;
   background-color: #0894c4;
@@ -50,7 +50,7 @@ export const ButtonPanel = styled.TouchableOpacity`
 
 export const ButtonText = styled.Text`
   font-size: 16px;
-  font-weight: bold;
+  font-weight: 500;
   color: white;
   text-align: center;
 `;

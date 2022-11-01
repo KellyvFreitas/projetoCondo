@@ -16,6 +16,7 @@ import {
   ViewLogo,
   ViewTabBar,
   ViewTermsAndConditions,
+  QuestionsView,
   ButtonText,
 } from './styles';
 
@@ -41,9 +42,15 @@ export default () => {
     },
     {
       id: 3,
-      title: 'Suporte',
-      icon: <Icon name="face-agent" size={33} color={Colors.ButtonSecondary} />,
-      screen: 'FAQ',
+      title: 'Termos e Condições',
+      icon: (
+        <Icon
+          name="book-open-variant"
+          size={33}
+          color={Colors.ButtonSecondary}
+        />
+      ),
+      screen: 'TermsConditions',
     },
   ];
 
@@ -60,22 +67,27 @@ export default () => {
       </ViewLogo>
 
       <ViewTermsAndConditions>
-        <TextTitle>TERMOS E CONDIÇÕES</TextTitle>
-        <TextTerms>
-          At vero eos et accusamus et iusto odio dignissimos ducimus qui blandit
-          iis praesentium voluptatum deleniti atque corrupti quos dolores et qua
-          s molestias excepturi sint occaecati cupiditate non provident, similiq
-          ue sunt in culpa qui officia deserunt mollitia animi, id est laborum e
-          t dolorum fuga. Et harum quidem rerum facilis est et expedita distinct
-          io. Nam libero tempore At vero eos et accusamus et iusto odio
-          dignissimos ducimus qui blandit iis praesentium voluptatum deleniti
-          atque corrupti quos dolores et qua s molestias excepturi sint
-          occaecati cupiditate non provident, similiq ue sunt in culpa qui
-          officia deserunt mollitia animi, id est laborum et dolorum fuga. Et
-          harum quidem rerum facilis est et expedita distinc tio. Nam libero
-          tempore At vero eos et accusamus et iusto odio dignissimos ducimus qui
-          blandit iis praesentium voluptatum deleniti
-        </TextTerms>
+        <TextTitle>Duvidas Frequentes</TextTitle>
+        <QuestionsView>
+          <Icon name="arrow-right-drop-circle" size={25} />
+          <TextTerms>Como posso resetar a minha senha?</TextTerms>
+        </QuestionsView>
+        <QuestionsView>
+          <Icon name="arrow-right-drop-circle" size={25} />
+          <TextTerms>Como reativar o meu X1SP?</TextTerms>
+        </QuestionsView>
+        <QuestionsView>
+          <Icon name="arrow-right-drop-circle" size={25} />
+          <TextTerms>
+            Porque não consigo falar com a portaria do meu segundo condomínio?
+          </TextTerms>
+        </QuestionsView>
+        <QuestionsView>
+          <Icon name="arrow-right-drop-circle" size={25} />
+          <TextTerms>
+            Criando uma lista de convidados para eventos em minha residência
+          </TextTerms>
+        </QuestionsView>
       </ViewTermsAndConditions>
 
       <ViewTabBar>

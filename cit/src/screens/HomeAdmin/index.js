@@ -23,6 +23,14 @@ import {
   ButtonText,
   IconColorCallView,
   IconColorMessageView,
+  IconAlertView,
+  InputArea,
+  TextTitle,
+  InvitationPanel,
+  InvitationOptions,
+  ButtonInviteText,
+  ButtonADMText,
+  ButtonADMPanel,
 } from './styles';
 import TabBarLocations from '../../components/TabBarLocations';
 import {generallocations} from '../../Services/Locations';
@@ -34,24 +42,24 @@ export default () => {
   const menus = [
     {
       id: 1,
-      title: 'Suporte',
-      icon: <Icon name="face-agent" size={33} color={Colors.ButtonSecondary} />,
-      screen: 'FAQLogged',
-    },
-    {
-      id: 2,
       title: 'Convites',
       icon: (
         <Icon name="email-outline" size={33} color={Colors.ButtonSecondary} />
       ),
+      screen: 'InviteListAdmin',
+    },
+    {
+      id: 2,
+      title: 'Gravações',
+      icon: <Icon name="microphone" size={33} color={Colors.ButtonSecondary} />,
       screen: 'InviteList',
     },
     {
       id: 3,
-      title: 'Termos e Cond.',
+      title: 'Mensagens',
       icon: (
         <Icon
-          name="book-open-variant"
+          name="message-processing-outline"
           size={33}
           color={Colors.ButtonSecondary}
         />
@@ -60,7 +68,7 @@ export default () => {
     },
     {
       id: 4,
-      title: 'Perfil',
+      title: 'Admins',
       icon: (
         <Icon name="account-outline" size={33} color={Colors.ButtonSecondary} />
       ),
@@ -68,63 +76,77 @@ export default () => {
     },
   ];
 
-  const handleGetLocations = async () => {
-    const response = await generallocations.locations;
-    // console.log('\n\nRESPONSE-LOCATION', JSON.stringify(response));
-    setLocation(response);
-  };
-
-  useFocusEffect(
-    useCallback(() => {
-      handleGetLocations();
-    }, []),
-  );
-
   return (
     <Container>
       <ViewLogo>
         <Logo width="250" height="90" />
 
         <InviteAndCallPanel>
-          <ButtonPanel onPress={() => navigate('Calling')}>
-            <ButtonText>LIGAR</ButtonText>
-          </ButtonPanel>
-          <ButtonPanel onPress={() => navigate('InviteList')}>
-            <ButtonText>CONVIDAR</ButtonText>
+          <ButtonADMPanel>
+            <ButtonADMText>APP ADMINISTRADOR</ButtonADMText>
+          </ButtonADMPanel>
+          <ButtonPanel onPress={() => navigate('Signin')}>
+            <ButtonText>SAIR</ButtonText>
           </ButtonPanel>
         </InviteAndCallPanel>
       </ViewLogo>
 
-      <TaskList
-        data={location}
-        keyExtractor={(item, index) => index}
-        renderItem={({item, index}) => (
-          <TabBarLocations
-            index={index}
-            image={item?.image}
-            title={item?.title}
-            cnpj={item?.cnpj}
-            code={item?.code}
-            type={item?.type}
-            number={item?.number}
-            block={item?.block}
-            onPress={null}
-          />
-        )}
-      />
+      <InputArea>
+        <TextTitle>USUÁRIOS</TextTitle>
+        <InvitationPanel>
+          <InvitationOptions>
+            <ButtonInviteText>CADASTRAR USUARIO</ButtonInviteText>
+          </InvitationOptions>
+          <InvitationOptions>
+            <ButtonInviteText>ACESSAR USUARIOS</ButtonInviteText>
+          </InvitationOptions>
+        </InvitationPanel>
+      </InputArea>
+      <InputArea>
+        <TextTitle>CONVITES</TextTitle>
+        <InvitationPanel>
+          <InvitationOptions onPress={() => navigate('InviteListAdmin')}>
+            <ButtonInviteText>ACESSAR CONVITES</ButtonInviteText>
+          </InvitationOptions>
+          <InvitationOptions>
+            <ButtonInviteText>BAIXAR CONVITES</ButtonInviteText>
+          </InvitationOptions>
+        </InvitationPanel>
+      </InputArea>
+      <InputArea>
+        <TextTitle>GRAVAÇÕES</TextTitle>
+        <InvitationPanel>
+          <InvitationOptions>
+            <ButtonInviteText>ACESSAR CONVITES</ButtonInviteText>
+          </InvitationOptions>
+        </InvitationPanel>
+      </InputArea>
+      <InputArea>
+        <TextTitle>MENSAGENS</TextTitle>
+        <InvitationPanel>
+          <InvitationOptions>
+            <ButtonInviteText>ACESSAR CONVITES</ButtonInviteText>
+          </InvitationOptions>
+          <InvitationOptions>
+            <ButtonInviteText>BAIXAR CONVITES</ButtonInviteText>
+          </InvitationOptions>
+        </InvitationPanel>
+      </InputArea>
 
       <IconView>
         <IconImageView onPress={() => navigate('Calling')}>
           <IconColorCallView>
             <Icon name="phone" size={70} color="white" />
           </IconColorCallView>
-          <IconCallText>LIGAR</IconCallText>
         </IconImageView>
         <IconTextView>
           <IconColorMessageView>
+            <IconAlertView>
+              <Icon name="message-alert" size={38} color="red" />
+            </IconAlertView>
             <Icon name="message-processing-outline" size={70} color="white" />
           </IconColorMessageView>
-          <IconMessageText>MENSAGEM</IconMessageText>
+          <IconMessageText>(5) Não lidas</IconMessageText>
         </IconTextView>
       </IconView>
 

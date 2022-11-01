@@ -16,14 +16,13 @@ export const InviteAndCallPanel = styled.View`
   width: 100%;
   height: 45px;
   align-items: center;
-  background-color: ${Colors.primary};
+  background-color: #087ca4;
   justify-content: space-around;
 `;
 
 export const ButtonPanel = styled.TouchableOpacity`
-  width: 110px;
-  height: 30px;
-  background-color: white;
+  width: 60px;
+  height: 25px;
   justify-content: center;
   align-items: center;
   background-color: #0894c4;
@@ -31,7 +30,19 @@ export const ButtonPanel = styled.TouchableOpacity`
 `;
 
 export const ButtonText = styled.Text`
-  font-size: 16px;
+  font-size: 12px;
+  font-weight: 500;
+  color: white;
+  text-align: center;
+`;
+
+export const ButtonADMPanel = styled.TouchableOpacity`
+  justify-content: center;
+  align-items: center;
+`;
+
+export const ButtonADMText = styled.Text`
+  font-size: 12px;
   font-weight: 500;
   color: white;
   text-align: center;
@@ -44,7 +55,7 @@ export const TaskList = styled.FlatList``;
 export const IconView = styled.View`
   justify-content: space-around;
   align-items: center;
-  height: 240px;
+  height: 200px;
   flex-direction: row;
 `;
 
@@ -70,13 +81,12 @@ export const IconCallText = styled.Text`
 `;
 
 export const IconMessageText = styled.Text`
-  font-size: 13px;
+  font-size: 14px;
   width: 100%;
   text-align: center;
-  border: 1px solid gray;
   border-radius: 5px;
-  color: #055874;
-  border-color: #087ca4;
+  color: #fff;
+  background-color: #087ca4;
   padding: 2px;
 `;
 
@@ -98,6 +108,7 @@ export const IconColorCallView = styled.View`
   margin-bottom: 10px;
 `;
 export const IconColorMessageView = styled.View`
+  flex-direction: row;
   width: 100%;
   width: 110px;
   height: 110px;
@@ -106,6 +117,52 @@ export const IconColorMessageView = styled.View`
   border-radius: 55px;
   justify-content: center;
   align-items: center;
+  padding-right: 40px;
+  margin-top: 25px;
   margin-bottom: 10px;
   transform: scaleX(-1);
+`;
+export const IconAlertView = styled.View`
+  margin-bottom: 75px;
+  transform: scaleX(-1);
+`;
+
+export const InputArea = styled.View`
+  flex: 1;
+  justify-content: center;
+  margin-top: 15px;
+  margin-left: 45px;
+  width: 75%;
+`;
+
+export const TextTitle = styled.Text`
+  justify-content: center;
+  align-content: center;
+  margin-bottom: 5px;
+  font-size: 16px;
+  font-weight: 500;
+`;
+
+export const ButtonInviteText = styled.Text`
+  font-size: 12px;
+  font-weight: 500;
+  color: white;
+  text-align: center;
+`;
+
+export const InvitationOptions = styled.TouchableOpacity`
+  flex-direction: row;
+  height: 30px;
+  background-color: white;
+  align-items: center;
+  justify-content: center;
+  width: 150px;
+  background-color: #0894c4;
+  border-radius: 5px;
+`;
+
+export const InvitationPanel = styled.View`
+  flex: 1;
+  flex-direction: row;
+  justify-content: space-between;
 `;

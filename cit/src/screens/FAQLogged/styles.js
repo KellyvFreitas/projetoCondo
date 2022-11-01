@@ -13,20 +13,24 @@ export const ViewTermsAndConditions = styled.View`
   flex: 1;
 `;
 
-export const TextTerms = styled.Text`
-  justify-content: center;
-  text-align: justify;
-  align-content: center;
-  margin: 20px 40px 20px;
-`;
-
 export const TextTitle = styled.Text`
   justify-content: center;
   align-content: center;
   margin-left: 40px;
   margin-top: 30px;
-  font-size: 16px;
+  margin-bottom: 15px;
+  font-size: 18px;
   font-weight: bold;
+`;
+
+export const QuestionsView = styled.View`
+  flex-direction: row;
+  align-items: center;
+  margin-left: 40px;
+`;
+
+export const TextTerms = styled.Text`
+  padding: 10px;
 `;
 
 export const InviteAndCallPanel = styled.View`
@@ -35,13 +39,13 @@ export const InviteAndCallPanel = styled.View`
   height: 45px;
   align-items: center;
   background-color: ${Colors.primary};
+  justify-content: space-around;
 `;
 
 export const ButtonPanel = styled.TouchableOpacity`
-  width: 100px;
+  width: 110px;
   height: 30px;
   background-color: white;
-  left: 30px;
   justify-content: center;
   align-items: center;
   background-color: #0894c4;
@@ -50,7 +54,7 @@ export const ButtonPanel = styled.TouchableOpacity`
 
 export const ButtonText = styled.Text`
   font-size: 16px;
-  font-weight: bold;
+  font-weight: 500;
   color: white;
   text-align: center;
 `;
@@ -59,4 +63,20 @@ export const ViewTabBar = styled.View`
   flex-direction: row;
   background-color: ${Colors.backgroundInput};
   height: 70px;
+`;
+
+export const InputArea = styled.View`
+  flex: 1;
+  justify-content: center;
+  margin-top: 20px;
+  margin-left: 45px;
+  width: 75%;
+`;
+
+export const TextTitleAdmin = styled.Text`
+  justify-content: center;
+  align-content: center;
+  margin-bottom: 20px;
+  font-size: 18px;
+  font-weight: bold;
 `;

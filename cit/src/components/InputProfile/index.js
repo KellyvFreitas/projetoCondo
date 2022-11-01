@@ -9,19 +9,21 @@ export default ({
   value,
   onChangeText,
   password,
+  editable,
   keyboardType,
+  placeholderTextColor,
   ...props
 }) => {
   return (
     <InputArea>
       <Input
         placeholder={placeholder}
-        placeholderTextColor="black"
+        placeholderTextColor={placeholderTextColor}
         value={value}
         onChangeText={onChangeText}
         secureTextEntry={password}
+        editable={editable}
         keyboardType={keyboardType}
-        color="black"
       />
     </InputArea>
   );

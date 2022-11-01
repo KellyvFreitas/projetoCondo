@@ -32,7 +32,7 @@ const TabBarLocations = ({image, title, cnpj, code, type, number, block}) => {
 
           <ViewLocationInfo>
             <LocationsInfo>{cnpj}</LocationsInfo>
-            <LocationsInfo>{code}</LocationsInfo>
+            <LocationsInfo>CODIGO: {code}</LocationsInfo>
           </ViewLocationInfo>
 
           <ViewLocationsAdress>

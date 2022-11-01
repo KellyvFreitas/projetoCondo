@@ -13,20 +13,24 @@ export const ViewTermsAndConditions = styled.View`
   flex: 1;
 `;
 
-export const TextTerms = styled.Text`
-  justify-content: center;
-  text-align: justify;
-  align-content: center;
-  margin: 20px 40px 20px;
-`;
-
 export const TextTitle = styled.Text`
   justify-content: center;
   align-content: center;
   margin-left: 40px;
   margin-top: 30px;
-  font-size: 16px;
+  margin-bottom: 15px;
+  font-size: 18px;
   font-weight: bold;
+`;
+
+export const QuestionsView = styled.View`
+  flex-direction: row;
+  align-items: center;
+  margin-left: 40px;
+`;
+
+export const TextTerms = styled.Text`
+  padding: 10px;
 `;
 
 export const InviteAndCallPanel = styled.View`

@@ -29,21 +29,29 @@ export default () => {
       icon: (
         <Icon name="home-outline" size={33} color={Colors.ButtonSecondary} />
       ),
-      screen: 'SignIn',
+      screen: 'HomeResident',
     },
     {
       id: 2,
-      title: 'Contrate',
+      title: 'Convites',
       icon: (
-        <Icon name="cart-outline" size={33} color={Colors.ButtonSecondary} />
+        <Icon name="email-outline" size={33} color={Colors.ButtonSecondary} />
       ),
-      screen: 'SignUp',
+      screen: 'InviteList',
     },
     {
       id: 3,
       title: 'Suporte',
       icon: <Icon name="face-agent" size={33} color={Colors.ButtonSecondary} />,
-      screen: 'FAQ',
+      screen: 'FAQLogged',
+    },
+    {
+      id: 4,
+      title: 'Perfil',
+      icon: (
+        <Icon name="account-outline" size={33} color={Colors.ButtonSecondary} />
+      ),
+      screen: 'ProfileResident',
     },
   ];
 
@@ -53,8 +61,11 @@ export default () => {
         <Logo width="250" height="90" />
 
         <InviteAndCallPanel>
-          <ButtonPanel onPress={() => navigate('SignIn')}>
-            <ButtonText>VOLTAR</ButtonText>
+          <ButtonPanel onPress={() => navigate('HomeResident')}>
+            <ButtonText>LIGAR</ButtonText>
+          </ButtonPanel>
+          <ButtonPanel onPress={() => navigate('InviteList')}>
+            <ButtonText>CONVIDAR</ButtonText>
           </ButtonPanel>
         </InviteAndCallPanel>
       </ViewLogo>
