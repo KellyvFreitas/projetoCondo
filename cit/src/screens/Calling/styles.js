@@ -3,7 +3,7 @@ import {Colors} from '../../config/Colors';
 import {Fonts} from '../../config/Fonts';
 
 export const Container = styled.SafeAreaView`
-  background-color: #303434;
+  background-color: #293335;
   flex: 1;
 `;
 export const ViewLogo = styled.View`

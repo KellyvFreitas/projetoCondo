@@ -116,8 +116,8 @@ export default () => {
       <InputArea>
         <TextTitle>GRAVAÇÕES</TextTitle>
         <InvitationPanel>
-          <InvitationOptions>
-            <ButtonInviteText>ACESSAR CONVITES</ButtonInviteText>
+          <InvitationOptions onPress={() => navigate('Recordings')}>
+            <ButtonInviteText>ACESSAR GRAVAÇÕES</ButtonInviteText>
           </InvitationOptions>
         </InvitationPanel>
       </InputArea>

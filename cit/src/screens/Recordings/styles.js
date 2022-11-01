@@ -82,8 +82,8 @@ export const ViewGeneral = styled.View`
 export const ViewIcon = styled.View`
   width: 32px;
   height: 32px;
-  margin-left: 10px;
-  margin-right: 10px;
+  margin-left: 5px;
+  margin-right: 5px;
 `;
 
 export const TextNamePersonView = styled.View`

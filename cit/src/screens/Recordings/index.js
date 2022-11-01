@@ -89,7 +89,7 @@ export default () => {
       id: 2,
       title: 'Gravações',
       icon: <Icon name="microphone" size={33} color={Colors.ButtonSecondary} />,
-      screen: 'Recordings',
+      screen: 'InviteList',
     },
     {
       id: 3,
@@ -120,8 +120,7 @@ export default () => {
       date: '01/09/2022',
       hour: '19:44',
       content:
-        '- Loreane Barros \n- Carlos Barros \n- Thyana Jamad \n- Ruy Jamad',
-      img: 'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+        'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
     },
     {
       type: 'CASA 101',
@@ -129,8 +128,7 @@ export default () => {
       date: '08/08/2022',
       hour: '14:52',
       content:
-        '- Lucas Barros \n- Felipe Alves \n- Cristiano Silva \n- Fabricio Oliveira',
-      img: 'https://images.unsplash.com/photo-1564564321837-a57b7070ac4f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1476&q=80',
+        'https://images.unsplash.com/photo-1564564321837-a57b7070ac4f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1476&q=80',
     },
     {
       type: 'APT 204',
@@ -138,8 +136,7 @@ export default () => {
       date: '10/08/2022',
       hour: '14:52',
       content:
-        '- Carlos Silva \n- Vanessa Barros \n- Felipe Dilon \n- Sandy e Junior',
-      img: 'https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80',
+        'https://w7.pngwing.com/pngs/336/444/png-transparent-microphone-audio-engineer-android-music-sound-microphone-icon-recording-studio-audio-equipment-sound-recording-and-reproduction.png',
     },
   ];
 
@@ -171,9 +168,10 @@ export default () => {
         <ViewGeneral>
           <ViewTitleTable>
             <ViewIcon>
-              <Image
-                style={{width: 40, height: 40, borderRadius: 20}}
-                source={{uri: section.img}}
+              <Icon
+                name="microphone"
+                size={40}
+                color={Colors.ButtonSecondary}
               />
             </ViewIcon>
             <TextNamePersonView>
@@ -212,7 +210,7 @@ export default () => {
         <Logo width="250" height="90" />
       </ViewLogo>
       <InputArea>
-        <TextTitle>PESQUISAR CONVITES</TextTitle>
+        <TextTitle>PESQUISAR GRAVAÇÕES</TextTitle>
         <InvitationOptions>
           <InputIcon
             IconSvg={Lupa}
@@ -223,7 +221,7 @@ export default () => {
         </InvitationOptions>
 
         <ViewGeral>
-          <TextTitleInvite>CONVITES</TextTitleInvite>
+          <TextTitleInvite>GRAVAÇÕES</TextTitleInvite>
 
           <ScrollView>
             <Accordion
