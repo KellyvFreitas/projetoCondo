@@ -15,7 +15,6 @@ import React, {useCallback, useState, useEffect} from 'react';
 //-----------------------Components---------------------------------
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import Logo from '../../assets/svg/LogoEscuro.svg';
-import WaveSound from '../../assets/svg/wave.svg';
 import InputCustom from '../../components/InputCustom';
 import InputIcon from '../../components/InputIcon';
 import TabBar from '../../components/TabBar';
@@ -41,12 +40,7 @@ import {
   ViewIcon,
   TextNamePersonView,
   ViewGeral,
-  SoundImg,
-  PlayOpacity,
-  DownloadAudioOpacity,
-  TextDownload,
-  AudioView,
-  DownloadView,
+  ViewGeralRead,
 } from './styles';
 
 import Lupa from '../../assets/svg/lupa.svg';
@@ -102,15 +96,9 @@ export default () => {
     },
     {
       id: 3,
-      title: 'Mensagens',
-      icon: (
-        <Icon
-          name="message-processing-outline"
-          size={33}
-          color={Colors.ButtonSecondary}
-        />
-      ),
-      screen: 'MessagesAdmin',
+      title: 'Gravações',
+      icon: <Icon name="microphone" size={33} color={Colors.ButtonSecondary} />,
+      screen: 'Recordings',
     },
     {
       id: 4,
@@ -128,28 +116,38 @@ export default () => {
       name: 'Edinelza Mascarenhas',
       date: '01/09/2022',
       hour: '19:44',
+      state: 'NotRead',
       content:
-        'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+        'Por favor, quando meus convidados chegarem, ensinar o caminho até aqui.\n O pessoal do buffet ficou de vir mais cedo ...',
+      img: 'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
     },
+    {
+      type: 'CASA 132',
+      name: 'Murilo Neto',
+      date: '01/09/2022',
+      hour: '14:52',
+      state: 'NotRead',
+      content:
+        'Por favor, quando meus convidados chegarem, ensinar o caminho até aqui.\n O pessoal do buffet ficou de vir mais cedo ...',
+      img: 'https://images.unsplash.com/photo-1564564321837-a57b7070ac4f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1476&q=80',
+    },
+  ];
+
+  const CONTENTREAD = [
     {
       type: 'CASA 101',
       name: 'Wagner Perez',
-      date: '08/08/2022',
-      hour: '14:52',
+      date: '28/08/2022',
+      hour: '10:25',
+      state: 'read',
       content:
-        'https://images.unsplash.com/photo-1564564321837-a57b7070ac4f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1476&q=80',
-    },
-    {
-      type: 'APT 204',
-      name: 'Joao Carlos',
-      date: '10/08/2022',
-      hour: '14:52',
-      content:
-        'https://w7.pngwing.com/pngs/336/444/png-transparent-microphone-audio-engineer-android-music-sound-microphone-icon-recording-studio-audio-equipment-sound-recording-and-reproduction.png',
+        'Por favor, quando meus convidados chegarem, ensinar o caminho até aqui.\n O pessoal do buffet ficou de vir mais cedo ...',
+      img: 'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
     },
   ];
 
   const [activeSections, setActiveSections] = useState([]);
+  const [activeSectionsRead, setActiveSectionsRead] = useState([]);
   // Collapsed condition for the single collapsible
   const [collapsed, setCollapsed] = useState(true);
   // MultipleSelect is for the Multiple Expand allowed
@@ -167,25 +165,24 @@ export default () => {
     setActiveSections(sections.includes(undefined) ? [] : sections);
   };
 
+  const setSectionsRead = sections => {
+    //setting up a active section state
+    setActiveSectionsRead(sections.includes(undefined) ? [] : sections);
+  };
+
   const renderHeader = (section, _, isActive) => {
     //Accordion Header view
     return (
       <Animatable.View
         duration={400}
-        style={[
-          styles.header,
-          isActive
-            ? {backgroundColor: '#8f8f8f', textColor: 'white'}
-            : styles.inactive,
-        ]}
-        transition={['backgroundColor', 'textColor']}>
+        style={[styles.header, isActive ? styles.active : styles.inactive]}
+        transition={['backgroundColor', 'color']}>
         <ViewGeneral>
           <ViewTitleTable>
             <ViewIcon>
-              <Icon
-                name="microphone"
-                size={38}
-                color={Colors.ButtonSecondary}
+              <Image
+                style={{width: 40, height: 40, borderRadius: 20}}
+                source={{uri: section.img}}
               />
             </ViewIcon>
             <TextNamePersonView>
@@ -211,23 +208,8 @@ export default () => {
         transition={['backgroundColor', 'color']}>
         <Animatable.Text
           animation={isActive ? 'bounceIn' : undefined}
-          style={{textAlign: 'left', color: 'white'}}>
-          <AudioView>
-            <SoundImg>
-              <PlayOpacity>
-                <Icon name="play" size={25} />
-              </PlayOpacity>
-              <WaveSound width="260" height="40" />
-              <PlayOpacity>
-                <Icon name="pause" size={25} />
-              </PlayOpacity>
-            </SoundImg>
-            <DownloadView>
-              <DownloadAudioOpacity>
-                <TextDownload>Baixar MP3</TextDownload>
-              </DownloadAudioOpacity>
-            </DownloadView>
-          </AudioView>
+          style={{textAlign: 'justify', color: 'white', marginTop: -10}}>
+          {section.content}
         </Animatable.Text>
       </Animatable.View>
     );
@@ -238,25 +220,53 @@ export default () => {
       <ViewLogo>
         <Logo width="250" height="90" />
       </ViewLogo>
-      <InputArea>
-        <TextTitle>PESQUISAR GRAVAÇÕES</TextTitle>
-        <InvitationOptions>
-          <InputIcon
-            IconSvg={Lupa}
-            placeholder="Pesquisar por data, casa ou morador"
-            // value={emailField}
-            // onChangeText={t => setEmailField(t)}
-          />
-        </InvitationOptions>
+      <ScrollView style={{marginBottom: 10}}>
+        <InputArea>
+          <ViewGeral>
+            <TextTitleInvite>NOVAS MENSAGENS</TextTitleInvite>
 
-        <ViewGeral>
-          <TextTitleInvite>GRAVAÇÕES</TextTitleInvite>
+            <ScrollView>
+              <Accordion
+                activeSections={activeSections}
+                //for any default active section
+                sections={CONTENT}
+                //title and content of accordion
+                touchableComponent={TouchableOpacity}
+                //which type of touchable component you want
+                //It can be the following Touchables
+                //TouchableHighlight, TouchableNativeFeedback
+                //TouchableOpacity , TouchableWithoutFeedback
+                expandMultiple={false}
+                //Do you want to expand mutiple at a time or single at a time
+                renderHeader={renderHeader}
+                //Header Component(View) to render
+                renderContent={renderContent}
+                //Content Component(View) to render
+                duration={100}
+                //Duration for Collapse and expand
+                onChange={setSections}
+                //setting the state of active sections
+              />
+            </ScrollView>
+          </ViewGeral>
 
-          <ScrollView>
+          <TextTitle>PESQUISAR MENSAGENS</TextTitle>
+          <InvitationOptions>
+            <InputIcon
+              IconSvg={Lupa}
+              placeholder="Pesquisar por data, casa ou morador"
+              // value={emailField}
+              // onChangeText={t => setEmailField(t)}
+            />
+          </InvitationOptions>
+
+          <ViewGeralRead>
+            <TextTitleInvite>MENSAGENS</TextTitleInvite>
+
             <Accordion
-              activeSections={activeSections}
+              activeSections={activeSectionsRead}
               //for any default active section
-              sections={CONTENT}
+              sections={CONTENTREAD}
               //title and content of accordion
               touchableComponent={TouchableOpacity}
               //which type of touchable component you want
@@ -271,12 +281,12 @@ export default () => {
               //Content Component(View) to render
               duration={100}
               //Duration for Collapse and expand
-              onChange={setSections}
+              onChange={setSectionsRead}
               //setting the state of active sections
             />
-          </ScrollView>
-        </ViewGeral>
-      </InputArea>
+          </ViewGeralRead>
+        </InputArea>
+      </ScrollView>
 
       <ViewTabBar>
         {menus.map((item, index) => (
@@ -294,7 +304,7 @@ export default () => {
 const styles = StyleSheet.create({
   header: {
     padding: 10,
-    backgroundColor: '#8f8f8f',
+    color: '#8f8f8f',
   },
   headerText: {
     textAlign: 'center',
@@ -302,8 +312,9 @@ const styles = StyleSheet.create({
     fontWeight: '500',
   },
   content: {
-    padding: 15,
+    padding: 20,
     backgroundColor: '#e3e3e3',
+    textAlign: 'justify',
     borderBottomLeftRadius: 5,
     borderBottomRightRadius: 5,
   },
@@ -311,7 +322,12 @@ const styles = StyleSheet.create({
     backgroundColor: '#8f8f8f',
   },
   inactive: {
-    backgroundColor: '#b1b1b1',
+    backgroundColor: '#e3e3e3',
     color: '#8f8f8f',
+  },
+  tinyLogo: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
   },
 });

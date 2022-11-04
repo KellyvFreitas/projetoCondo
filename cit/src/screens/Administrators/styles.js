@@ -28,6 +28,32 @@ export const InputArea = styled.View`
 
 export const InvitationOptions = styled.TouchableOpacity``;
 
+export const ButtonPasswordView = styled.View`
+  flex-direction: column;
+  height: 75px;
+`;
+
+export const PasswordButtonOpacity = styled.View`
+  flex-direction: row;
+  height: 35px;
+  background-color: ${Colors.backgroundInput};
+  border-radius: 5px;
+  align-items: center;
+  margin-bottom: 7px;
+`;
+
+export const InputPassword = styled.TextInput.attrs({})`
+  color: ${Colors.black};
+  font-weight: 600;
+  font-family: ${Fonts.fontRegular};
+  font-size: 14px;
+  margin-left: 10px;
+  /* text-align: center; */
+  width: 300px;
+`;
+
+export const PasswordButtonText = styled.Text``;
+
 export const ViewText = styled.View``;
 
 export const ViewContainer = styled.View``;
@@ -62,7 +88,7 @@ export const ViewTextTitle = styled.Text``;
 
 export const NameTitleText = styled.Text`
   font-size: 14px;
-  font-weight: 500;
+  font-weight: bold;
 `;
 export const NamePersonText = styled.Text`
   font-size: 14px;
@@ -72,7 +98,9 @@ export const NamePersonText = styled.Text`
 export const ViewAccordion = styled.View``;
 
 export const ViewDateTable = styled.View`
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
 `;
 
 export const ViewGeneral = styled.View`
@@ -104,4 +132,32 @@ export const NameHourText = styled.Text`
   text-align: right;
   font-size: 12px;
   font-weight: 500;
+`;
+
+export const ButtonInviteText = styled.Text`
+  font-size: 12px;
+  font-weight: 500;
+  color: white;
+  text-align: center;
+`;
+
+export const ViewIconPen = styled.TouchableOpacity`
+  width: 35px;
+  height: 30px;
+  background-color: #736f6f;
+  justify-content: center;
+  align-items: center;
+  margin-left: 6px;
+  margin-right: 6px;
+  border-radius: 5px;
+`;
+export const ViewTrashCan = styled.TouchableOpacity`
+  width: 35px;
+  height: 30px;
+  background-color: #736f6f;
+  justify-content: center;
+  align-items: center;
+  margin-left: 6px;
+  margin-right: 6px;
+  border-radius: 5px;
 `;

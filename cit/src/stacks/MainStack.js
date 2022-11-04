@@ -18,6 +18,8 @@ import Calling from '../screens/Calling';
 import HomeAdmin from '../screens/HomeAdmin';
 import InviteListAdmin from '../screens/InviteListAdmin';
 import Recordings from '../screens/Recordings';
+import Administrators from '../screens/Administrators';
+import MessagesAdmin from '../screens/MessagesAdmin';
 
 const Stack = createStackNavigator();
 
@@ -45,6 +47,8 @@ export default () => (
     <Stack.Screen name="InviteList" component={InviteList} />
     <Stack.Screen name="InviteListAdmin" component={InviteListAdmin} />
     <Stack.Screen name="Recordings" component={Recordings} />
+    <Stack.Screen name="MessagesAdmin" component={MessagesAdmin} />
     <Stack.Screen name="ProfileResident" component={ProfileResident} />
+    <Stack.Screen name="Administrators" component={Administrators} />
   </Stack.Navigator>
 );

@@ -42,6 +42,7 @@ export const TextTitle = styled.Text`
 `;
 export const TextTitleInvite = styled.Text`
   padding: 15px;
+  font-weight: 450;
 `;
 
 export const ViewTest = styled.View``;
@@ -51,7 +52,6 @@ export const ViewGeral = styled.View`
   font-size: 15px;
   height: 300px;
   font-weight: 500;
-  color: #736f6f;
   margin-top: 35px;
   background-color: #e8e4e4;
   border-radius: 5px;
@@ -80,10 +80,17 @@ export const ViewGeneral = styled.View`
 `;
 
 export const ViewIcon = styled.View`
-  width: 32px;
-  height: 32px;
-  margin-left: 5px;
-  margin-right: 5px;
+  width: 40px;
+  height: 40px;
+  margin-left: 2px;
+  border-radius: 20px;
+  align-self: center;
+  border-color: black;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  border-width: 1px;
+  border-color: gray;
 `;
 
 export const TextNamePersonView = styled.View`
@@ -103,4 +110,34 @@ export const NameHourText = styled.Text`
   text-align: right;
   font-size: 12px;
   font-weight: 500;
+`;
+
+export const SoundImg = styled.View`
+  flex-direction: row;
+  background-color: #e8e4e4;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 5px;
+`;
+
+export const PlayOpacity = styled.TouchableOpacity``;
+
+export const AudioView = styled.View``;
+
+export const DownloadAudioOpacity = styled.TouchableOpacity`
+  background-color: #b1b1b1;
+  width: 90px;
+  height: 25px;
+  border-radius: 6px;
+  margin-top: 9px;
+  justify-content: center;
+`;
+
+export const TextDownload = styled.Text`
+  font-size: 12px;
+  align-self: center;
+`;
+
+export const DownloadView = styled.View`
+  margin-left: 230px;
 `;

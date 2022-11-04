@@ -101,7 +101,7 @@ export default () => {
           color={Colors.ButtonSecondary}
         />
       ),
-      screen: 'TermsConditionsLogged',
+      screen: 'MessagesAdmin',
     },
     {
       id: 4,
@@ -109,7 +109,7 @@ export default () => {
       icon: (
         <Icon name="account-outline" size={33} color={Colors.ButtonSecondary} />
       ),
-      screen: 'ProfileResident',
+      screen: 'Administrators',
     },
   ];
 
@@ -277,6 +277,8 @@ const styles = StyleSheet.create({
   content: {
     padding: 20,
     backgroundColor: '#e3e3e3',
+    borderBottomLeftRadius: 5,
+    borderBottomRightRadius: 5,
   },
   active: {
     backgroundColor: '#8f8f8f',

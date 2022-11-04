@@ -15,7 +15,6 @@ import React, {useCallback, useState, useEffect} from 'react';
 //-----------------------Components---------------------------------
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import Logo from '../../assets/svg/LogoEscuro.svg';
-import WaveSound from '../../assets/svg/wave.svg';
 import InputCustom from '../../components/InputCustom';
 import InputIcon from '../../components/InputIcon';
 import TabBar from '../../components/TabBar';
@@ -41,12 +40,6 @@ import {
   ViewIcon,
   TextNamePersonView,
   ViewGeral,
-  SoundImg,
-  PlayOpacity,
-  DownloadAudioOpacity,
-  TextDownload,
-  AudioView,
-  DownloadView,
 } from './styles';
 
 import Lupa from '../../assets/svg/lupa.svg';
@@ -114,11 +107,9 @@ export default () => {
     },
     {
       id: 4,
-      title: 'Admins',
-      icon: (
-        <Icon name="account-outline" size={33} color={Colors.ButtonSecondary} />
-      ),
-      screen: 'Administrators',
+      title: 'Gravações',
+      icon: <Icon name="microphone" size={33} color={Colors.ButtonSecondary} />,
+      screen: 'Recordings',
     },
   ];
 
@@ -129,7 +120,8 @@ export default () => {
       date: '01/09/2022',
       hour: '19:44',
       content:
-        'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+        '- Loreane Barros \n- Carlos Barros \n- Thyana Jamad \n- Ruy Jamad',
+      img: 'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
     },
     {
       type: 'CASA 101',
@@ -137,7 +129,8 @@ export default () => {
       date: '08/08/2022',
       hour: '14:52',
       content:
-        'https://images.unsplash.com/photo-1564564321837-a57b7070ac4f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1476&q=80',
+        '- Lucas Barros \n- Felipe Alves \n- Cristiano Silva \n- Fabricio Oliveira',
+      img: 'https://images.unsplash.com/photo-1564564321837-a57b7070ac4f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1476&q=80',
     },
     {
       type: 'APT 204',
@@ -145,7 +138,8 @@ export default () => {
       date: '10/08/2022',
       hour: '14:52',
       content:
-        'https://w7.pngwing.com/pngs/336/444/png-transparent-microphone-audio-engineer-android-music-sound-microphone-icon-recording-studio-audio-equipment-sound-recording-and-reproduction.png',
+        '- Carlos Silva \n- Vanessa Barros \n- Felipe Dilon \n- Sandy e Junior',
+      img: 'https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80',
     },
   ];
 
@@ -172,20 +166,14 @@ export default () => {
     return (
       <Animatable.View
         duration={400}
-        style={[
-          styles.header,
-          isActive
-            ? {backgroundColor: '#8f8f8f', textColor: 'white'}
-            : styles.inactive,
-        ]}
-        transition={['backgroundColor', 'textColor']}>
+        style={[styles.header, isActive ? styles.active : styles.inactive]}
+        transition={['backgroundColor', 'color']}>
         <ViewGeneral>
           <ViewTitleTable>
             <ViewIcon>
-              <Icon
-                name="microphone"
-                size={38}
-                color={Colors.ButtonSecondary}
+              <Image
+                style={{width: 40, height: 40, borderRadius: 20}}
+                source={{uri: section.img}}
               />
             </ViewIcon>
             <TextNamePersonView>
@@ -212,22 +200,7 @@ export default () => {
         <Animatable.Text
           animation={isActive ? 'bounceIn' : undefined}
           style={{textAlign: 'left', color: 'white'}}>
-          <AudioView>
-            <SoundImg>
-              <PlayOpacity>
-                <Icon name="play" size={25} />
-              </PlayOpacity>
-              <WaveSound width="260" height="40" />
-              <PlayOpacity>
-                <Icon name="pause" size={25} />
-              </PlayOpacity>
-            </SoundImg>
-            <DownloadView>
-              <DownloadAudioOpacity>
-                <TextDownload>Baixar MP3</TextDownload>
-              </DownloadAudioOpacity>
-            </DownloadView>
-          </AudioView>
+          {section.content}
         </Animatable.Text>
       </Animatable.View>
     );
@@ -239,7 +212,7 @@ export default () => {
         <Logo width="250" height="90" />
       </ViewLogo>
       <InputArea>
-        <TextTitle>PESQUISAR GRAVAÇÕES</TextTitle>
+        <TextTitle>PESQUISAR RESIDÊNCIAS</TextTitle>
         <InvitationOptions>
           <InputIcon
             IconSvg={Lupa}
@@ -250,7 +223,7 @@ export default () => {
         </InvitationOptions>
 
         <ViewGeral>
-          <TextTitleInvite>GRAVAÇÕES</TextTitleInvite>
+          <TextTitleInvite>RESIDÊNCIAS</TextTitleInvite>
 
           <ScrollView>
             <Accordion
@@ -294,7 +267,7 @@ export default () => {
 const styles = StyleSheet.create({
   header: {
     padding: 10,
-    backgroundColor: '#8f8f8f',
+    color: '#8f8f8f',
   },
   headerText: {
     textAlign: 'center',
@@ -302,7 +275,7 @@ const styles = StyleSheet.create({
     fontWeight: '500',
   },
   content: {
-    padding: 15,
+    padding: 20,
     backgroundColor: '#e3e3e3',
     borderBottomLeftRadius: 5,
     borderBottomRightRadius: 5,
@@ -311,7 +284,12 @@ const styles = StyleSheet.create({
     backgroundColor: '#8f8f8f',
   },
   inactive: {
-    backgroundColor: '#b1b1b1',
+    backgroundColor: '#e3e3e3',
     color: '#8f8f8f',
+  },
+  tinyLogo: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
   },
 });

@@ -15,7 +15,6 @@ import React, {useCallback, useState, useEffect} from 'react';
 //-----------------------Components---------------------------------
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import Logo from '../../assets/svg/LogoEscuro.svg';
-import WaveSound from '../../assets/svg/wave.svg';
 import InputCustom from '../../components/InputCustom';
 import InputIcon from '../../components/InputIcon';
 import TabBar from '../../components/TabBar';
@@ -36,17 +35,14 @@ import {
   NamePersonText,
   ViewDateTable,
   ViewGeneral,
-  NameDateText,
-  NameHourText,
   ViewIcon,
   TextNamePersonView,
   ViewGeral,
-  SoundImg,
-  PlayOpacity,
-  DownloadAudioOpacity,
-  TextDownload,
-  AudioView,
-  DownloadView,
+  ViewIconPen,
+  ViewTrashCan,
+  PasswordButtonOpacity,
+  ButtonPasswordView,
+  InputPassword,
 } from './styles';
 
 import Lupa from '../../assets/svg/lupa.svg';
@@ -110,42 +106,31 @@ export default () => {
           color={Colors.ButtonSecondary}
         />
       ),
-      screen: 'MessagesAdmin',
+      screen: 'TermsConditionsLogged',
     },
     {
       id: 4,
-      title: 'Admins',
-      icon: (
-        <Icon name="account-outline" size={33} color={Colors.ButtonSecondary} />
-      ),
-      screen: 'Administrators',
+      title: 'Gravações',
+      icon: <Icon name="microphone" size={33} color={Colors.ButtonSecondary} />,
+      screen: 'InviteListAdmin',
     },
   ];
 
   const CONTENT = [
     {
-      type: 'CASA 57',
-      name: 'Edinelza Mascarenhas',
-      date: '01/09/2022',
-      hour: '19:44',
-      content:
-        'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+      office: 'ADMINISTRADOR',
+      name: 'Vilma Nágila',
+      img: 'https://images.unsplash.com/photo-1531123897727-8f129e1688ce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80',
     },
     {
-      type: 'CASA 101',
-      name: 'Wagner Perez',
-      date: '08/08/2022',
-      hour: '14:52',
-      content:
-        'https://images.unsplash.com/photo-1564564321837-a57b7070ac4f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1476&q=80',
+      office: 'AUX. ADMINISTRATIVO',
+      name: 'Bruno Sampaio',
+      img: 'https://images.unsplash.com/photo-1583195763986-0231686dcd43?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1176&q=80',
     },
     {
-      type: 'APT 204',
+      office: 'AUX. ADMINISTRATIVO',
       name: 'Joao Carlos',
-      date: '10/08/2022',
-      hour: '14:52',
-      content:
-        'https://w7.pngwing.com/pngs/336/444/png-transparent-microphone-audio-engineer-android-music-sound-microphone-icon-recording-studio-audio-equipment-sound-recording-and-reproduction.png',
+      img: 'https://images.unsplash.com/photo-1627234705411-6ab607ab2748?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80',
     },
   ];
 
@@ -172,30 +157,28 @@ export default () => {
     return (
       <Animatable.View
         duration={400}
-        style={[
-          styles.header,
-          isActive
-            ? {backgroundColor: '#8f8f8f', textColor: 'white'}
-            : styles.inactive,
-        ]}
-        transition={['backgroundColor', 'textColor']}>
+        style={[styles.header, isActive ? styles.active : styles.inactive]}
+        transition={['backgroundColor', 'color']}>
         <ViewGeneral>
           <ViewTitleTable>
             <ViewIcon>
-              <Icon
-                name="microphone"
-                size={38}
-                color={Colors.ButtonSecondary}
+              <Image
+                style={{width: 40, height: 40, borderRadius: 20}}
+                source={{uri: section.img}}
               />
             </ViewIcon>
             <TextNamePersonView>
-              <NameTitleText>{section.type}</NameTitleText>
+              <NameTitleText>{section.office}</NameTitleText>
               <NamePersonText>{section.name}</NamePersonText>
             </TextNamePersonView>
           </ViewTitleTable>
           <ViewDateTable>
-            <NameDateText>{section.date}</NameDateText>
-            <NameHourText>{section.hour}</NameHourText>
+            <ViewIconPen>
+              <Icon name="pencil" size={23} color="white" />
+            </ViewIconPen>
+            <ViewTrashCan>
+              <Icon name="trash-can-outline" size={23} color="white" />
+            </ViewTrashCan>
           </ViewDateTable>
         </ViewGeneral>
       </Animatable.View>
@@ -212,22 +195,22 @@ export default () => {
         <Animatable.Text
           animation={isActive ? 'bounceIn' : undefined}
           style={{textAlign: 'left', color: 'white'}}>
-          <AudioView>
-            <SoundImg>
-              <PlayOpacity>
-                <Icon name="play" size={25} />
-              </PlayOpacity>
-              <WaveSound width="260" height="40" />
-              <PlayOpacity>
-                <Icon name="pause" size={25} />
-              </PlayOpacity>
-            </SoundImg>
-            <DownloadView>
-              <DownloadAudioOpacity>
-                <TextDownload>Baixar MP3</TextDownload>
-              </DownloadAudioOpacity>
-            </DownloadView>
-          </AudioView>
+          <ButtonPasswordView>
+            <PasswordButtonOpacity>
+              <InputPassword
+                typeInput="password"
+                placeholder="Nova Senha"
+                secureTextEntry
+              />
+            </PasswordButtonOpacity>
+            <PasswordButtonOpacity>
+              <InputPassword
+                typeInput="password"
+                placeholder="Confirmar nova senha"
+                secureTextEntry
+              />
+            </PasswordButtonOpacity>
+          </ButtonPasswordView>
         </Animatable.Text>
       </Animatable.View>
     );
@@ -239,18 +222,18 @@ export default () => {
         <Logo width="250" height="90" />
       </ViewLogo>
       <InputArea>
-        <TextTitle>PESQUISAR GRAVAÇÕES</TextTitle>
+        <TextTitle>PESQUISAR ADMINISTRADORES</TextTitle>
         <InvitationOptions>
           <InputIcon
             IconSvg={Lupa}
-            placeholder="Pesquisar por data, casa ou morador"
+            placeholder="Pesquisar por nome ou sobrenome"
             // value={emailField}
             // onChangeText={t => setEmailField(t)}
           />
         </InvitationOptions>
 
         <ViewGeral>
-          <TextTitleInvite>GRAVAÇÕES</TextTitleInvite>
+          <TextTitleInvite>ADMINISTRADORES</TextTitleInvite>
 
           <ScrollView>
             <Accordion
@@ -294,7 +277,7 @@ export default () => {
 const styles = StyleSheet.create({
   header: {
     padding: 10,
-    backgroundColor: '#8f8f8f',
+    color: '#8f8f8f',
   },
   headerText: {
     textAlign: 'center',
@@ -302,7 +285,7 @@ const styles = StyleSheet.create({
     fontWeight: '500',
   },
   content: {
-    padding: 15,
+    padding: 20,
     backgroundColor: '#e3e3e3',
     borderBottomLeftRadius: 5,
     borderBottomRightRadius: 5,
@@ -311,7 +294,12 @@ const styles = StyleSheet.create({
     backgroundColor: '#8f8f8f',
   },
   inactive: {
-    backgroundColor: '#b1b1b1',
+    backgroundColor: '#e3e3e3',
     color: '#8f8f8f',
+  },
+  tinyLogo: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
   },
 });

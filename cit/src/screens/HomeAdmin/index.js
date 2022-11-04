@@ -52,7 +52,7 @@ export default () => {
       id: 2,
       title: 'Gravações',
       icon: <Icon name="microphone" size={33} color={Colors.ButtonSecondary} />,
-      screen: 'InviteList',
+      screen: 'InviteListAdmin',
     },
     {
       id: 3,
@@ -64,7 +64,7 @@ export default () => {
           color={Colors.ButtonSecondary}
         />
       ),
-      screen: 'TermsConditionsLogged',
+      screen: 'MessagesAdmin',
     },
     {
       id: 4,
@@ -72,7 +72,7 @@ export default () => {
       icon: (
         <Icon name="account-outline" size={33} color={Colors.ButtonSecondary} />
       ),
-      screen: 'ProfileResident',
+      screen: 'Administrators',
     },
   ];
 
@@ -85,7 +85,7 @@ export default () => {
           <ButtonADMPanel>
             <ButtonADMText>APP ADMINISTRADOR</ButtonADMText>
           </ButtonADMPanel>
-          <ButtonPanel onPress={() => navigate('Signin')}>
+          <ButtonPanel onPress={() => navigate('SignIn')}>
             <ButtonText>SAIR</ButtonText>
           </ButtonPanel>
         </InviteAndCallPanel>
@@ -124,11 +124,11 @@ export default () => {
       <InputArea>
         <TextTitle>MENSAGENS</TextTitle>
         <InvitationPanel>
-          <InvitationOptions>
-            <ButtonInviteText>ACESSAR CONVITES</ButtonInviteText>
+          <InvitationOptions onPress={() => navigate('MessagesAdmin')}>
+            <ButtonInviteText>ACESSAR MENSAGENS</ButtonInviteText>
           </InvitationOptions>
           <InvitationOptions>
-            <ButtonInviteText>BAIXAR CONVITES</ButtonInviteText>
+            <ButtonInviteText>BAIXAR MENSAGENS</ButtonInviteText>
           </InvitationOptions>
         </InvitationPanel>
       </InputArea>
