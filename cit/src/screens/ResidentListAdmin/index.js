@@ -7,7 +7,7 @@ import {
   Platform,
   UIManager,
   TouchableOpacity,
-  Switch,
+  FlatList,
   ScrollView,
   Image,
 } from 'react-native';
@@ -30,16 +30,13 @@ import {
   TextTitle,
   InvitationOptions,
   TextTitleInvite,
-  ViewTitleTable,
-  NameTitleText,
-  NamePersonText,
-  ViewDateTable,
-  ViewGeneral,
-  NameDateText,
-  NameHourText,
-  ViewIcon,
-  TextNamePersonView,
+  ButtonAddView,
   ViewGeral,
+  ButtonInviteText,
+  InvitationPanel,
+  ButtonTextView,
+  ButtonInviteTitleText,
+  IconView,
 } from './styles';
 
 import Lupa from '../../assets/svg/lupa.svg';
@@ -59,6 +56,7 @@ import Collapsible from 'react-native-collapsible';
 
 //import for the Accordion view
 import Accordion from 'react-native-collapsible/Accordion';
+import ResidentList from '../../components/ResidentList';
 
 export default () => {
   const {navigate} = useNavigation();
@@ -113,32 +111,35 @@ export default () => {
     },
   ];
 
-  const CONTENT = [
+  const DATA = [
     {
-      type: 'CASA 57',
+      id: 0,
+      type: 'CASA 215',
       name: 'Edinelza Mascarenhas',
-      date: '01/09/2022',
-      hour: '19:44',
-      content:
-        '- Loreane Barros \n- Carlos Barros \n- Thyana Jamad \n- Ruy Jamad',
       img: 'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
     },
     {
-      type: 'CASA 101',
+      id: 1,
+      type: 'CASA 216',
       name: 'Wagner Perez',
-      date: '08/08/2022',
-      hour: '14:52',
-      content:
-        '- Lucas Barros \n- Felipe Alves \n- Cristiano Silva \n- Fabricio Oliveira',
       img: 'https://images.unsplash.com/photo-1564564321837-a57b7070ac4f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1476&q=80',
     },
     {
-      type: 'APT 204',
+      id: 2,
+      type: 'CASA 217',
       name: 'Joao Carlos',
-      date: '10/08/2022',
-      hour: '14:52',
-      content:
-        '- Carlos Silva \n- Vanessa Barros \n- Felipe Dilon \n- Sandy e Junior',
+      img: 'https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80',
+    },
+    {
+      id: 3,
+      type: 'CASA 216',
+      name: 'Wagner Perez',
+      img: 'https://images.unsplash.com/photo-1564564321837-a57b7070ac4f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1476&q=80',
+    },
+    {
+      id: 4,
+      type: 'CASA 217',
+      name: 'Joao Carlos',
       img: 'https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80',
     },
   ];
@@ -161,51 +162,6 @@ export default () => {
     setActiveSections(sections.includes(undefined) ? [] : sections);
   };
 
-  const renderHeader = (section, _, isActive) => {
-    //Accordion Header view
-    return (
-      <Animatable.View
-        duration={400}
-        style={[styles.header, isActive ? styles.active : styles.inactive]}
-        transition={['backgroundColor', 'color']}>
-        <ViewGeneral>
-          <ViewTitleTable>
-            <ViewIcon>
-              <Image
-                style={{width: 40, height: 40, borderRadius: 20}}
-                source={{uri: section.img}}
-              />
-            </ViewIcon>
-            <TextNamePersonView>
-              <NameTitleText>{section.type}</NameTitleText>
-              <NamePersonText>{section.name}</NamePersonText>
-            </TextNamePersonView>
-          </ViewTitleTable>
-          <ViewDateTable>
-            <NameDateText>{section.date}</NameDateText>
-            <NameHourText>{section.hour}</NameHourText>
-          </ViewDateTable>
-        </ViewGeneral>
-      </Animatable.View>
-    );
-  };
-
-  const renderContent = (section, _, isActive) => {
-    //Accordion Content view
-    return (
-      <Animatable.View
-        duration={400}
-        style={[styles.content, isActive ? styles.active : styles.inactive]}
-        transition={['backgroundColor', 'color']}>
-        <Animatable.Text
-          animation={isActive ? 'bounceIn' : undefined}
-          style={{textAlign: 'left', color: 'white'}}>
-          {section.content}
-        </Animatable.Text>
-      </Animatable.View>
-    );
-  };
-
   return (
     <Container>
       <ViewLogo>
@@ -225,30 +181,32 @@ export default () => {
         <ViewGeral>
           <TextTitleInvite>RESIDÊNCIAS</TextTitleInvite>
 
-          <ScrollView>
-            <Accordion
-              activeSections={activeSections}
-              //for any default active section
-              sections={CONTENT}
-              //title and content of accordion
-              touchableComponent={TouchableOpacity}
-              //which type of touchable component you want
-              //It can be the following Touchables
-              //TouchableHighlight, TouchableNativeFeedback
-              //TouchableOpacity , TouchableWithoutFeedback
-              expandMultiple={false}
-              //Do you want to expand mutiple at a time or single at a time
-              renderHeader={renderHeader}
-              //Header Component(View) to render
-              renderContent={renderContent}
-              //Content Component(View) to render
-              duration={100}
-              //Duration for Collapse and expand
-              onChange={setSections}
-              //setting the state of active sections
-            />
-          </ScrollView>
+          <FlatList
+            data={DATA}
+            renderItem={({item, index}) => (
+              <ResidentList
+                type={item?.type}
+                name={item?.name}
+                img={{uri: item?.img}}
+                index={index}
+              />
+            )}
+            keyExtractor={item => item?.id}
+          />
         </ViewGeral>
+        <InvitationPanel>
+          <ButtonAddView>
+            <IconView>
+              <Icon name="plus" size={24} color="white" />
+            </IconView>
+            <ButtonTextView>
+              <ButtonInviteTitleText>
+                Adicionar nova residência
+              </ButtonInviteTitleText>
+              <ButtonInviteText>Clique aqui</ButtonInviteText>
+            </ButtonTextView>
+          </ButtonAddView>
+        </InvitationPanel>
       </InputArea>
 
       <ViewTabBar>
@@ -263,33 +221,3 @@ export default () => {
     </Container>
   );
 };
-
-const styles = StyleSheet.create({
-  header: {
-    padding: 10,
-    color: '#8f8f8f',
-  },
-  headerText: {
-    textAlign: 'center',
-    fontSize: 16,
-    fontWeight: '500',
-  },
-  content: {
-    padding: 20,
-    backgroundColor: '#e3e3e3',
-    borderBottomLeftRadius: 5,
-    borderBottomRightRadius: 5,
-  },
-  active: {
-    backgroundColor: '#8f8f8f',
-  },
-  inactive: {
-    backgroundColor: '#e3e3e3',
-    color: '#8f8f8f',
-  },
-  tinyLogo: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
-  },
-});

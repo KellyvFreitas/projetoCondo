@@ -10,6 +10,7 @@ import {
   Switch,
   ScrollView,
   Image,
+  Pressable,
 } from 'react-native';
 import React, {useCallback, useState, useEffect} from 'react';
 //-----------------------Components---------------------------------
@@ -118,7 +119,7 @@ export default () => {
       hour: '19:44',
       state: 'NotRead',
       content:
-        'Por favor, quando meus convidados chegarem, ensinar o caminho até aqui.\n O pessoal do buffet ficou de vir mais cedo ...',
+        'Por favor, quando meus convidados chegarem, ensinar o caminho até aqui.\nO pessoal do buffet ficou de vir mais cedo ...',
       img: 'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
     },
     {
@@ -128,7 +129,7 @@ export default () => {
       hour: '14:52',
       state: 'NotRead',
       content:
-        'Por favor, quando meus convidados chegarem, ensinar o caminho até aqui.\n O pessoal do buffet ficou de vir mais cedo ...',
+        'Por favor, quando meus convidados chegarem, ensinar o caminho até aqui.\nO pessoal do buffet ficou de vir mais cedo ...',
       img: 'https://images.unsplash.com/photo-1564564321837-a57b7070ac4f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1476&q=80',
     },
   ];
@@ -141,7 +142,7 @@ export default () => {
       hour: '10:25',
       state: 'read',
       content:
-        'Por favor, quando meus convidados chegarem, ensinar o caminho até aqui.\n O pessoal do buffet ficou de vir mais cedo ...',
+        'Por favor, quando meus convidados chegarem, ensinar o caminho até aqui.\nO pessoal do buffet ficou de vir mais cedo ...',
       img: 'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
     },
   ];
@@ -208,9 +209,24 @@ export default () => {
         transition={['backgroundColor', 'color']}>
         <Animatable.Text
           animation={isActive ? 'bounceIn' : undefined}
-          style={{textAlign: 'justify', color: 'white', marginTop: -10}}>
+          style={{
+            textAlign: 'justify',
+            color: 'white',
+            marginTop: -10,
+            lineHeight: 20,
+          }}>
           {section.content}
         </Animatable.Text>
+        <TouchableOpacity onPress={() => {}}>
+          <Text
+            style={{
+              textDecorationLine: 'underline',
+              color: '#0de4f7',
+              textAlign: 'right',
+            }}>
+            Ler mais
+          </Text>
+        </TouchableOpacity>
       </Animatable.View>
     );
   };
@@ -320,6 +336,7 @@ const styles = StyleSheet.create({
   },
   active: {
     backgroundColor: '#8f8f8f',
+    color: '#e3e3e3',
   },
   inactive: {
     backgroundColor: '#e3e3e3',

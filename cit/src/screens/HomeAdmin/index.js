@@ -94,7 +94,7 @@ export default () => {
       <InputArea>
         <TextTitle>USUÁRIOS</TextTitle>
         <InvitationPanel>
-          <InvitationOptions>
+          <InvitationOptions onPress={() => navigate('ResidentListAdmin')}>
             <ButtonInviteText>CADASTRAR USUARIO</ButtonInviteText>
           </InvitationOptions>
           <InvitationOptions>

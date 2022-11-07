@@ -65,7 +65,6 @@ export const ViewGeralRead = styled.View`
   font-size: 15px;
   height: 55%;
   font-weight: 500;
-  color: #736f6f;
   background-color: #e8e4e4;
   border-radius: 5px;
 `;

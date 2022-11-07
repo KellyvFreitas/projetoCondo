@@ -20,6 +20,7 @@ import InviteListAdmin from '../screens/InviteListAdmin';
 import Recordings from '../screens/Recordings';
 import Administrators from '../screens/Administrators';
 import MessagesAdmin from '../screens/MessagesAdmin';
+import ResidentListAdmin from '../screens/ResidentListAdmin';
 
 const Stack = createStackNavigator();
 
@@ -49,6 +50,7 @@ export default () => (
     <Stack.Screen name="Recordings" component={Recordings} />
     <Stack.Screen name="MessagesAdmin" component={MessagesAdmin} />
     <Stack.Screen name="ProfileResident" component={ProfileResident} />
+    <Stack.Screen name="ResidentListAdmin" component={ResidentListAdmin} />
     <Stack.Screen name="Administrators" component={Administrators} />
   </Stack.Navigator>
 );

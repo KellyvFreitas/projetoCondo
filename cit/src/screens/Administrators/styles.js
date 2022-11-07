@@ -28,28 +28,24 @@ export const InputArea = styled.View`
 
 export const InvitationOptions = styled.TouchableOpacity``;
 
-export const ButtonPasswordView = styled.View`
-  flex-direction: column;
-  height: 75px;
-`;
+export const ButtonPasswordView = styled.View``;
 
 export const PasswordButtonOpacity = styled.View`
-  flex-direction: row;
-  height: 35px;
   background-color: ${Colors.backgroundInput};
   border-radius: 5px;
-  align-items: center;
   margin-bottom: 7px;
+  width: 270px;
+  text-align: left;
+  align-content: center;
+  margin-left: 18px;
 `;
 
 export const InputPassword = styled.TextInput.attrs({})`
   color: ${Colors.black};
-  font-weight: 600;
-  font-family: ${Fonts.fontRegular};
   font-size: 14px;
-  margin-left: 10px;
-  /* text-align: center; */
-  width: 300px;
+  font-weight: 600;
+  text-align: left;
+  padding-left: 15px;
 `;
 
 export const PasswordButtonText = styled.Text``;

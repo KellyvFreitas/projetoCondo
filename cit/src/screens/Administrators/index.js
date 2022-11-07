@@ -192,9 +192,7 @@ export default () => {
         duration={400}
         style={[styles.content, isActive ? styles.active : styles.inactive]}
         transition={['backgroundColor', 'color']}>
-        <Animatable.Text
-          animation={isActive ? 'bounceIn' : undefined}
-          style={{textAlign: 'left', color: 'white'}}>
+        <Animatable.Text animation={isActive ? 'bounceIn' : undefined}>
           <ButtonPasswordView>
             <PasswordButtonOpacity>
               <InputPassword
