@@ -9,10 +9,6 @@ export const ViewLogo = styled.View`
   align-items: center;
 `;
 
-export const ViewTermsAndConditions = styled.View`
-  flex: 1;
-`;
-
 export const QuestionsView = styled.View`
   flex-direction: row;
   align-items: center;

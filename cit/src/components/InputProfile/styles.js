@@ -3,8 +3,6 @@ import {Colors} from '../../config/Colors';
 import {Fonts} from '../../config/Fonts';
 
 export const InputArea = styled.View`
-  flex-direction: row;
-  elevation: 3;
   height: 40px;
   background-color: ${Colors.backgroundInput};
   border-radius: 5px;
@@ -16,7 +14,6 @@ export const Input = styled.TextInput.attrs({})`
   color: ${Colors.textColor};
   font-weight: 600;
   font-family: ${Fonts.fontRegular};
-  flex: 1;
   font-size: 14px;
   margin-left: 10px;
 `;

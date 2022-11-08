@@ -1,6 +1,6 @@
 import React, {useState, useContext} from 'react';
 import {useNavigation} from '@react-navigation/native';
-import {Button, Keyboard} from 'react-native';
+import {Button, Keyboard, Text, View} from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 //-----------------------Components---------------------------------
 import Eye from '../../assets/icons/eye.svg';
@@ -26,6 +26,9 @@ import {
   ForgetPasswordTouchable,
   ViewBar,
   ButtonLogin,
+  TryAgainView,
+  NotFoundText,
+  TryAgainText,
 } from './styles';
 import TabBar from '../../components/TabBar';
 
@@ -35,16 +38,20 @@ export default () => {
   const [isLoading, setIsLoading] = useState(false);
   const [selected, setSelected] = useState('');
   const [hidePass, setHidePass] = useState(false);
+  const [user, setUser] = useState('');
+  const [errorPassword, setErrorPassword] = useState(false);
 
   const {navigate} = useNavigation();
-
-  const [user, setUser] = useState('');
 
   function handleSignUp() {
     if (user === 'admin') {
       navigation.navigate('HomeAdmin');
+      setErrorPassword(false);
+    } else if (user === 'user') {
+      navigation.navigate('HomeResident');
+      setErrorPassword(false);
     } else {
-      navigation.navigate('HomeAdmin');
+      setErrorPassword(true);
     }
   }
 
@@ -92,9 +99,9 @@ export default () => {
   //     setIsLoading(false);
   //   }
   // }
-  const handleHomeButton = () => {
-    navigation.navigate('MainDrawer');
-  };
+  // const handleHomeButton = () => {
+  //   navigation.navigate('MainDrawer');
+  // };
 
   const menus = [
     {
@@ -132,6 +139,17 @@ export default () => {
       </ViewLogo>
 
       <InputArea>
+        {errorPassword ? (
+          <TryAgainView>
+            <NotFoundText>USUÁRIO NÃO ENCONTRADO/CADASTRADO</NotFoundText>
+            <TryAgainText>Gostaria de tentar novamente?</TryAgainText>
+          </TryAgainView>
+        ) : (
+          <View>
+            <Text></Text>
+          </View>
+        )}
+
         {/* <InputText>E-mail</InputText> */}
         <InputCustom
           placeholder="Login ou Número do Telefone"

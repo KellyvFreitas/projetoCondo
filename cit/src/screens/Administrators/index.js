@@ -106,7 +106,7 @@ export default () => {
           color={Colors.ButtonSecondary}
         />
       ),
-      screen: 'TermsConditionsLogged',
+      screen: 'MessagesAdmin',
     },
     {
       id: 4,

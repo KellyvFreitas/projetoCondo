@@ -1,5 +1,6 @@
 import {useFocusEffect, useNavigation} from '@react-navigation/native';
 import React, {useCallback, useState} from 'react';
+import {Image, StyleSheet, View} from 'react-native';
 //-----------------------Components---------------------------------
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import Logo from '../../assets/svg/LogoEscuro.svg';
@@ -16,9 +17,19 @@ import {
   ViewLogo,
   TitleText,
   AdressText,
-  ChangeIdeaText,
+  IconContainerView,
   IconMessageText,
+  ImageUser,
+  ImgCaller,
 } from './styles';
+const styles = StyleSheet.create({
+  image: {
+    width: 230,
+    height: 230,
+    resizeMode: '',
+    borderRadius: 5,
+  },
+});
 
 export default () => {
   const {navigate, goBack} = useNavigation();
@@ -39,33 +50,33 @@ export default () => {
   return (
     <Container>
       <ViewLogo>
-        <Logo
-          width="250"
-          height="90"
-          onPress={() => navigate('ReceivingCall')}
-        />
+        <Logo width="250" height="90" />
       </ViewLogo>
-
       <IconView>
-        <TitleText>DISCANDO...</TitleText>
+        <TitleText>RECEBENDO CHAMADA</TitleText>
         <AdressText>Condominio Alpes do Himalaia</AdressText>
-
+      </IconView>
+      <ImageUser>
+        <ImgCaller
+          source={{
+            uri: 'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+          }}
+        />
+      </ImageUser>
+      <IconContainerView>
         <IconImageView>
           <IconColorCallView>
-            <Icon name="phone" size={75} color="white" />
+            <Icon name="phone" size={65} color="white" />
           </IconColorCallView>
+          <IconMessageText>ATENDER</IconMessageText>
         </IconImageView>
-        <AdressText>
-          Aguarde, em alguns instantes o porteiro irá atendê-lo!!
-        </AdressText>
-        <ChangeIdeaText>Mudou de ideia?</ChangeIdeaText>
         <IconTextView onPress={() => goBack()}>
           <IconColorMessageView>
-            <Icon name="close" size={60} color="white" />
+            <Icon name="close" size={70} color="white" />
           </IconColorMessageView>
-          <IconMessageText>CANCELAR LIGAÇÃO</IconMessageText>
+          <IconMessageText>RECUSAR</IconMessageText>
         </IconTextView>
-      </IconView>
+      </IconContainerView>
     </Container>
   );
 };
