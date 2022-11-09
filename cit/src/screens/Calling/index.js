@@ -2,10 +2,10 @@ import {useFocusEffect, useNavigation} from '@react-navigation/native';
 import React, {useCallback, useState} from 'react';
 //-----------------------Components---------------------------------
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import Logo from '../../assets/svg/LogoEscuro.svg';
 //-----------------------Services---------------------------------
-//-----------------------Styles------------------------------------
 import {generallocations} from '../../Services/Locations';
+//-----------------------Styles------------------------------------
+import Logo from '../../assets/svg/LogoEscuro.svg';
 import {
   Container,
   IconColorCallView,

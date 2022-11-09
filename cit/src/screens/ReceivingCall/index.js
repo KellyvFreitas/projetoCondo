@@ -22,14 +22,6 @@ import {
   ImageUser,
   ImgCaller,
 } from './styles';
-const styles = StyleSheet.create({
-  image: {
-    width: 230,
-    height: 230,
-    resizeMode: '',
-    borderRadius: 5,
-  },
-});
 
 export default () => {
   const {navigate, goBack} = useNavigation();

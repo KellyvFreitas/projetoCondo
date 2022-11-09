@@ -1,64 +1,41 @@
 import {useFocusEffect, useNavigation} from '@react-navigation/native';
-import {
-  View,
-  SafeAreaView,
-  StyleSheet,
-  Text,
-  Platform,
-  UIManager,
-  TouchableOpacity,
-  Switch,
-  ScrollView,
-  Image,
-} from 'react-native';
-import React, {useCallback, useState, useEffect} from 'react';
+import React, {useCallback, useState} from 'react';
+import {Image, ScrollView, StyleSheet, TouchableOpacity} from 'react-native';
 //-----------------------Components---------------------------------
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import Logo from '../../assets/svg/LogoEscuro.svg';
-import InputCustom from '../../components/InputCustom';
 import InputIcon from '../../components/InputIcon';
 import TabBar from '../../components/TabBar';
 import {Colors} from '../../config/Colors';
 //-----------------------Services---------------------------------
-//-----------------------Styles------------------------------------
 import {generallocations} from '../../Services/Locations';
+//-----------------------Styles------------------------------------
+import Lupa from '../../assets/svg/lupa.svg';
+import Logo from '../../assets/svg/LogoEscuro.svg';
 import {
+  ButtonPasswordView,
   Container,
-  ViewLogo,
-  ViewTabBar,
   InputArea,
-  TextTitle,
+  InputPassword,
   InvitationOptions,
-  TextTitleInvite,
-  ViewTitleTable,
-  NameTitleText,
   NamePersonText,
+  NameTitleText,
+  PasswordButtonOpacity,
+  TextNamePersonView,
+  TextTitle,
+  TextTitleInvite,
   ViewDateTable,
   ViewGeneral,
-  ViewIcon,
-  TextNamePersonView,
   ViewGeral,
+  ViewIcon,
   ViewIconPen,
+  ViewLogo,
+  ViewTabBar,
+  ViewTitleTable,
   ViewTrashCan,
-  PasswordButtonOpacity,
-  ButtonPasswordView,
-  InputPassword,
 } from './styles';
-
-import Lupa from '../../assets/svg/lupa.svg';
-
-import {
-  Collapse,
-  CollapseHeader,
-  CollapseBody,
-  AccordionList,
-} from 'accordion-collapse-react-native';
 
 //import for the animation of Collapse and Expand
 import * as Animatable from 'react-native-animatable';
-
-//import for the collapsible/Expandable view
-import Collapsible from 'react-native-collapsible';
 
 //import for the Accordion view
 import Accordion from 'react-native-collapsible/Accordion';
@@ -135,11 +112,7 @@ export default () => {
   ];
 
   const [activeSections, setActiveSections] = useState([]);
-  // Collapsed condition for the single collapsible
   const [collapsed, setCollapsed] = useState(true);
-  // MultipleSelect is for the Multiple Expand allowed
-  // True: Expand multiple at a time
-  // False: One can be expand at a time
   const [multipleSelect, setMultipleSelect] = useState(false);
 
   const toggleExpanded = () => {
@@ -277,11 +250,6 @@ const styles = StyleSheet.create({
     padding: 10,
     color: '#8f8f8f',
   },
-  headerText: {
-    textAlign: 'center',
-    fontSize: 16,
-    fontWeight: '500',
-  },
   content: {
     padding: 20,
     backgroundColor: '#e3e3e3',
@@ -294,10 +262,5 @@ const styles = StyleSheet.create({
   inactive: {
     backgroundColor: '#e3e3e3',
     color: '#8f8f8f',
-  },
-  tinyLogo: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
   },
 });

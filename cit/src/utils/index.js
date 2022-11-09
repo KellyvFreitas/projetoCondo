@@ -1,6 +1,5 @@
 import Mensagem from '../Services/Mensagem';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import { format, parseISO } from 'date-fns';
+import {format, parseISO} from 'date-fns';
 import pt from 'date-fns/locale/pt';
 
 export const verifyEmailFormat = email => {
@@ -16,20 +15,20 @@ export const verifyEmailFormat = email => {
 };
 
 export const setItemAsync = async (key, value) => {
-  let strValue = JSON.stringify(value);
-  await AsyncStorage.setItem(key, strValue);
+  // let strValue = JSON.stringify(value);
+  // await AsyncStorage.setItem(key, strValue);
 };
 
 export const getItemAsync = async key => {
-  let strValue = await AsyncStorage.getItem(key);
-  let parsedValue = JSON.parse(strValue);
-  return parsedValue;
+  // let strValue = await AsyncStorage.getItem(key);
+  // let parsedValue = JSON.parse(strValue);
+  // return parsedValue;
 };
 export const getAllItemsAsync = () => {
-  return AsyncStorage.getAllKeys();
+  // return AsyncStorage.getAllKeys();
 };
 export const removeItemAsync = key => {
-  return AsyncStorage.removeItem(key);
+  //  return AsyncStorage.removeItem(key);
 };
 export const formatValueCurrency = value => {
   let formatCurrency = new Intl.NumberFormat('pt-BR', {
@@ -45,7 +44,7 @@ export const dateScheduling = (date, type) => {
   const newDateFormat = format(new Date(date), type ? type : 'Pp', {
     locale: pt,
   });
-  return newDateFormat.split(',')[0]
+  return newDateFormat.split(',')[0];
 };
 
 export const dateWeek = date => {

@@ -48,12 +48,6 @@ export const InputPassword = styled.TextInput.attrs({})`
   padding-left: 15px;
 `;
 
-export const PasswordButtonText = styled.Text``;
-
-export const ViewText = styled.View``;
-
-export const ViewContainer = styled.View``;
-
 export const TextTitle = styled.Text`
   justify-content: center;
   align-content: center;
@@ -67,8 +61,6 @@ export const TextTitleInvite = styled.Text`
   font-weight: 450;
 `;
 
-export const ViewTest = styled.View``;
-
 export const ViewGeral = styled.View`
   text-align: left;
   font-size: 15px;
@@ -80,8 +72,6 @@ export const ViewGeral = styled.View`
   border-radius: 5px;
 `;
 
-export const ViewTextTitle = styled.Text``;
-
 export const NameTitleText = styled.Text`
   font-size: 14px;
   font-weight: bold;
@@ -90,8 +80,6 @@ export const NamePersonText = styled.Text`
   font-size: 14px;
   font-weight: 500;
 `;
-
-export const ViewAccordion = styled.View``;
 
 export const ViewDateTable = styled.View`
   justify-content: space-between;
@@ -117,24 +105,6 @@ export const TextNamePersonView = styled.View`
 
 export const ViewTitleTable = styled.View`
   flex-direction: row;
-`;
-
-export const NameDateText = styled.Text`
-  text-align: right;
-  font-size: 14px;
-  font-weight: 500;
-`;
-export const NameHourText = styled.Text`
-  text-align: right;
-  font-size: 12px;
-  font-weight: 500;
-`;
-
-export const ButtonInviteText = styled.Text`
-  font-size: 12px;
-  font-weight: 500;
-  color: white;
-  text-align: center;
 `;
 
 export const ViewIconPen = styled.TouchableOpacity`

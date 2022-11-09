@@ -1,7 +1,6 @@
 import React, {useState, useContext} from 'react';
 import {useNavigation} from '@react-navigation/native';
-import {Button, Keyboard, Text, View} from 'react-native';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import {Button, Keyboard, ScrollView, Text, View} from 'react-native';
 //-----------------------Components---------------------------------
 import Eye from '../../assets/icons/eye.svg';
 import EyeOff from '../../assets/icons/eyeOff.svg';
@@ -134,54 +133,55 @@ export default () => {
 
   return (
     <Container>
-      <ViewLogo>
-        <Logo width="150" height="150" />
-      </ViewLogo>
+      <ScrollView>
+        <ViewLogo>
+          <Logo width="150" height="150" />
+        </ViewLogo>
 
-      <InputArea>
-        {errorPassword ? (
-          <TryAgainView>
-            <NotFoundText>USUÁRIO NÃO ENCONTRADO/CADASTRADO</NotFoundText>
-            <TryAgainText>Gostaria de tentar novamente?</TryAgainText>
-          </TryAgainView>
-        ) : (
-          <View>
-            <Text></Text>
-          </View>
-        )}
+        <InputArea>
+          {errorPassword ? (
+            <TryAgainView>
+              <NotFoundText>USUÁRIO NÃO ENCONTRADO/CADASTRADO</NotFoundText>
+              <TryAgainText>Gostaria de tentar novamente?</TryAgainText>
+            </TryAgainView>
+          ) : (
+            <View>
+              <Text></Text>
+            </View>
+          )}
 
-        {/* <InputText>E-mail</InputText> */}
-        <InputCustom
-          placeholder="Login ou Número do Telefone"
-          autoCapitalize="none"
-          onChangeText={t => setUser(t)}
-          // value={user.email}
-          // onChangeText={(t) => setUser({ ...user, email: t })}
-          // onPressIn={() => setSelected('email')}
-        />
-        <InputCustom
-          typeInput="password"
-          placeholder="Senha"
-          secureTextEntry
-          // value={user.password}
-          // onChangeText={(t) => setUser({ ...user, password: t })}
-          password={hidePass ? false : true}
-          onPress={() => setHidePass(!hidePass)}
-        />
-
-        <ViewPassword>
-          <ForgetPasswordTouchable onPress={() => navigate('ForgetPassword')}>
-            <TextForgotPassword>Esqueci minha senha</TextForgotPassword>
-          </ForgetPasswordTouchable>
-
-          <ButtonLogin
-            title="Entrar"
-            // onPress={() => navigate('HomeResident')}
-            onPress={() => handleSignUp()}
+          {/* <InputText>E-mail</InputText> */}
+          <InputCustom
+            placeholder="Login ou Número do Telefone"
+            autoCapitalize="none"
+            onChangeText={t => setUser(t)}
+            // value={user.email}
+            // onChangeText={(t) => setUser({ ...user, email: t })}
+            // onPressIn={() => setSelected('email')}
           />
-        </ViewPassword>
-      </InputArea>
+          <InputCustom
+            typeInput="password"
+            placeholder="Senha"
+            secureTextEntry
+            // value={user.password}
+            // onChangeText={(t) => setUser({ ...user, password: t })}
+            password={hidePass ? false : true}
+            onPress={() => setHidePass(!hidePass)}
+          />
 
+          <ViewPassword>
+            <ForgetPasswordTouchable onPress={() => navigate('ForgetPassword')}>
+              <TextForgotPassword>Esqueci minha senha</TextForgotPassword>
+            </ForgetPasswordTouchable>
+
+            <ButtonLogin
+              title="Entrar"
+              // onPress={() => navigate('HomeResident')}
+              onPress={() => handleSignUp()}
+            />
+          </ViewPassword>
+        </InputArea>
+      </ScrollView>
       <ViewTabBar>
         {menus.map((item, index) => (
           <TabBar

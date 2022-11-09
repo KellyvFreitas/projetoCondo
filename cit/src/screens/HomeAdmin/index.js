@@ -1,39 +1,34 @@
-import {useFocusEffect, useNavigation} from '@react-navigation/native';
-import React, {useCallback, useState} from 'react';
+import {useNavigation} from '@react-navigation/native';
+import React, {useState} from 'react';
 //-----------------------Components---------------------------------
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import Logo from '../../assets/svg/Logo-noback.svg';
-
+import TabBar from '../../components/TabBar';
 import {Colors} from '../../config/Colors';
 //-----------------------Services---------------------------------
 //-----------------------Styles------------------------------------
-import TabBar from '../../components/TabBar';
 import {
-  Container,
-  ViewLogo,
-  ViewTabBar,
-  InviteAndCallPanel,
+  ButtonADMPanel,
+  ButtonADMText,
+  ButtonInviteText,
   ButtonPanel,
-  TaskList,
-  IconView,
-  IconCallText,
-  IconMessageText,
-  IconImageView,
-  IconTextView,
   ButtonText,
+  Container,
+  IconAlertView,
   IconColorCallView,
   IconColorMessageView,
-  IconAlertView,
+  IconImageView,
+  IconMessageText,
+  IconTextView,
+  IconView,
   InputArea,
-  TextTitle,
-  InvitationPanel,
   InvitationOptions,
-  ButtonInviteText,
-  ButtonADMText,
-  ButtonADMPanel,
+  InvitationPanel,
+  InviteAndCallPanel,
+  TextTitle,
+  ViewLogo,
+  ViewTabBar,
 } from './styles';
-import TabBarLocations from '../../components/TabBarLocations';
-import {generallocations} from '../../Services/Locations';
 
 export default () => {
   const {navigate} = useNavigation();
@@ -139,7 +134,7 @@ export default () => {
             <Icon name="phone" size={70} color="white" />
           </IconColorCallView>
         </IconImageView>
-        <IconTextView>
+        <IconTextView onPress={() => navigate('MessagesAdmin')}>
           <IconColorMessageView>
             <IconAlertView>
               <Icon name="message-alert" size={38} color="red" />

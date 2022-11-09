@@ -1,33 +1,23 @@
-import React, {useState, useContext} from 'react';
 import {useNavigation} from '@react-navigation/native';
-import {Button, Keyboard} from 'react-native';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import React, {useContext, useState} from 'react';
 //-----------------------Components---------------------------------
-import Eye from '../../assets/icons/eye.svg';
-import EyeOff from '../../assets/icons/eyeOff.svg';
-import {UserContext} from '../../contexts/UserContext';
-import {Colors} from '../../config/Colors';
-import Logo from '../../assets/svg/Logo.svg';
-import InputCustom from '../../components/InputCustom';
-import ButtonCustom from '../../components/ButtonCustom';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import Logo from '../../assets/svg/Logo.svg';
+import {Colors} from '../../config/Colors';
+import InputCustom from '../../components/InputCustom';
+import {UserContext} from '../../contexts/UserContext';
+import TabBar from '../../components/TabBar';
 //-----------------------Services---------------------------------
-import {apiServices} from '../../Services/Auth';
-import Mensagem from '../../Services/Mensagem';
-import {notification} from '../../Services/notification';
 //-----------------------Styles------------------------------------
 import {
-  Container,
-  ViewLogo,
-  InputArea,
-  ViewPassword,
-  TextForgotPassword,
-  ViewTabBar,
-  FlatListBar,
-  ViewBar,
   ButtonLogin,
+  Container,
+  InputArea,
+  TextForgotPassword,
+  ViewLogo,
+  ViewPassword,
+  ViewTabBar,
 } from './styles';
-import TabBar from '../../components/TabBar';
 
 export default () => {
   const navigation = useNavigation();
@@ -88,12 +78,6 @@ export default () => {
   //     setIsLoading(false);
   //   }
   // }
-  const handleHomeButton = () => {
-    navigation.navigate('MainDrawer');
-  };
-  const handleSignUp = () => {
-    navigation.navigate('SignUp');
-  };
 
   const menus = [
     {

@@ -60,10 +60,6 @@ export const IconView = styled.View`
   align-items: center;
 `;
 
-export const ViewText = styled.View``;
-
-export const ViewContainer = styled.View``;
-
 export const TextTitle = styled.Text`
   justify-content: center;
   align-content: center;
@@ -77,8 +73,6 @@ export const TextTitleInvite = styled.Text`
   font-weight: 450;
 `;
 
-export const ViewTest = styled.View``;
-
 export const ViewGeral = styled.View`
   text-align: left;
   font-size: 15px;
@@ -88,54 +82,6 @@ export const ViewGeral = styled.View`
   margin-top: 35px;
   background-color: #e8e4e4;
   border-radius: 5px;
-`;
-
-export const ViewTextTitle = styled.Text``;
-
-export const NameTitleText = styled.Text`
-  font-size: 14px;
-  font-weight: 500;
-`;
-export const NamePersonText = styled.Text`
-  font-size: 14px;
-  font-weight: 500;
-`;
-
-export const ViewAccordion = styled.View``;
-
-export const ViewDateTable = styled.View`
-  justify-content: center;
-`;
-
-export const ViewGeneral = styled.View`
-  flex-direction: row;
-  justify-content: space-between;
-`;
-
-export const ViewIcon = styled.View`
-  width: 32px;
-  height: 32px;
-  margin-left: 10px;
-  margin-right: 10px;
-`;
-
-export const TextNamePersonView = styled.View`
-  padding-left: 15px;
-`;
-
-export const ViewTitleTable = styled.View`
-  flex-direction: row;
-`;
-
-export const NameDateText = styled.Text`
-  text-align: right;
-  font-size: 14px;
-  font-weight: 500;
-`;
-export const NameHourText = styled.Text`
-  text-align: right;
-  font-size: 12px;
-  font-weight: 500;
 `;
 
 export const ButtonInviteTitleText = styled.Text`

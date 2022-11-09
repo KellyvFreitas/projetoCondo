@@ -9,20 +9,6 @@ export const ViewLogo = styled.View`
   align-items: center;
 `;
 
-export const ViewTermsAndConditions = styled.View`
-  flex: 1;
-`;
-
-export const QuestionsView = styled.View`
-  flex-direction: row;
-  align-items: center;
-  margin-left: 40px;
-`;
-
-export const TextTerms = styled.Text`
-  padding: 10px;
-`;
-
 export const InviteAndCallPanel = styled.View`
   flex-direction: row;
   width: 100%;
@@ -60,15 +46,6 @@ export const InputArea = styled.View`
   margin-left: 45px;
   width: 75%;
 `;
-
-export const ButtonLogin = styled.TouchableOpacity`
-  flex: 1;
-  width: 110px;
-  height: 50px;
-  background-color: #0894c4;
-`;
-
-export const ViewPassword = styled.View``;
 
 export const CpfBirthdayView = styled.View`
   flex-direction: row;
@@ -129,8 +106,8 @@ export const InvitationOptions = styled.TouchableOpacity`
   height: 35px;
   background-color: white;
   align-items: center;
-  padding-left: 14px;
-  padding-right: 14px;
+  padding-left: 11px;
+  padding-right: 11px;
   margin-top: 5px;
   background-color: #0894c4;
   border-radius: 5px;

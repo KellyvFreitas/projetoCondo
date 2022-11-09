@@ -6,38 +6,36 @@ import Logo from '../../assets/svg/Logo-noback.svg';
 import {Colors} from '../../config/Colors';
 //-----------------------Services---------------------------------
 //-----------------------Styles------------------------------------
-import TabBar from '../../components/TabBar';
-import {
-  ButtonPanel,
-  Container,
-  InviteAndCallPanel,
-  ViewLogo,
-  ViewTabBar,
-  ButtonText,
-  InputArea,
-  ViewInput,
-  InvitationOptions,
-  InvitationPanel,
-  TextTitle,
-  ButtonInviteText,
-  CpfBirthdayView,
-  NameText,
-  ViewGeral,
-  TextTitleInvite,
-  AddInvitationPanel,
-  ButtonAddView,
-  ButtonTextView,
-  ButtonInviteTitleText,
-  IconView,
-  ButtonInviteClickText,
-  TextCPF,
-  ViewInfoGeral,
-} from './styles';
-import InputCustom from '../../components/InputCustom';
 import {FlatList, Platform, ScrollView} from 'react-native';
-import InputObs from '../../components/InputObs';
 import InputProfile from '../../components/InputProfile';
 import ResidentListEdit from '../../components/ResidentListEdit';
+import TabBar from '../../components/TabBar';
+import {
+  AddInvitationPanel,
+  ButtonAddView,
+  ButtonInviteClickText,
+  ButtonInviteText,
+  ButtonInviteTitleText,
+  ButtonPanel,
+  ButtonText,
+  ButtonTextView,
+  Container,
+  CpfBirthdayView,
+  IconView,
+  InputArea,
+  InvitationOptions,
+  InvitationPanel,
+  InviteAndCallPanel,
+  NameText,
+  TextCPF,
+  TextTitle,
+  TextTitleInvite,
+  ViewGeral,
+  ViewInfoGeral,
+  ViewInput,
+  ViewLogo,
+  ViewTabBar,
+} from './styles';
 
 export default () => {
   const {navigate} = useNavigation();

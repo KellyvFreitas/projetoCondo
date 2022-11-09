@@ -1,21 +1,9 @@
 import {useFocusEffect, useNavigation} from '@react-navigation/native';
-import {
-  View,
-  SafeAreaView,
-  StyleSheet,
-  Text,
-  Platform,
-  UIManager,
-  TouchableOpacity,
-  Switch,
-  ScrollView,
-  Image,
-} from 'react-native';
-import React, {useCallback, useState, useEffect} from 'react';
+import React, {useCallback, useState} from 'react';
+import {Image, ScrollView, StyleSheet, TouchableOpacity} from 'react-native';
 //-----------------------Components---------------------------------
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import Logo from '../../assets/svg/LogoEscuro.svg';
-import InputCustom from '../../components/InputCustom';
 import InputIcon from '../../components/InputIcon';
 import TabBar from '../../components/TabBar';
 import {Colors} from '../../config/Colors';
@@ -24,40 +12,28 @@ import {Colors} from '../../config/Colors';
 import {generallocations} from '../../Services/Locations';
 import {
   Container,
-  ViewLogo,
-  ViewTabBar,
   InputArea,
-  TextTitle,
   InvitationOptions,
-  TextTitleInvite,
-  ViewTitleTable,
-  NameTitleText,
-  NamePersonText,
-  ViewDateTable,
-  ViewGeneral,
   NameDateText,
   NameHourText,
-  ViewIcon,
+  NamePersonText,
+  NameTitleText,
   TextNamePersonView,
+  TextTitle,
+  TextTitleInvite,
+  ViewDateTable,
+  ViewGeneral,
   ViewGeral,
+  ViewIcon,
+  ViewLogo,
+  ViewTabBar,
+  ViewTitleTable,
 } from './styles';
 
 import Lupa from '../../assets/svg/lupa.svg';
 
-import {
-  Collapse,
-  CollapseHeader,
-  CollapseBody,
-  AccordionList,
-} from 'accordion-collapse-react-native';
-
-//import for the animation of Collapse and Expand
 import * as Animatable from 'react-native-animatable';
 
-//import for the collapsible/Expandable view
-import Collapsible from 'react-native-collapsible';
-
-//import for the Accordion view
 import Accordion from 'react-native-collapsible/Accordion';
 
 export default () => {
@@ -144,17 +120,8 @@ export default () => {
   ];
 
   const [activeSections, setActiveSections] = useState([]);
-  // Collapsed condition for the single collapsible
   const [collapsed, setCollapsed] = useState(true);
-  // MultipleSelect is for the Multiple Expand allowed
-  // True: Expand multiple at a time
-  // False: One can be expand at a time
   const [multipleSelect, setMultipleSelect] = useState(false);
-
-  const toggleExpanded = () => {
-    //Toggling the state of single Collapsible
-    setCollapsed(!collapsed);
-  };
 
   const setSections = sections => {
     //setting up a active section state

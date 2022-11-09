@@ -56,7 +56,6 @@ export const ViewTabBar = styled.View`
   max-height: 70px;
 `;
 export const FlatListBar = styled.FlatList`
-  flex: 1;
   height: 70px;
   width: 100%;
   background-color: ${Colors.backgroundInput};

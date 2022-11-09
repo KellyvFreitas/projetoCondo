@@ -1,62 +1,34 @@
 import {useFocusEffect, useNavigation} from '@react-navigation/native';
-import {
-  View,
-  SafeAreaView,
-  StyleSheet,
-  Text,
-  Platform,
-  UIManager,
-  TouchableOpacity,
-  FlatList,
-  ScrollView,
-  Image,
-} from 'react-native';
-import React, {useCallback, useState, useEffect} from 'react';
+import React, {useCallback, useState} from 'react';
+import {FlatList} from 'react-native';
 //-----------------------Components---------------------------------
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import Logo from '../../assets/svg/LogoEscuro.svg';
-import InputCustom from '../../components/InputCustom';
 import InputIcon from '../../components/InputIcon';
 import TabBar from '../../components/TabBar';
+import ResidentList from '../../components/ResidentList';
 import {Colors} from '../../config/Colors';
 //-----------------------Services---------------------------------
-//-----------------------Styles------------------------------------
 import {generallocations} from '../../Services/Locations';
+//-----------------------Styles------------------------------------
 import {
+  ButtonAddView,
+  ButtonInviteText,
+  ButtonInviteTitleText,
+  ButtonTextView,
   Container,
-  ViewLogo,
-  ViewTabBar,
+  IconView,
   InputArea,
-  TextTitle,
   InvitationOptions,
+  InvitationPanel,
+  TextTitle,
   TextTitleInvite,
   ViewGeral,
-  ButtonInviteText,
-  InvitationPanel,
-  ButtonAddView,
-  ButtonTextView,
-  ButtonInviteTitleText,
-  IconView,
+  ViewLogo,
+  ViewTabBar,
 } from './styles';
 
 import Lupa from '../../assets/svg/lupa.svg';
-
-import {
-  Collapse,
-  CollapseHeader,
-  CollapseBody,
-  AccordionList,
-} from 'accordion-collapse-react-native';
-
-//import for the animation of Collapse and Expand
-import * as Animatable from 'react-native-animatable';
-
-//import for the collapsible/Expandable view
-import Collapsible from 'react-native-collapsible';
-
-//import for the Accordion view
-import Accordion from 'react-native-collapsible/Accordion';
-import ResidentList from '../../components/ResidentList';
 
 export default () => {
   const {navigate} = useNavigation();
@@ -143,24 +115,6 @@ export default () => {
       img: 'https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80',
     },
   ];
-
-  const [activeSections, setActiveSections] = useState([]);
-  // Collapsed condition for the single collapsible
-  const [collapsed, setCollapsed] = useState(true);
-  // MultipleSelect is for the Multiple Expand allowed
-  // True: Expand multiple at a time
-  // False: One can be expand at a time
-  const [multipleSelect, setMultipleSelect] = useState(false);
-
-  const toggleExpanded = () => {
-    //Toggling the state of single Collapsible
-    setCollapsed(!collapsed);
-  };
-
-  const setSections = sections => {
-    //setting up a active section state
-    setActiveSections(sections.includes(undefined) ? [] : sections);
-  };
 
   return (
     <Container>
