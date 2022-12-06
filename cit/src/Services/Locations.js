@@ -22,7 +22,7 @@ export const generallocations = {
       number: '101',
       block: '',
     },
-    {
+    /* {
       id: 3,
       title: 'Condomínio Mendonza',
       cnpj: '02.433.596/0001-41',
@@ -54,6 +54,6 @@ export const generallocations = {
       type: 'CASA',
       number: '101',
       block: '',
-    },
+    },*/
   ],
 };

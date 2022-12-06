@@ -1,15 +1,15 @@
-import React, { useEffect, useContext } from 'react';
-import { UserContext } from '../../contexts/UserContext';
+import React, {useEffect, useContext} from 'react';
+import {UserContext} from '../../contexts/UserContext';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { useNavigation } from '@react-navigation/native';
+import {useNavigation} from '@react-navigation/native';
 import Mensagem from '../../Services/Mensagem';
-import { apiServices } from '../../Services/Auth';
-import { Colors } from '../../config/Colors';
+import {apiServices} from '../../Services/Auth';
+import {Colors} from '../../config/Colors';
 import Logo from '../../assets/svg/Logo.svg';
-import { Container, LoadingIcon } from './styles';
+import {Container, LoadingIcon} from './styles';
 
 export default () => {
-  const { dispatch: userDispatch } = useContext(UserContext);
+  const {dispatch: userDispatch} = useContext(UserContext);
   const navigation = useNavigation();
 
   // const checkToken = async () => {
@@ -44,10 +44,10 @@ export default () => {
   useEffect(() => {
     setTimeout(() => {
       navigation.reset({
-        routes: [{ name: 'SignIn' }],
-      })
+        routes: [{name: 'SelectProfile'}],
+      });
     }, 3000);
-  }, [])
+  }, []);
 
   return (
     <Container>
@@ -55,4 +55,4 @@ export default () => {
       <LoadingIcon size="large" color={Colors.primary} />
     </Container>
   );
-}
+};

@@ -31,6 +31,7 @@ import {
   ButtonInviteText,
   ButtonADMText,
   ButtonADMPanel,
+  InvitationOptions1,
 } from './styles';
 import TabBarLocations from '../../components/TabBarLocations';
 import {generallocations} from '../../Services/Locations';
@@ -97,9 +98,9 @@ export default () => {
           <InvitationOptions>
             <ButtonInviteText>CADASTRAR USUARIO</ButtonInviteText>
           </InvitationOptions>
-          <InvitationOptions>
+          <InvitationOptions1>
             <ButtonInviteText>ACESSAR USUARIOS</ButtonInviteText>
-          </InvitationOptions>
+          </InvitationOptions1>
         </InvitationPanel>
       </InputArea>
       <InputArea>
@@ -108,16 +109,16 @@ export default () => {
           <InvitationOptions onPress={() => navigate('InviteListAdmin')}>
             <ButtonInviteText>ACESSAR CONVITES</ButtonInviteText>
           </InvitationOptions>
-          <InvitationOptions>
+          <InvitationOptions1>
             <ButtonInviteText>BAIXAR CONVITES</ButtonInviteText>
-          </InvitationOptions>
+          </InvitationOptions1>
         </InvitationPanel>
       </InputArea>
       <InputArea>
         <TextTitle>GRAVAÇÕES</TextTitle>
         <InvitationPanel>
           <InvitationOptions>
-            <ButtonInviteText>ACESSAR CONVITES</ButtonInviteText>
+            <ButtonInviteText>ACESSAR GRAVAÇÕES</ButtonInviteText>
           </InvitationOptions>
         </InvitationPanel>
       </InputArea>
@@ -125,11 +126,13 @@ export default () => {
         <TextTitle>MENSAGENS</TextTitle>
         <InvitationPanel>
           <InvitationOptions>
-            <ButtonInviteText>ACESSAR CONVITES</ButtonInviteText>
+            <ButtonInviteText onPress={() => navigate('InviteListAdmin')}>
+              ACESSAR MENSAGENS
+            </ButtonInviteText>
           </InvitationOptions>
-          <InvitationOptions>
-            <ButtonInviteText>BAIXAR CONVITES</ButtonInviteText>
-          </InvitationOptions>
+          <InvitationOptions1>
+            <ButtonInviteText>BAIXAR MENSAGENS</ButtonInviteText>
+          </InvitationOptions1>
         </InvitationPanel>
       </InputArea>
 

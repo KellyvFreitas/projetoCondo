@@ -23,10 +23,21 @@ import {
   ViewLogo,
   ViewTabBar,
   InputArea,
-  TextTitle,
   InvitationOptions,
-  ViewInterative,
   TextTest,
+  ViewListChat,
+  TitleMessage,
+  BadgeMessage,
+  ViewChat,
+  ImageChat,
+  ViewChatUserInfo,
+  TextChatUserHouse,
+  TextChatUserName,
+  ViewChatDateInfo,
+  TextDate,
+  TextHour,
+  ViewTitleChat,
+  ViewChatHouseName,
 } from './styles';
 
 import Lupa from '../../assets/svg/lupa.svg';
@@ -94,13 +105,48 @@ export default () => {
   const data = [
     {
       id: 0,
-      title: 'Lorem Ipsum is simply dummy',
-      body: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+      casa: 'Casa 57',
+      nome: 'Edinelza Mascarenhas',
+      data: '2022-09-01T18:38:00',
+      mensagemNaoLida: false,
+      image:
+        'https://www.psicologosberrini.com.br/wp-content/uploads/10-dicas-de-saude-mental-para-mulheres-768x576.jpg',
     },
     {
       id: 1,
-      title: 'Lorem Ipsum is simply dummy',
-      body: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+      casa: 'Casa 132',
+      nome: 'Bernardo Vieira',
+      data: '2022-09-01T18:38:00',
+      mensagemNaoLida: true,
+      image:
+        'https://img.freepik.com/fotos-gratis/homem-bonito-e-confiante-sorrindo-com-as-maos-cruzadas-no-peito_176420-18743.jpg?w=740&t=st=1670330580~exp=1670331180~hmac=94becaebb1f9e80ed5b71c0ff169336606e905b76937baf970d1e8c289d64a11',
+    },
+    {
+      id: 2,
+      casa: 'Casa 57',
+      nome: 'Edinelza Mascarenhas',
+      data: '2022-09-01T18:38:00',
+      mensagemNaoLida: false,
+      image:
+        'https://www.psicologosberrini.com.br/wp-content/uploads/10-dicas-de-saude-mental-para-mulheres-768x576.jpg',
+    },
+    {
+      id: 3,
+      casa: 'Casa 132',
+      nome: 'Bernardo Vieira',
+      data: '2022-09-01T18:38:00',
+      mensagemNaoLida: true,
+      image:
+        'https://img.freepik.com/fotos-gratis/homem-bonito-e-confiante-sorrindo-com-as-maos-cruzadas-no-peito_176420-18743.jpg?w=740&t=st=1670330580~exp=1670331180~hmac=94becaebb1f9e80ed5b71c0ff169336606e905b76937baf970d1e8c289d64a11',
+    },
+    {
+      id: 4,
+      casa: 'Casa 57',
+      nome: 'Edinelza Mascarenhas',
+      data: '2022-09-01T18:38:00',
+      mensagemNaoLida: false,
+      image:
+        'https://www.psicologosberrini.com.br/wp-content/uploads/10-dicas-de-saude-mental-para-mulheres-768x576.jpg',
     },
   ];
 
@@ -112,13 +158,14 @@ export default () => {
     }
   }, []);
 
+  const [quantityConversation, setQuantityConversation] = useState(3);
+
   return (
     <Container>
       <ViewLogo>
         <Logo width="250" height="90" />
       </ViewLogo>
       <InputArea>
-        <TextTitle>PESQUISAR CONVITES</TextTitle>
         <InvitationOptions>
           <InputIcon
             IconSvg={Lupa}
@@ -128,6 +175,57 @@ export default () => {
           />
         </InvitationOptions>
       </InputArea>
+
+      <ViewListChat>
+        <ViewTitleChat>
+          <TitleMessage>MENSAGENS</TitleMessage>
+          <BadgeMessage>{quantityConversation} NÃO LIDAS</BadgeMessage>
+        </ViewTitleChat>
+        <View>
+          {data.map(chat => (
+            <ViewChat
+              key={chat.id}
+              style={{
+                backgroundColor: chat.mensagemNaoLida ? 'gray' : '#e7e7e7',
+              }}>
+              <ViewChatUserInfo>
+                <ImageChat
+                  source={{
+                    uri: chat.image,
+                  }}></ImageChat>
+                <ViewChatHouseName>
+                  <TextChatUserHouse
+                    style={{
+                      color: chat.mensagemNaoLida ? '#fff' : 'gray',
+                    }}>
+                    {chat?.casa}
+                  </TextChatUserHouse>
+                  <TextChatUserName
+                    style={{
+                      color: chat.mensagemNaoLida ? '#fff' : 'gray',
+                    }}>
+                    {chat?.nome}
+                  </TextChatUserName>
+                </ViewChatHouseName>
+              </ViewChatUserInfo>
+              <ViewChatDateInfo>
+                <TextDate
+                  style={{
+                    color: chat.mensagemNaoLida ? '#fff' : 'gray',
+                  }}>
+                  {chat?.data.split('T')[0]}
+                </TextDate>
+                <TextHour
+                  style={{
+                    color: chat.mensagemNaoLida ? '#fff' : 'gray',
+                  }}>
+                  {chat?.data.split('T')[1]}
+                </TextHour>
+              </ViewChatDateInfo>
+            </ViewChat>
+          ))}
+        </View>
+      </ViewListChat>
       {/*
       <ViewInterative>
         <AccordionList

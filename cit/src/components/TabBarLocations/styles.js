@@ -1,7 +1,7 @@
 import styled from 'styled-components/native';
 import {Colors} from '../../config/Colors';
 
-export const LocationsView = styled.View`
+export const LocationsView = styled.TouchableOpacity`
   flex: 1;
   flex-direction: row;
   margin-top: 8px;
