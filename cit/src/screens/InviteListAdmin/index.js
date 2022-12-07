@@ -111,6 +111,20 @@ export default () => {
       mensagemNaoLida: false,
       image:
         'https://www.psicologosberrini.com.br/wp-content/uploads/10-dicas-de-saude-mental-para-mulheres-768x576.jpg',
+      messagens: [
+        {
+          user: 0,
+          message:
+            'Gostaria de informar que minha irmã está chegando em um Uber cinza de placaPK13A2',
+          data: '2022-09-01T18:38:00',
+        },
+        {
+          user: 1,
+          message:
+            'Tudo bem. Assim que ela chegar eu também envio uma mensagem para a senhora',
+          data: '2022-09-01T18:38:00',
+        },
+      ],
     },
     {
       id: 1,
@@ -120,6 +134,20 @@ export default () => {
       mensagemNaoLida: true,
       image:
         'https://img.freepik.com/fotos-gratis/homem-bonito-e-confiante-sorrindo-com-as-maos-cruzadas-no-peito_176420-18743.jpg?w=740&t=st=1670330580~exp=1670331180~hmac=94becaebb1f9e80ed5b71c0ff169336606e905b76937baf970d1e8c289d64a11',
+      messagens: [
+        {
+          user: 0,
+          message:
+            'Gostaria de informar que minha irmã está chegando em um Uber cinza de placaPK13A2',
+          data: '2022-09-01T18:38:00',
+        },
+        {
+          user: 1,
+          message:
+            'Tudo bem. Assim que ela chegar eu também envio uma mensagem para a senhora',
+          data: '2022-09-01T18:38:00',
+        },
+      ],
     },
     {
       id: 2,
@@ -129,6 +157,20 @@ export default () => {
       mensagemNaoLida: false,
       image:
         'https://www.psicologosberrini.com.br/wp-content/uploads/10-dicas-de-saude-mental-para-mulheres-768x576.jpg',
+      messagens: [
+        {
+          user: 0,
+          message:
+            'Gostaria de informar que minha irmã está chegando em um Uber cinza de placaPK13A2',
+          data: '2022-09-01T18:38:00',
+        },
+        {
+          user: 1,
+          message:
+            'Tudo bem. Assim que ela chegar eu também envio uma mensagem para a senhora',
+          data: '2022-09-01T18:38:00',
+        },
+      ],
     },
     {
       id: 3,
@@ -138,6 +180,20 @@ export default () => {
       mensagemNaoLida: true,
       image:
         'https://img.freepik.com/fotos-gratis/homem-bonito-e-confiante-sorrindo-com-as-maos-cruzadas-no-peito_176420-18743.jpg?w=740&t=st=1670330580~exp=1670331180~hmac=94becaebb1f9e80ed5b71c0ff169336606e905b76937baf970d1e8c289d64a11',
+      messagens: [
+        {
+          user: 0,
+          message:
+            'Gostaria de informar que minha irmã está chegando em um Uber cinza de placaPK13A2',
+          data: '2022-09-01T18:38:00',
+        },
+        {
+          user: 1,
+          message:
+            'Tudo bem. Assim que ela chegar eu também envio uma mensagem para a senhora',
+          data: '2022-09-01T18:38:00',
+        },
+      ],
     },
     {
       id: 4,
@@ -147,6 +203,20 @@ export default () => {
       mensagemNaoLida: false,
       image:
         'https://www.psicologosberrini.com.br/wp-content/uploads/10-dicas-de-saude-mental-para-mulheres-768x576.jpg',
+      messagens: [
+        {
+          user: 0,
+          message:
+            'Gostaria de informar que minha irmã está chegando em um Uber cinza de placaPK13A2',
+          data: '2022-09-01T18:38:00',
+        },
+        {
+          user: 1,
+          message:
+            'Tudo bem. Assim que ela chegar eu também envio uma mensagem para a senhora',
+          data: '2022-09-01T18:38:00',
+        },
+      ],
     },
   ];
 
@@ -184,6 +254,7 @@ export default () => {
         <View>
           {data.map(chat => (
             <ViewChat
+              onPress={() => navigate('MessageChat', chat)}
               key={chat.id}
               style={{
                 backgroundColor: chat.mensagemNaoLida ? 'gray' : '#e7e7e7',
