@@ -1,9 +1,17 @@
 import {useFocusEffect, useNavigation} from '@react-navigation/native';
-import React, {useCallback, useState} from 'react';
-import {Image, ScrollView, StyleSheet, TouchableOpacity} from 'react-native';
+import {
+  View,
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  Platform,
+  UIManager,
+} from 'react-native';
+import React, {useCallback, useState, useEffect} from 'react';
 //-----------------------Components---------------------------------
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import Logo from '../../assets/svg/LogoEscuro.svg';
+import InputCustom from '../../components/InputCustom';
 import InputIcon from '../../components/InputIcon';
 import TabBar from '../../components/TabBar';
 import {Colors} from '../../config/Colors';
@@ -12,19 +20,6 @@ import {Colors} from '../../config/Colors';
 import {generallocations} from '../../Services/Locations';
 import {
   Container,
-  InputArea,
-  InvitationOptions,
-  NameDateText,
-  NameHourText,
-  NamePersonText,
-  NameTitleText,
-  TextNamePersonView,
-  TextTitle,
-  TextTitleInvite,
-  ViewDateTable,
-  ViewGeneral,
-  ViewGeral,
-  ViewIcon,
   ViewLogo,
   ViewTabBar,
   InputArea,
@@ -47,9 +42,12 @@ import {
 
 import Lupa from '../../assets/svg/lupa.svg';
 
-import * as Animatable from 'react-native-animatable';
-
-import Accordion from 'react-native-collapsible/Accordion';
+import {
+  Collapse,
+  CollapseHeader,
+  CollapseBody,
+  AccordionList,
+} from 'accordion-collapse-react-native';
 
 export default () => {
   const {navigate} = useNavigation();
@@ -74,37 +72,37 @@ export default () => {
       icon: (
         <Icon name="home-outline" size={33} color={Colors.ButtonSecondary} />
       ),
-      screen: 'HomeAdmin',
+      screen: 'HomeResident',
     },
     {
       id: 2,
-      title: 'Gravações',
-      icon: <Icon name="microphone" size={33} color={Colors.ButtonSecondary} />,
-      screen: 'Recordings',
+      title: 'Suporte',
+      icon: <Icon name="face-agent" size={33} color={Colors.ButtonSecondary} />,
+      screen: 'FAQLogged',
     },
     {
       id: 3,
-      title: 'Mensagens',
+      title: 'Termos e Cond.',
       icon: (
         <Icon
-          name="message-processing-outline"
+          name="book-open-variant"
           size={33}
           color={Colors.ButtonSecondary}
         />
       ),
-      screen: 'MessagesAdmin',
+      screen: 'TermsConditionsLogged',
     },
     {
       id: 4,
-      title: 'Admins',
+      title: 'Perfil',
       icon: (
         <Icon name="account-outline" size={33} color={Colors.ButtonSecondary} />
       ),
-      screen: 'Administrators',
+      screen: 'ProfileResident',
     },
   ];
 
-  const CONTENT = [
+  const data = [
     {
       id: 0,
       casa: 'Casa 57',
@@ -113,6 +111,20 @@ export default () => {
       mensagemNaoLida: false,
       image:
         'https://www.psicologosberrini.com.br/wp-content/uploads/10-dicas-de-saude-mental-para-mulheres-768x576.jpg',
+      messagens: [
+        {
+          user: 0,
+          message:
+            'Gostaria de informar que minha irmã está chegando em um Uber cinza de placaPK13A2',
+          data: '2022-09-01T18:38:00',
+        },
+        {
+          user: 1,
+          message:
+            'Tudo bem. Assim que ela chegar eu também envio uma mensagem para a senhora',
+          data: '2022-09-01T18:38:00',
+        },
+      ],
     },
     {
       id: 1,
@@ -122,6 +134,20 @@ export default () => {
       mensagemNaoLida: true,
       image:
         'https://img.freepik.com/fotos-gratis/homem-bonito-e-confiante-sorrindo-com-as-maos-cruzadas-no-peito_176420-18743.jpg?w=740&t=st=1670330580~exp=1670331180~hmac=94becaebb1f9e80ed5b71c0ff169336606e905b76937baf970d1e8c289d64a11',
+      messagens: [
+        {
+          user: 0,
+          message:
+            'Gostaria de informar que minha irmã está chegando em um Uber cinza de placaPK13A2',
+          data: '2022-09-01T18:38:00',
+        },
+        {
+          user: 1,
+          message:
+            'Tudo bem. Assim que ela chegar eu também envio uma mensagem para a senhora',
+          data: '2022-09-01T18:38:00',
+        },
+      ],
     },
     {
       id: 2,
@@ -131,6 +157,20 @@ export default () => {
       mensagemNaoLida: false,
       image:
         'https://www.psicologosberrini.com.br/wp-content/uploads/10-dicas-de-saude-mental-para-mulheres-768x576.jpg',
+      messagens: [
+        {
+          user: 0,
+          message:
+            'Gostaria de informar que minha irmã está chegando em um Uber cinza de placaPK13A2',
+          data: '2022-09-01T18:38:00',
+        },
+        {
+          user: 1,
+          message:
+            'Tudo bem. Assim que ela chegar eu também envio uma mensagem para a senhora',
+          data: '2022-09-01T18:38:00',
+        },
+      ],
     },
     {
       id: 3,
@@ -140,6 +180,20 @@ export default () => {
       mensagemNaoLida: true,
       image:
         'https://img.freepik.com/fotos-gratis/homem-bonito-e-confiante-sorrindo-com-as-maos-cruzadas-no-peito_176420-18743.jpg?w=740&t=st=1670330580~exp=1670331180~hmac=94becaebb1f9e80ed5b71c0ff169336606e905b76937baf970d1e8c289d64a11',
+      messagens: [
+        {
+          user: 0,
+          message:
+            'Gostaria de informar que minha irmã está chegando em um Uber cinza de placaPK13A2',
+          data: '2022-09-01T18:38:00',
+        },
+        {
+          user: 1,
+          message:
+            'Tudo bem. Assim que ela chegar eu também envio uma mensagem para a senhora',
+          data: '2022-09-01T18:38:00',
+        },
+      ],
     },
     {
       id: 4,
@@ -149,62 +203,30 @@ export default () => {
       mensagemNaoLida: false,
       image:
         'https://www.psicologosberrini.com.br/wp-content/uploads/10-dicas-de-saude-mental-para-mulheres-768x576.jpg',
+      messagens: [
+        {
+          user: 0,
+          message:
+            'Gostaria de informar que minha irmã está chegando em um Uber cinza de placaPK13A2',
+          data: '2022-09-01T18:38:00',
+        },
+        {
+          user: 1,
+          message:
+            'Tudo bem. Assim que ela chegar eu também envio uma mensagem para a senhora',
+          data: '2022-09-01T18:38:00',
+        },
+      ],
     },
   ];
 
-  const [activeSections, setActiveSections] = useState([]);
-  const [collapsed, setCollapsed] = useState(true);
-  const [multipleSelect, setMultipleSelect] = useState(false);
-
-  const setSections = sections => {
-    //setting up a active section state
-    setActiveSections(sections.includes(undefined) ? [] : sections);
-  };
-
-  const renderHeader = (section, _, isActive) => {
-    //Accordion Header view
-    return (
-      <Animatable.View
-        duration={400}
-        style={[styles.header, isActive ? styles.active : styles.inactive]}
-        transition={['backgroundColor', 'color']}>
-        <ViewGeneral>
-          <ViewTitleTable>
-            <ViewIcon>
-              <Image
-                style={{width: 40, height: 40, borderRadius: 20}}
-                source={{uri: section.img}}
-              />
-            </ViewIcon>
-            <TextNamePersonView>
-              <NameTitleText>{section.type}</NameTitleText>
-              <NamePersonText>{section.name}</NamePersonText>
-            </TextNamePersonView>
-          </ViewTitleTable>
-          <ViewDateTable>
-            <NameDateText>{section.date}</NameDateText>
-            <NameHourText>{section.hour}</NameHourText>
-          </ViewDateTable>
-        </ViewGeneral>
-      </Animatable.View>
-    );
-  };
-
-  const renderContent = (section, _, isActive) => {
-    //Accordion Content view
-    return (
-      <Animatable.View
-        duration={400}
-        style={[styles.content, isActive ? styles.active : styles.inactive]}
-        transition={['backgroundColor', 'color']}>
-        <Animatable.Text
-          animation={isActive ? 'bounceIn' : undefined}
-          style={{textAlign: 'left', color: 'white'}}>
-          {section.content}
-        </Animatable.Text>
-      </Animatable.View>
-    );
-  };
+  useEffect(() => {
+    if (Platform.OS === 'android') {
+      if (UIManager.setLayoutAnimationEnabledExperimental) {
+        UIManager.setLayoutAnimationEnabledExperimental(true);
+      }
+    }
+  }, []);
 
   const [quantityConversation, setQuantityConversation] = useState(3);
 
@@ -222,34 +244,6 @@ export default () => {
             // onChangeText={t => setEmailField(t)}
           />
         </InvitationOptions>
-
-        <ViewGeral>
-          <TextTitleInvite>CONVITES</TextTitleInvite>
-
-          <ScrollView>
-            <Accordion
-              activeSections={activeSections}
-              //for any default active section
-              sections={CONTENT}
-              //title and content of accordion
-              touchableComponent={TouchableOpacity}
-              //which type of touchable component you want
-              //It can be the following Touchables
-              //TouchableHighlight, TouchableNativeFeedback
-              //TouchableOpacity , TouchableWithoutFeedback
-              expandMultiple={false}
-              //Do you want to expand mutiple at a time or single at a time
-              renderHeader={renderHeader}
-              //Header Component(View) to render
-              renderContent={renderContent}
-              //Content Component(View) to render
-              duration={100}
-              //Duration for Collapse and expand
-              onChange={setSections}
-              //setting the state of active sections
-            />
-          </ScrollView>
-        </ViewGeral>
       </InputArea>
 
       <ViewListChat>
@@ -260,6 +254,7 @@ export default () => {
         <View>
           {data.map(chat => (
             <ViewChat
+              onPress={() => navigate('MessageChat', chat)}
               key={chat.id}
               style={{
                 backgroundColor: chat.mensagemNaoLida ? 'gray' : '#e7e7e7',
@@ -324,33 +319,3 @@ export default () => {
     </Container>
   );
 };
-
-const styles = StyleSheet.create({
-  header: {
-    padding: 10,
-    color: '#8f8f8f',
-  },
-  headerText: {
-    textAlign: 'center',
-    fontSize: 16,
-    fontWeight: '500',
-  },
-  content: {
-    padding: 20,
-    backgroundColor: '#e3e3e3',
-    borderBottomLeftRadius: 5,
-    borderBottomRightRadius: 5,
-  },
-  active: {
-    backgroundColor: '#8f8f8f',
-  },
-  inactive: {
-    backgroundColor: '#e3e3e3',
-    color: '#8f8f8f',
-  },
-  tinyLogo: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
-  },
-});

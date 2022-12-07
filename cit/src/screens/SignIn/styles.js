@@ -17,28 +17,7 @@ export const InputArea = styled.View`
   width: 70%;
 `;
 
-export const TryAgainView = styled.View`
-  align-self: center;
-`;
-
-export const NotFoundText = styled.Text`
-  font-family: ${Fonts.fontRegularPoppins};
-  color: #3f5ed8;
-  font-size: 14px;
-  font-weight: bold;
-  margin-bottom: 10px;
-`;
-
-export const TryAgainText = styled.Text`
-  font-family: ${Fonts.fontRegularPoppins};
-  color: ${Colors.primary};
-  font-size: 14px;
-  margin-bottom: 10px;
-  margin-top: 10px;
-`;
-
 export const ViewPassword = styled.TouchableOpacity``;
-
 export const ForgetPasswordTouchable = styled.TouchableOpacity``;
 
 export const TextForgotPassword = styled.Text`
@@ -56,6 +35,7 @@ export const ViewTabBar = styled.View`
   max-height: 70px;
 `;
 export const FlatListBar = styled.FlatList`
+  flex: 1;
   height: 70px;
   width: 100%;
   background-color: ${Colors.backgroundInput};

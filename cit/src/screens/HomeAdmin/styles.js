@@ -48,6 +48,10 @@ export const ButtonADMText = styled.Text`
   text-align: center;
 `;
 
+export const ViewPassword = styled.View``;
+
+export const TaskList = styled.FlatList``;
+
 export const IconView = styled.View`
   justify-content: space-around;
   align-items: center;
@@ -63,6 +67,17 @@ export const IconImageView = styled.TouchableOpacity`
 export const IconTextView = styled.TouchableOpacity`
   justify-content: center;
   align-items: center;
+`;
+
+export const IconCallText = styled.Text`
+  font-size: 13px;
+  width: 100%;
+  text-align: center;
+  border: 1px solid gray;
+  border-radius: 5px;
+  color: #238602;
+  border-color: #38d404;
+  padding: 2px;
 `;
 
 export const IconMessageText = styled.Text`

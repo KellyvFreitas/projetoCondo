@@ -1,6 +1,7 @@
 import React, {useState, useContext} from 'react';
 import {useNavigation} from '@react-navigation/native';
-import {Button, Keyboard, ScrollView, Text, View} from 'react-native';
+import {Button, Keyboard} from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 //-----------------------Components---------------------------------
 import Eye from '../../assets/icons/eye.svg';
 import EyeOff from '../../assets/icons/eyeOff.svg';
@@ -25,9 +26,6 @@ import {
   ForgetPasswordTouchable,
   ViewBar,
   ButtonLogin,
-  TryAgainView,
-  NotFoundText,
-  TryAgainText,
 } from './styles';
 import TabBar from '../../components/TabBar';
 
@@ -37,20 +35,16 @@ export default () => {
   const [isLoading, setIsLoading] = useState(false);
   const [selected, setSelected] = useState('');
   const [hidePass, setHidePass] = useState(false);
-  const [user, setUser] = useState('');
-  const [errorPassword, setErrorPassword] = useState(false);
 
   const {navigate} = useNavigation();
+
+  const [user, setUser] = useState('');
 
   function handleSignUp() {
     if (user === 'admin') {
       navigation.navigate('HomeAdmin');
-      setErrorPassword(false);
-    } else if (user === 'user') {
-      navigation.navigate('HomeResident');
-      setErrorPassword(false);
     } else {
-      setErrorPassword(true);
+      navigation.navigate('HomeAdmin');
     }
   }
 
@@ -98,9 +92,9 @@ export default () => {
   //     setIsLoading(false);
   //   }
   // }
-  // const handleHomeButton = () => {
-  //   navigation.navigate('MainDrawer');
-  // };
+  const handleHomeButton = () => {
+    navigation.navigate('MainDrawer');
+  };
 
   const menus = [
     {
@@ -133,44 +127,30 @@ export default () => {
 
   return (
     <Container>
-      <ScrollView>
-        <ViewLogo>
-          <Logo width="150" height="150" />
-        </ViewLogo>
       <ViewLogo>
         <LogoCIT width="150" height="150" />
       </ViewLogo>
-        <ScrollView
-        <InputArea>
-          {errorPassword ? (
-            <TryAgainView>
-              <NotFoundText>USUÁRIO NÃO ENCONTRADO/CADASTRADO</NotFoundText>
-              <TryAgainText>Gostaria de tentar novamente?</TryAgainText>
-            </TryAgainView>
-          ) : (
-            <View>
-              <Text></Text>
-            </View>
-          )}
 
-          {/* <InputText>E-mail</InputText> */}
-          <InputCustom
-            placeholder="Login ou Número do Telefone"
-            autoCapitalize="none"
-            onChangeText={t => setUser(t)}
-            // value={user.email}
-            // onChangeText={(t) => setUser({ ...user, email: t })}
-            // onPressIn={() => setSelected('email')}
-          />
-          <InputCustom
-            typeInput="password"
-            placeholder="Senha"
-            secureTextEntry
-            // value={user.password}
-            // onChangeText={(t) => setUser({ ...user, password: t })}
-            password={hidePass ? false : true}
-            onPress={() => setHidePass(!hidePass)} />
-        </InputArea>
+      <InputArea>
+        {/* <InputText>E-mail</InputText> */}
+        <InputCustom
+          placeholder="Login ou Número do Telefone"
+          autoCapitalize="none"
+          onChangeText={t => setUser(t)}
+          // value={user.email}
+          // onChangeText={(t) => setUser({ ...user, email: t })}
+          // onPressIn={() => setSelected('email')}
+        />
+        <InputCustom
+          typeInput="password"
+          placeholder="Senha"
+          secureTextEntry
+          // value={user.password}
+          // onChangeText={(t) => setUser({ ...user, password: t })}
+          password={hidePass ? false : true}
+          onPress={() => setHidePass(!hidePass)}
+        />
+
         <ViewPassword>
           <ForgetPasswordTouchable onPress={() => navigate('ForgetPassword')}>
             <TextForgotPassword>Esqueci minha senha</TextForgotPassword>
@@ -181,20 +161,9 @@ export default () => {
             // onPress={() => navigate('HomeResident')}
             onPress={() => handleSignUp()}
           />
-
-          <ViewPassword>
-            <ForgetPasswordTouchable onPress={() => navigate('ForgetPassword')}>
-              <TextForgotPassword>Esqueci minha senha</TextForgotPassword>
-            </ForgetPasswordTouchable>
-
-            <ButtonLogin
-              title="Entrar"
-              // onPress={() => navigate('HomeResident')}
-              onPress={() => handleSignUp()}
-            />
-          </ViewPassword>
         </ViewPassword>
-      </ScrollView>
+      </InputArea>
+
       <ViewTabBar>
         {menus.map((item, index) => (
           <TabBar

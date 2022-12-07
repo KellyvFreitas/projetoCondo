@@ -1,38 +1,40 @@
-import {useNavigation} from '@react-navigation/native';
-import React, {useState} from 'react';
+import {useFocusEffect, useNavigation} from '@react-navigation/native';
+import React, {useCallback, useState} from 'react';
 //-----------------------Components---------------------------------
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import Logo from '../../assets/svg/Logo-noback.svg';
-import TabBar from '../../components/TabBar';
+
 import {Colors} from '../../config/Colors';
 //-----------------------Services---------------------------------
 //-----------------------Styles------------------------------------
+import TabBar from '../../components/TabBar';
 import {
-  ButtonADMPanel,
-  ButtonADMText,
-  ButtonInviteText,
-  ButtonPanel,
-  ButtonText,
   Container,
-  IconAlertView,
-  IconColorCallView,
-  IconColorMessageView,
-  IconImageView,
-  IconMessageText,
-  IconTextView,
-  IconView,
-  InputArea,
-  InvitationOptions,
-  InvitationPanel,
-  InviteAndCallPanel,
-  TextTitle,
   ViewLogo,
   ViewTabBar,
+  InviteAndCallPanel,
+  ButtonPanel,
+  TaskList,
+  IconView,
+  IconCallText,
+  IconMessageText,
+  IconImageView,
+  IconTextView,
+  ButtonText,
+  IconColorCallView,
+  IconColorMessageView,
+  IconAlertView,
+  InputArea,
+  TextTitle,
+  InvitationPanel,
+  InvitationOptions,
   ButtonInviteText,
   ButtonADMText,
   ButtonADMPanel,
   InvitationOptions1,
 } from './styles';
+import TabBarLocations from '../../components/TabBarLocations';
+import {generallocations} from '../../Services/Locations';
 
 export default () => {
   const {navigate} = useNavigation();
@@ -51,7 +53,7 @@ export default () => {
       id: 2,
       title: 'Gravações',
       icon: <Icon name="microphone" size={33} color={Colors.ButtonSecondary} />,
-      screen: 'InviteListAdmin',
+      screen: 'InviteList',
     },
     {
       id: 3,
@@ -63,7 +65,7 @@ export default () => {
           color={Colors.ButtonSecondary}
         />
       ),
-      screen: 'MessagesAdmin',
+      screen: 'TermsConditionsLogged',
     },
     {
       id: 4,
@@ -71,7 +73,7 @@ export default () => {
       icon: (
         <Icon name="account-outline" size={33} color={Colors.ButtonSecondary} />
       ),
-      screen: 'Administrators',
+      screen: 'ProfileResident',
     },
   ];
 
@@ -84,7 +86,7 @@ export default () => {
           <ButtonADMPanel>
             <ButtonADMText>APP ADMINISTRADOR</ButtonADMText>
           </ButtonADMPanel>
-          <ButtonPanel onPress={() => navigate('SignIn')}>
+          <ButtonPanel onPress={() => navigate('Signin')}>
             <ButtonText>SAIR</ButtonText>
           </ButtonPanel>
         </InviteAndCallPanel>
@@ -93,7 +95,7 @@ export default () => {
       <InputArea>
         <TextTitle>USUÁRIOS</TextTitle>
         <InvitationPanel>
-          <InvitationOptions onPress={() => navigate('ResidentListAdmin')}>
+          <InvitationOptions>
             <ButtonInviteText>CADASTRAR USUARIO</ButtonInviteText>
           </InvitationOptions>
           <InvitationOptions1>
@@ -115,7 +117,7 @@ export default () => {
       <InputArea>
         <TextTitle>GRAVAÇÕES</TextTitle>
         <InvitationPanel>
-          <InvitationOptions onPress={() => navigate('Recordings')}>
+          <InvitationOptions>
             <ButtonInviteText>ACESSAR GRAVAÇÕES</ButtonInviteText>
           </InvitationOptions>
         </InvitationPanel>
@@ -123,11 +125,10 @@ export default () => {
       <InputArea>
         <TextTitle>MENSAGENS</TextTitle>
         <InvitationPanel>
-          <InvitationOptions onPress={() => navigate('MessagesAdmin')}>
-            <ButtonInviteText>ACESSAR MENSAGENS</ButtonInviteText>
-          </InvitationOptions>
           <InvitationOptions>
-            <ButtonInviteText>BAIXAR MENSAGENS</ButtonInviteText>
+            <ButtonInviteText onPress={() => navigate('InviteListAdmin')}>
+              ACESSAR MENSAGENS
+            </ButtonInviteText>
           </InvitationOptions>
           <InvitationOptions1>
             <ButtonInviteText>BAIXAR MENSAGENS</ButtonInviteText>
@@ -141,7 +142,7 @@ export default () => {
             <Icon name="phone" size={70} color="white" />
           </IconColorCallView>
         </IconImageView>
-        <IconTextView onPress={() => navigate('MessagesAdmin')}>
+        <IconTextView>
           <IconColorMessageView>
             <IconAlertView>
               <Icon name="message-alert" size={38} color="red" />

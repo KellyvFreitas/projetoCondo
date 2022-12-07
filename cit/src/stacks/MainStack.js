@@ -6,6 +6,7 @@ import SelectProfile from '../screens/SelectProfile';
 import SignIn from '../screens/SignIn';
 import SignUp from '../screens/SignUp';
 
+import Home from '../screens/Home';
 import TermsConditions from '../screens/TermsConditions';
 import HomeResident from '../screens/HomeResident';
 import FAQ from '../screens/FAQ';
@@ -17,11 +18,6 @@ import ForgetPassword from '../screens/ForgetPassword';
 import Calling from '../screens/Calling';
 import HomeAdmin from '../screens/HomeAdmin';
 import InviteListAdmin from '../screens/InviteListAdmin';
-import Recordings from '../screens/Recordings';
-import Administrators from '../screens/Administrators';
-import MessagesAdmin from '../screens/MessagesAdmin';
-import ResidentListAdmin from '../screens/ResidentListAdmin';
-import ReceivingCall from '../screens/ReceivingCall';
 import MessageChat from '../screens/MessageChat';
 
 const Stack = createStackNavigator();
@@ -37,8 +33,8 @@ export default () => (
     <Stack.Screen name="SignIn" component={SignIn} />
     <Stack.Screen name="ForgetPassword" component={ForgetPassword} />
     <Stack.Screen name="SignUp" component={SignUp} />
+    <Stack.Screen name="Home" component={Home} />
     <Stack.Screen name="Calling" component={Calling} />
-    <Stack.Screen name="ReceivingCall" component={ReceivingCall} />
     <Stack.Screen name="TermsConditions" component={TermsConditions} />
     <Stack.Screen
       name="TermsConditionsLogged"
@@ -50,11 +46,7 @@ export default () => (
     <Stack.Screen name="FAQLogged" component={FAQLogged} />
     <Stack.Screen name="InviteList" component={InviteList} />
     <Stack.Screen name="InviteListAdmin" component={InviteListAdmin} />
-    <Stack.Screen name="Recordings" component={Recordings} />
-    <Stack.Screen name="MessagesAdmin" component={MessagesAdmin} />
     <Stack.Screen name="MessageChat" component={MessageChat} />
     <Stack.Screen name="ProfileResident" component={ProfileResident} />
-    <Stack.Screen name="ResidentListAdmin" component={ResidentListAdmin} />
-    <Stack.Screen name="Administrators" component={Administrators} />
   </Stack.Navigator>
 );

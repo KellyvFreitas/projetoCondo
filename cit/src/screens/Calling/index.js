@@ -2,10 +2,10 @@ import {useFocusEffect, useNavigation} from '@react-navigation/native';
 import React, {useCallback, useState} from 'react';
 //-----------------------Components---------------------------------
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-//-----------------------Services---------------------------------
-import {generallocations} from '../../Services/Locations';
-//-----------------------Styles------------------------------------
 import Logo from '../../assets/svg/LogoEscuro.svg';
+//-----------------------Services---------------------------------
+//-----------------------Styles------------------------------------
+import {generallocations} from '../../Services/Locations';
 import {
   Container,
   IconColorCallView,
@@ -39,11 +39,7 @@ export default () => {
   return (
     <Container>
       <ViewLogo>
-        <Logo
-          width="250"
-          height="90"
-          onPress={() => navigate('ReceivingCall')}
-        />
+        <Logo width="250" height="90" />
       </ViewLogo>
 
       <IconView>

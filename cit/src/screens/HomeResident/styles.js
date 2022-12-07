@@ -37,6 +37,8 @@ export const ButtonText = styled.Text`
   text-align: center;
 `;
 
+export const ViewPassword = styled.View``;
+
 export const TaskList = styled.FlatList``;
 
 export const IconView = styled.View`

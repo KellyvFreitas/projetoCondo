@@ -21,7 +21,7 @@ import {
   ButtonInviteText,
 } from './styles';
 import InputCustom from '../../components/InputCustom';
-import {Platform, ScrollView} from 'react-native';
+import {Platform} from 'react-native';
 import InputObs from '../../components/InputObs';
 
 export default () => {
@@ -79,41 +79,39 @@ export default () => {
         </InviteAndCallPanel>
       </ViewLogo>
 
-      <ScrollView>
-        <InputArea>
-          <TextTitle>LISTA DE CONVIDADOS</TextTitle>
-          <InputCustom
-            placeholder="Nome do Convidado"
-            autoCapitalize="none"
-            type="text"
-          />
-          <InputCustom
-            placeholder="Telefone do Convidado"
-            autoCapitalize="none"
-            type="number"
-            keyboardType={Platform.OS === 'ios' ? 'number-pad' : 'numeric'}
-          />
-          <InvitationPanel>
-            <InvitationOptions>
-              <Icon name="plus" size={20} color="white" />
-              <ButtonInviteText>Adicionar novo convidado</ButtonInviteText>
-            </InvitationOptions>
-            <InvitationOptions>
-              <Icon name="email-outline" size={20} color="white" />
-              <ButtonInviteText>Enviar</ButtonInviteText>
-            </InvitationOptions>
-          </InvitationPanel>
-        </InputArea>
+      <InputArea>
+        <TextTitle>LISTA DE CONVIDADOS</TextTitle>
+        <InputCustom
+          placeholder="Nome do Convidado"
+          autoCapitalize="none"
+          type="text"
+        />
+        <InputCustom
+          placeholder="Telefone do Convidado"
+          autoCapitalize="none"
+          type="number"
+          keyboardType={Platform.OS === 'ios' ? 'number-pad' : 'numeric'}
+        />
+        <InvitationPanel>
+          <InvitationOptions>
+            <Icon name="plus" size={20} color="white" />
+            <ButtonInviteText>Adicionar novo convidado</ButtonInviteText>
+          </InvitationOptions>
+          <InvitationOptions>
+            <Icon name="email-outline" size={20} color="white" />
+            <ButtonInviteText>Enviar</ButtonInviteText>
+          </InvitationOptions>
+        </InvitationPanel>
+      </InputArea>
 
-        <InputArea>
-          <TextTitle>OBSERVAÇÕES</TextTitle>
-          <InputObs
-            placeholder="Digite aqui caso tenha alguma observação ou comentário para a portaria ou para a administração."
-            autoCapitalize="none"
-            type="text"
-          />
-        </InputArea>
-      </ScrollView>
+      <InputArea>
+        <TextTitle>OBSERVAÇÕES</TextTitle>
+        <InputObs
+          placeholder="Digite aqui caso tenha alguma observação ou comentário para a portaria ou para a administração."
+          autoCapitalize="none"
+          type="text"
+        />
+      </InputArea>
 
       <ViewTabBar>
         {menus.map((item, index) => (
