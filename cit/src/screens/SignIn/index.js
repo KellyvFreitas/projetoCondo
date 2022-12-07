@@ -6,7 +6,7 @@ import Eye from '../../assets/icons/eye.svg';
 import EyeOff from '../../assets/icons/eyeOff.svg';
 import {UserContext} from '../../contexts/UserContext';
 import {Colors} from '../../config/Colors';
-import Logo from '../../assets/svg/Logo.svg';
+import LogoCIT from '../../assets/svg/LogoCIT.svg';
 import InputCustom from '../../components/InputCustom';
 import ButtonCustom from '../../components/ButtonCustom';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -137,7 +137,10 @@ export default () => {
         <ViewLogo>
           <Logo width="150" height="150" />
         </ViewLogo>
-
+      <ViewLogo>
+        <LogoCIT width="150" height="150" />
+      </ViewLogo>
+        <ScrollView
         <InputArea>
           {errorPassword ? (
             <TryAgainView>
@@ -166,7 +169,17 @@ export default () => {
             // value={user.password}
             // onChangeText={(t) => setUser({ ...user, password: t })}
             password={hidePass ? false : true}
-            onPress={() => setHidePass(!hidePass)}
+            onPress={() => setHidePass(!hidePass)} />
+        </InputArea>
+        <ViewPassword>
+          <ForgetPasswordTouchable onPress={() => navigate('ForgetPassword')}>
+            <TextForgotPassword>Esqueci minha senha</TextForgotPassword>
+          </ForgetPasswordTouchable>
+
+          <ButtonCustom
+            title="Entrar"
+            // onPress={() => navigate('HomeResident')}
+            onPress={() => handleSignUp()}
           />
 
           <ViewPassword>
@@ -180,7 +193,7 @@ export default () => {
               onPress={() => handleSignUp()}
             />
           </ViewPassword>
-        </InputArea>
+        </ViewPassword>
       </ScrollView>
       <ViewTabBar>
         {menus.map((item, index) => (

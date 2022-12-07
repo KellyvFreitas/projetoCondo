@@ -1,11 +1,11 @@
 import styled from 'styled-components/native';
-import { Colors } from '../../config/Colors';
-import { Fonts } from '../../config/Fonts';
+import {Colors} from '../../config/Colors';
+import {Fonts} from '../../config/Fonts';
 
 export const Container = styled.TouchableOpacity.attrs({
   activeOpacity: 0.7,
 })`
-  background-color: ${props => `${props.bgcolor}`};
+  background-color: #303638;
   margin: 8px 4px;
   align-items: center;
   justify-content: center;
@@ -13,7 +13,7 @@ export const Container = styled.TouchableOpacity.attrs({
 `;
 
 export const ButtonText = styled.Text`
-  color: ${props => `${props.color}`};
+  color: white;
   padding: 16px 8px;
   font-family: ${Fonts.fontRegularPoppins};
   font-size: 16px;

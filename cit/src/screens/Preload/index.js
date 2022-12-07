@@ -1,5 +1,6 @@
 import React, {useEffect, useContext} from 'react';
 import {UserContext} from '../../contexts/UserContext';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import {useNavigation} from '@react-navigation/native';
 import Mensagem from '../../Services/Mensagem';
 import {apiServices} from '../../Services/Auth';
@@ -43,7 +44,7 @@ export default () => {
   useEffect(() => {
     setTimeout(() => {
       navigation.reset({
-        routes: [{name: 'SignIn'}],
+        routes: [{name: 'SelectProfile'}],
       });
     }, 3000);
   }, []);

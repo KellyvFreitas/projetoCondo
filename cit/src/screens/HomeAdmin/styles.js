@@ -16,7 +16,7 @@ export const InviteAndCallPanel = styled.View`
   width: 100%;
   height: 45px;
   align-items: center;
-  background-color: #087ca4;
+  background-color: #303637;
   justify-content: space-around;
 `;
 
@@ -25,7 +25,7 @@ export const ButtonPanel = styled.TouchableOpacity`
   height: 25px;
   justify-content: center;
   align-items: center;
-  background-color: #0894c4;
+  background-color: #303606;
   border-radius: 5px;
 `;
 
@@ -85,7 +85,7 @@ export const IconColorCallView = styled.View`
   width: 100%;
   width: 110px;
   height: 110px;
-  background-color: #38d404;
+  background-color: #65aa28;
   border: 1px solid gray;
   border-radius: 55px;
   justify-content: center;
@@ -97,7 +97,7 @@ export const IconColorMessageView = styled.View`
   width: 100%;
   width: 110px;
   height: 110px;
-  background-color: #087ca4;
+  background-color: #3b688a;
   border: 1px solid gray;
   border-radius: 55px;
   justify-content: center;
@@ -142,9 +142,21 @@ export const InvitationOptions = styled.TouchableOpacity`
   align-items: center;
   justify-content: center;
   width: 150px;
-  background-color: #0894c4;
+  background-color: #303638;
   border-radius: 5px;
-  margin-right: 5px;
+  margin: 6px;
+`;
+
+export const InvitationOptions1 = styled.TouchableOpacity`
+  flex-direction: row;
+  height: 30px;
+  background-color: white;
+  align-items: center;
+  justify-content: center;
+  width: 150px;
+  background-color: #3b688a;
+  border-radius: 5px;
+  margin: 6px 0;
 `;
 
 export const InvitationPanel = styled.View`

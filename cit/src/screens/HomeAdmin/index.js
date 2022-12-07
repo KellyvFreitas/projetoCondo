@@ -28,6 +28,10 @@ import {
   TextTitle,
   ViewLogo,
   ViewTabBar,
+  ButtonInviteText,
+  ButtonADMText,
+  ButtonADMPanel,
+  InvitationOptions1,
 } from './styles';
 
 export default () => {
@@ -92,9 +96,9 @@ export default () => {
           <InvitationOptions onPress={() => navigate('ResidentListAdmin')}>
             <ButtonInviteText>CADASTRAR USUARIO</ButtonInviteText>
           </InvitationOptions>
-          <InvitationOptions>
+          <InvitationOptions1>
             <ButtonInviteText>ACESSAR USUARIOS</ButtonInviteText>
-          </InvitationOptions>
+          </InvitationOptions1>
         </InvitationPanel>
       </InputArea>
       <InputArea>
@@ -103,9 +107,9 @@ export default () => {
           <InvitationOptions onPress={() => navigate('InviteListAdmin')}>
             <ButtonInviteText>ACESSAR CONVITES</ButtonInviteText>
           </InvitationOptions>
-          <InvitationOptions>
+          <InvitationOptions1>
             <ButtonInviteText>BAIXAR CONVITES</ButtonInviteText>
-          </InvitationOptions>
+          </InvitationOptions1>
         </InvitationPanel>
       </InputArea>
       <InputArea>
@@ -125,6 +129,9 @@ export default () => {
           <InvitationOptions>
             <ButtonInviteText>BAIXAR MENSAGENS</ButtonInviteText>
           </InvitationOptions>
+          <InvitationOptions1>
+            <ButtonInviteText>BAIXAR MENSAGENS</ButtonInviteText>
+          </InvitationOptions1>
         </InvitationPanel>
       </InputArea>
 

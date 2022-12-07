@@ -23,6 +23,8 @@ import {
   ButtonText,
   IconColorCallView,
   IconColorMessageView,
+  TitleText,
+  TaskCondominio,
 } from './styles';
 import TabBarLocations from '../../components/TabBarLocations';
 import {generallocations} from '../../Services/Locations';
@@ -30,6 +32,7 @@ import {generallocations} from '../../Services/Locations';
 export default () => {
   const {navigate} = useNavigation();
   const [location, setLocation] = useState();
+  const [selectedId, setSelectedId] = useState(null);
 
   const menus = [
     {
@@ -74,6 +77,14 @@ export default () => {
     setLocation(response);
   };
 
+  const handleClickLocation = id => {
+    if (selectedId) {
+      setSelectedId(null);
+    } else {
+      setSelectedId(id);
+    }
+  };
+
   useFocusEffect(
     useCallback(() => {
       handleGetLocations();
@@ -86,12 +97,7 @@ export default () => {
         <Logo width="250" height="90" />
 
         <InviteAndCallPanel>
-          <ButtonPanel onPress={() => navigate('Calling')}>
-            <ButtonText>LIGAR</ButtonText>
-          </ButtonPanel>
-          <ButtonPanel onPress={() => navigate('InviteList')}>
-            <ButtonText>CONVIDAR</ButtonText>
-          </ButtonPanel>
+          <TitleText>SELECIONE O CONDOMINIO</TitleText>
         </InviteAndCallPanel>
       </ViewLogo>
 
@@ -100,6 +106,8 @@ export default () => {
         keyExtractor={(item, index) => index}
         renderItem={({item, index}) => (
           <TabBarLocations
+            onPress={handleClickLocation(item.id)}
+            key={index}
             index={index}
             image={item?.image}
             title={item?.title}
@@ -108,7 +116,7 @@ export default () => {
             type={item?.type}
             number={item?.number}
             block={item?.block}
-            onPress={null}
+            selected={item.id === selectedId}
           />
         )}
       />

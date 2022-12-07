@@ -3,8 +3,9 @@ import {Colors} from '../../config/Colors';
 import {Fonts} from '../../config/Fonts';
 
 export const Container = styled.SafeAreaView`
-  background-color: #293335;
-  flex: 1;
+  background-color: #303434;
+  height: 100%;
+  padding: 0 10px;
 `;
 export const ViewLogo = styled.View`
   align-items: center;
@@ -16,82 +17,93 @@ export const ViewTabBar = styled.View`
   flex-direction: row;
   background-color: ${Colors.backgroundInput};
   justify-content: flex-end;
-  max-height: 70px;
+  position: absolute;
+  bottom: 0;
 `;
 
 export const InputArea = styled.View`
-  flex: 1;
   margin-top: 5px;
   margin-left: 30px;
-  width: 85%;
+  margin: 10px;
 `;
 
 export const InvitationOptions = styled.TouchableOpacity``;
 
-export const TextTitle = styled.Text`
-  justify-content: center;
-  align-content: center;
-  margin-bottom: 10px;
-  font-size: 18px;
-  font-weight: 500;
-  color: white;
-`;
-export const TextTitleInvite = styled.Text`
-  padding: 15px;
-  font-weight: 450;
+export const ViewText = styled.View``;
+
+export const ViewListChat = styled.View`
+  background-color: #e7e7e7;
+  border-radius: 8px;
+  margin: 10px;
+  height: 60%;
 `;
 
-export const ViewGeral = styled.View`
-  text-align: left;
-  font-size: 15px;
-  height: 300px;
-  font-weight: 500;
-  color: #736f6f;
-  margin-top: 35px;
-  background-color: #e8e4e4;
+export const TitleMessage = styled.Text`
+  position: absolute;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 8px 20px;
+`;
+
+export const BadgeMessage = styled.Text`
+  background-color: gray;
   border-radius: 5px;
+  color: white;
+  margin: 8px 120px;
+  height: 30px;
+  width: 30%;
+  text-align: center;
+  padding: 5px 0;
 `;
 
-export const NameTitleText = styled.Text`
-  font-size: 14px;
-  font-weight: 500;
-`;
-export const NamePersonText = styled.Text`
-  font-size: 14px;
-  font-weight: 500;
-`;
-
-export const ViewDateTable = styled.View`
+export const ViewTitleChat = styled.View`
   justify-content: center;
 `;
 
-export const ViewGeneral = styled.View`
+export const ViewChat = styled.TouchableOpacity`
   flex-direction: row;
   justify-content: space-between;
 `;
 
-export const ViewIcon = styled.View`
-  width: 32px;
-  height: 32px;
-  margin-left: 10px;
-  margin-right: 10px;
+export const ImageChat = styled.Image`
+  height: 50px;
+  width: 50px;
+  border-radius: 20px;
+  margin: 10px;
 `;
 
-export const TextNamePersonView = styled.View`
-  padding-left: 15px;
-`;
-
-export const ViewTitleTable = styled.View`
+export const ViewChatUserInfo = styled.View`
   flex-direction: row;
 `;
 
-export const NameDateText = styled.Text`
-  text-align: right;
-  font-size: 14px;
-  font-weight: 500;
+export const TextChatUserHouse = styled.Text`
+  color: white;
+  font-size: 17px;
+  font-weight: bold;
 `;
-export const NameHourText = styled.Text`
-  text-align: right;
-  font-size: 12px;
-  font-weight: 500;
+
+export const TextChatUserName = styled.Text`
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+`;
+
+export const ViewChatDateInfo = styled.View`
+  margin: 8px;
+`;
+
+export const TextDate = styled.Text`
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+`;
+
+export const TextHour = styled.Text`
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+`;
+
+export const ViewChatHouseName = styled.View`
+  margin: 8px;
 `;

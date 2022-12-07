@@ -2,6 +2,7 @@ import React from 'react';
 
 import {createStackNavigator} from '@react-navigation/stack';
 import Preload from '../screens/Preload';
+import SelectProfile from '../screens/SelectProfile';
 import SignIn from '../screens/SignIn';
 import SignUp from '../screens/SignUp';
 
@@ -21,6 +22,7 @@ import Administrators from '../screens/Administrators';
 import MessagesAdmin from '../screens/MessagesAdmin';
 import ResidentListAdmin from '../screens/ResidentListAdmin';
 import ReceivingCall from '../screens/ReceivingCall';
+import MessageChat from '../screens/MessageChat';
 
 const Stack = createStackNavigator();
 
@@ -31,6 +33,7 @@ export default () => (
       headerShown: false,
     }}>
     <Stack.Screen name="Preload" component={Preload} />
+    <Stack.Screen name="SelectProfile" component={SelectProfile} />
     <Stack.Screen name="SignIn" component={SignIn} />
     <Stack.Screen name="ForgetPassword" component={ForgetPassword} />
     <Stack.Screen name="SignUp" component={SignUp} />
@@ -49,6 +52,7 @@ export default () => (
     <Stack.Screen name="InviteListAdmin" component={InviteListAdmin} />
     <Stack.Screen name="Recordings" component={Recordings} />
     <Stack.Screen name="MessagesAdmin" component={MessagesAdmin} />
+    <Stack.Screen name="MessageChat" component={MessageChat} />
     <Stack.Screen name="ProfileResident" component={ProfileResident} />
     <Stack.Screen name="ResidentListAdmin" component={ResidentListAdmin} />
     <Stack.Screen name="Administrators" component={Administrators} />

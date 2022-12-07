@@ -107,3 +107,10 @@ export const IconColorMessageView = styled.View`
   margin-bottom: 10px;
   transform: scaleX(-1);
 `;
+
+export const TitleText = styled.Text`
+  color: white;
+  flex-direction: row;
+`;
+
+export const TaskCondominio = styled.TouchableOpacity``;
