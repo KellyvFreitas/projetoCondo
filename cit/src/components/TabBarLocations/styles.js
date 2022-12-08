@@ -5,7 +5,7 @@ export const LocationsView = styled.TouchableOpacity`
   flex: 1;
   flex-direction: row;
   margin-top: 8px;
-  background-color: ${Colors.backgroundInput};
+  background-color: ${props => props.bgColorStatus};
   min-height: 100px;
   align-items: center;
 `;

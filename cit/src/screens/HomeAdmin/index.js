@@ -73,7 +73,7 @@ export default () => {
       icon: (
         <Icon name="account-outline" size={33} color={Colors.ButtonSecondary} />
       ),
-      screen: 'ProfileResident',
+      screen: 'Administrators',
     },
   ];
 
@@ -86,7 +86,7 @@ export default () => {
           <ButtonADMPanel>
             <ButtonADMText>APP ADMINISTRADOR</ButtonADMText>
           </ButtonADMPanel>
-          <ButtonPanel onPress={() => navigate('Signin')}>
+          <ButtonPanel>
             <ButtonText>SAIR</ButtonText>
           </ButtonPanel>
         </InviteAndCallPanel>
@@ -95,7 +95,7 @@ export default () => {
       <InputArea>
         <TextTitle>USUÁRIOS</TextTitle>
         <InvitationPanel>
-          <InvitationOptions>
+          <InvitationOptions onPress={() => navigate('ResidentListAdmin')}>
             <ButtonInviteText>CADASTRAR USUARIO</ButtonInviteText>
           </InvitationOptions>
           <InvitationOptions1>
@@ -106,7 +106,7 @@ export default () => {
       <InputArea>
         <TextTitle>CONVITES</TextTitle>
         <InvitationPanel>
-          <InvitationOptions onPress={() => navigate('InviteListAdmin')}>
+          <InvitationOptions onPress={() => navigate('InviteListAdmim')}>
             <ButtonInviteText>ACESSAR CONVITES</ButtonInviteText>
           </InvitationOptions>
           <InvitationOptions1>
@@ -117,7 +117,7 @@ export default () => {
       <InputArea>
         <TextTitle>GRAVAÇÕES</TextTitle>
         <InvitationPanel>
-          <InvitationOptions>
+          <InvitationOptions onPress={() => navigate('Recordings')}>
             <ButtonInviteText>ACESSAR GRAVAÇÕES</ButtonInviteText>
           </InvitationOptions>
         </InvitationPanel>

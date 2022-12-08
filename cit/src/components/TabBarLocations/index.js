@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  ButtonContainer,
   LocationsView,
   ViewImage,
   InfoCardView,
@@ -11,7 +12,7 @@ import {
   ViewLocationsAdress,
   LocationsType,
 } from './styles';
-
+import {Colors} from '../../config/Colors';
 const TabBarLocations = ({
   image,
   title,
@@ -21,9 +22,15 @@ const TabBarLocations = ({
   number,
   block,
   selected,
+  onPress,
+  bgColorStatus,
 }) => {
   return (
-    <LocationsView style={{backgroundColor: selected ? 'red' : 'green'}}>
+    <LocationsView
+      onPress={onPress}
+      bgColorStatus={
+        selected === false ? Colors.primary : Colors.backgroundInput
+      }>
       <ViewImage>
         <ImageLocation source={{uri: image}} resizeMode={'contain'} />
       </ViewImage>

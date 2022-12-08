@@ -116,3 +116,4 @@ export const TitleText = styled.Text`
 `;
 
 export const TaskCondominio = styled.TouchableOpacity``;
+export const ViewResicence = styled.View``;

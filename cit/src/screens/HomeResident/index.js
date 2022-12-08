@@ -32,7 +32,9 @@ import {generallocations} from '../../Services/Locations';
 export default () => {
   const {navigate} = useNavigation();
   const [location, setLocation] = useState();
-  const [selectedId, setSelectedId] = useState(null);
+  const [selectedId, setSelectedId] = useState(false);
+  const [selectedItem, setSelectedItem] = useState();
+  const [phone, setPhone] = useState();
 
   const menus = [
     {
@@ -77,11 +79,9 @@ export default () => {
     setLocation(response);
   };
 
-  const handleClickLocation = id => {
-    if (selectedId) {
-      setSelectedId(null);
-    } else {
-      setSelectedId(id);
+  const handleClickLocation = item => {
+    if (item === item) {
+      setSelectedId(true);
     }
   };
 
@@ -90,7 +90,7 @@ export default () => {
       handleGetLocations();
     }, []),
   );
-
+  console.log('SELECIONE', selectedId);
   return (
     <Container>
       <ViewLogo>
@@ -106,7 +106,9 @@ export default () => {
         keyExtractor={(item, index) => index}
         renderItem={({item, index}) => (
           <TabBarLocations
-            onPress={handleClickLocation(item.id)}
+            onPress={() => {
+              setSelectedItem(item);
+            }}
             key={index}
             index={index}
             image={item?.image}
@@ -116,11 +118,10 @@ export default () => {
             type={item?.type}
             number={item?.number}
             block={item?.block}
-            selected={item.id === selectedId}
+            selected={item === selectedItem ? false : true}
           />
         )}
       />
-
       <IconView>
         <IconImageView onPress={() => navigate('Calling')}>
           <IconColorCallView>
