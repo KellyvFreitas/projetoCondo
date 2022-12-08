@@ -2,15 +2,17 @@ import React from 'react';
 import {useNavigation} from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {Colors} from '../../config/Colors';
-import LogoCit from '../../assets/svg/LogoCIT.svg';
+import LogoCit from '../../assets/svg/LogoCITcírculoEscuro.svg';
 
 import {
   Container,
   Logo,
   ViewLogo,
-  Button,
+  ButtonAdmim,
   ButtonAdmin,
   TitleButton,
+  ButtonMorador,
+  ButtonMordor,
 } from './styles';
 import {View} from 'react-native';
 
@@ -23,19 +25,21 @@ export default () => {
         <LogoCit width="350" height="120" />
       </ViewLogo>
 
-      <Button>
+      <ButtonMordor>
+        <ButtonMorador>
+          <TitleButton onPress={() => navigate('MainStackMorador')}>
+            Morador
+          </TitleButton>
+        </ButtonMorador>
+      </ButtonMordor>
+
+      <ButtonAdmim>
         <ButtonAdmin>
-          <TitleButton onPress={() => navigate('SignIn')}>
+          <TitleButton onPress={() => navigate('MainStackAdministrador')}>
             Administrador
           </TitleButton>
         </ButtonAdmin>
-      </Button>
-
-      <Button>
-        <ButtonAdmin>
-          <TitleButton onPress={() => navigate('SignIn')}>Morador</TitleButton>
-        </ButtonAdmin>
-      </Button>
+      </ButtonAdmim>
     </Container>
   );
 };

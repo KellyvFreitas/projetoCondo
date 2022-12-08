@@ -2,7 +2,7 @@ import {useFocusEffect, useNavigation} from '@react-navigation/native';
 import React, {useCallback, useState} from 'react';
 //-----------------------Components---------------------------------
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import Logo from '../../assets/svg/Logo-noback.svg';
+import Logo from '../../assets/svg/LogoCITescuro';
 
 import {Colors} from '../../config/Colors';
 //-----------------------Services---------------------------------
@@ -47,13 +47,13 @@ export default () => {
       icon: (
         <Icon name="email-outline" size={33} color={Colors.ButtonSecondary} />
       ),
-      screen: 'InviteListAdmin',
+      screen: 'InviteListAdmim',
     },
     {
       id: 2,
       title: 'Gravações',
       icon: <Icon name="microphone" size={33} color={Colors.ButtonSecondary} />,
-      screen: 'InviteList',
+      screen: 'Recordings',
     },
     {
       id: 3,
@@ -65,7 +65,7 @@ export default () => {
           color={Colors.ButtonSecondary}
         />
       ),
-      screen: 'TermsConditionsLogged',
+      screen: 'InviteListAdmin',
     },
     {
       id: 4,
@@ -137,12 +137,13 @@ export default () => {
       </InputArea>
 
       <IconView>
-        <IconImageView onPress={() => navigate('Calling')}>
+        <IconImageView onPress={() => navigate('HomeResident')}>
           <IconColorCallView>
             <Icon name="phone" size={70} color="white" />
           </IconColorCallView>
         </IconImageView>
-        <IconTextView>
+
+        <IconTextView onPress={() => navigate('InviteListAdmin')}>
           <IconColorMessageView>
             <IconAlertView>
               <Icon name="message-alert" size={38} color="red" />

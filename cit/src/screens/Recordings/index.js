@@ -1,8 +1,9 @@
 import {useFocusEffect, useNavigation} from '@react-navigation/native';
 import React, {useCallback, useState} from 'react';
 import {ScrollView, StyleSheet, TouchableOpacity} from 'react-native';
-//-----------------------Components---------------------------------
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+//-----------------------Components---------------------------------
+
 import Logo from '../../assets/svg/LogoEscuro.svg';
 import WaveSound from '../../assets/svg/wave.svg';
 import InputIcon from '../../components/InputIcon';
@@ -35,6 +36,7 @@ import {
   ViewLogo,
   ViewTabBar,
   ViewTitleTable,
+  IconReturn,
 } from './styles';
 
 import Lupa from '../../assets/svg/lupa.svg';
@@ -42,7 +44,7 @@ import * as Animatable from 'react-native-animatable';
 import Accordion from 'react-native-collapsible/Accordion';
 
 export default () => {
-  const {navigate} = useNavigation();
+  const {navigate, goBack} = useNavigation();
   const [location, setLocation] = useState();
 
   const handleGetLocations = async () => {
@@ -199,6 +201,11 @@ export default () => {
       <ViewLogo>
         <Logo width="250" height="90" />
       </ViewLogo>
+
+      <IconReturn onPress={() => goBack()}>
+        <Icon name="chevron-left-circle" size={25} color="white" />
+      </IconReturn>
+
       <InputArea>
         <TextTitle>PESQUISAR GRAVAÇÕES</TextTitle>
         <InvitationOptions>

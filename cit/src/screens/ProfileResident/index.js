@@ -77,7 +77,7 @@ export default () => {
             <ButtonText>LIGAR</ButtonText>
           </ButtonPanel>
           <ButtonPanel onPress={() => navigate('InviteList')}>
-            <ButtonText>MENSAGEM</ButtonText>
+            <ButtonText>CONVIDAR</ButtonText>
           </ButtonPanel>
         </InviteAndCallPanel>
       </ViewLogo>

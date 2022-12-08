@@ -18,6 +18,7 @@ import {
   ViewText,
   MessageImage,
   ViewInput,
+  IconReturn,
 } from './styles';
 import {View} from 'react-native';
 
@@ -77,6 +78,10 @@ export default ({route, navigation}) => {
 
       <ViewInput>
         <InputCustom placeholder="Digite uma mensagem" />
+
+        <IconReturn>
+          <Icon name="chevron-right-box" size={30} color="gray" />
+        </IconReturn>
       </ViewInput>
     </Container>
   );

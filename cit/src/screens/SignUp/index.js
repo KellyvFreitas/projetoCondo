@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import { useNavigation } from '@react-navigation/native';
-import { Keyboard } from 'react-native';
+import React, {useState, useEffect, useCallback} from 'react';
+import {useNavigation} from '@react-navigation/native';
+import {Keyboard} from 'react-native';
 import {
   Container,
   ViewBack,
@@ -20,18 +20,17 @@ import Logo from '../../assets/svg/Logo.svg';
 import InputCustom from '../../components/InputCustom';
 import MaskedCell from '../../components/InputCellphone';
 
-import { apiServices } from '../../Services/Auth';
+import {apiServices} from '../../Services/Auth';
 import Mensagem from '../../Services/Mensagem';
 import Header from '../../components/Header';
 import BackIcon from '../../assets/icons/arrow-left.svg';
 
 import ButtonCustom from '../../components/ButtonCustom';
 
-import { Colors } from '../../config/Colors';
+import {Colors} from '../../config/Colors';
 
 export default () => {
-
-  const { navigate, goBack } = useNavigation();
+  const {navigate, goBack} = useNavigation();
   const [isLoading, setIsLoading] = useState(false);
   const [selected, setSelected] = useState('');
   const [hidePass, setHidePass] = useState(false);
@@ -163,15 +162,10 @@ export default () => {
 
   return (
     <Container>
-
-
       <ButtonBack onPress={handleBack}>
         <Icon name="menu-left" size={35} color={Colors.textColorLight} />
-        <TextBack>
-          Voltar
-        </TextBack>
+        <TextBack>Voltar</TextBack>
       </ButtonBack>
-
       <LogoArea>
         <Logo width="100" height="100" />
       </LogoArea>
@@ -180,14 +174,14 @@ export default () => {
           <TextInput>Nome</TextInput>
           <InputCustom
             placeholder="Digite seu nome"
-          // value={farmaceutico.nome}
-          // onChangeText={t => setFarmaceutico({ ...farmaceutico, nome: t })}
+            // value={farmaceutico.nome}
+            // onChangeText={t => setFarmaceutico({ ...farmaceutico, nome: t })}
           />
           <TextInput>E-mail</TextInput>
           <InputCustom
             placeholder="Digite seu e-mail"
-          // value={user.email}
-          // onChangeText={t => setUser({ ...user, email: t })}
+            // value={user.email}
+            // onChangeText={t => setUser({ ...user, email: t })}
           />
           <TextInput>Telefone</TextInput>
           <MaskedCell
@@ -200,8 +194,8 @@ export default () => {
           <TextInput>Data Aniversário</TextInput>
           <InputCustom
             placeholder="Aniversário"
-          // value={user.email}
-          // onChangeText={t => setUser({ ...user, email: t })}
+            // value={user.email}
+            // onChangeText={t => setUser({ ...user, email: t })}
           />
           <TextInput>Criar Senha</TextInput>
           <InputCustom

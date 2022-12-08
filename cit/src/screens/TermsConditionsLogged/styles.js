@@ -9,7 +9,7 @@ export const ViewLogo = styled.View`
   align-items: center;
 `;
 
-export const ViewTermsAndConditions = styled.View`
+export const ViewTermsAndConditions = styled.ScrollView`
   flex: 1;
 `;
 

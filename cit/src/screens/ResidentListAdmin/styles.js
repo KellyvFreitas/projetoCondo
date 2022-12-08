@@ -98,3 +98,7 @@ export const ButtonInviteText = styled.Text`
   text-align: left;
   padding-left: 15px;
 `;
+
+export const IconReturn = styled.TouchableOpacity`
+  padding: 10px;
+`;

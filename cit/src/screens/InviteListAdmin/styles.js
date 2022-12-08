@@ -107,3 +107,7 @@ export const TextHour = styled.Text`
 export const ViewChatHouseName = styled.View`
   margin: 8px;
 `;
+
+export const IconReturn = styled.TouchableOpacity`
+  padding: 10px;
+`;

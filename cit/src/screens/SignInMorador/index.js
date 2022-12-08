@@ -7,9 +7,9 @@ import Eye from '../../assets/icons/eye.svg';
 import EyeOff from '../../assets/icons/eyeOff.svg';
 import {UserContext} from '../../contexts/UserContext';
 import {Colors} from '../../config/Colors';
-import Logo from '../../assets/svg/LogoCITcírculoEscuro.svg';
+import Logo from '../../assets/svg/Logo.svg';
 import InputCustom from '../../components/InputCustom';
-import ButtonCustom from '../../components/ButtonCustom';
+import ButtonCustomMorador from '../../components/ButtonCustomMorador';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 //-----------------------Services---------------------------------
 import {apiServices} from '../../Services/Auth';
@@ -101,7 +101,7 @@ export default () => {
       id: 1,
       title: 'Suporte',
       icon: <Icon name="face-agent" size={33} color={Colors.ButtonSecondary} />,
-      screen: 'FAQ',
+      screen: 'FAQMorador',
     },
     {
       id: 2,
@@ -121,7 +121,7 @@ export default () => {
           color={Colors.ButtonSecondary}
         />
       ),
-      screen: 'TermsConditions',
+      screen: 'TermsConditionsMorador',
     },
   ];
 
@@ -156,10 +156,10 @@ export default () => {
             <TextForgotPassword>Esqueci minha senha</TextForgotPassword>
           </ForgetPasswordTouchable>
 
-          <ButtonCustom
+          <ButtonCustomMorador
             title="Entrar"
-            // onPress={() => navigate('HomeResident')}
-            onPress={() => handleSignUp()}
+            onPress={() => navigate('HomeResident')}
+            // onPress={() => handleSignUp()}
           />
         </ViewPassword>
       </InputArea>

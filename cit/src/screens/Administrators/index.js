@@ -72,7 +72,7 @@ export default () => {
       icon: (
         <Icon name="email-outline" size={33} color={Colors.ButtonSecondary} />
       ),
-      screen: 'InviteListAdmin',
+      screen: 'InviteListAdmim',
     },
     {
       id: 3,
@@ -90,7 +90,7 @@ export default () => {
       id: 4,
       title: 'Gravações',
       icon: <Icon name="microphone" size={33} color={Colors.ButtonSecondary} />,
-      screen: 'InviteListAdmin',
+      screen: 'Recordings',
     },
   ];
 

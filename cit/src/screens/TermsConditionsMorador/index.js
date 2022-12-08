@@ -29,7 +29,7 @@ export default () => {
       icon: (
         <Icon name="home-outline" size={33} color={Colors.ButtonSecondary} />
       ),
-      screen: 'SignIn',
+      screen: 'SignInMorador',
     },
     {
       id: 2,
@@ -43,7 +43,7 @@ export default () => {
       id: 3,
       title: 'Suporte',
       icon: <Icon name="face-agent" size={33} color={Colors.ButtonSecondary} />,
-      screen: 'FAQ',
+      screen: 'FAQMorador',
     },
   ];
 
@@ -53,7 +53,7 @@ export default () => {
         <Logo width="250" height="90" />
 
         <InviteAndCallPanel>
-          <ButtonPanel onPress={() => navigate('SignIn')}>
+          <ButtonPanel onPress={() => navigate('SignInMorador')}>
             <ButtonText>VOLTAR</ButtonText>
           </ButtonPanel>
         </InviteAndCallPanel>

@@ -131,3 +131,7 @@ export const TextDownload = styled.Text`
 export const DownloadView = styled.View`
   margin-left: 230px;
 `;
+
+export const IconReturn = styled.TouchableOpacity`
+  padding: 10px;
+`;

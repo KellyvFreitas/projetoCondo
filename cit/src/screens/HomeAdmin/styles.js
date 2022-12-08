@@ -85,8 +85,7 @@ export const IconMessageText = styled.Text`
   width: 100%;
   text-align: center;
   border-radius: 5px;
-  color: #fff;
-  background-color: #087ca4;
+  color: #087ca4;
   padding: 2px;
 `;
 

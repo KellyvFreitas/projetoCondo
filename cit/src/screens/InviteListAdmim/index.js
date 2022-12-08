@@ -28,6 +28,7 @@ import {
   ViewLogo,
   ViewTabBar,
   ViewTitleTable,
+  IconReturn,
 } from './styles';
 
 import Lupa from '../../assets/svg/lupa.svg';
@@ -37,7 +38,7 @@ import * as Animatable from 'react-native-animatable';
 import Accordion from 'react-native-collapsible/Accordion';
 
 export default () => {
-  const {navigate} = useNavigation();
+  const {navigate, goBack} = useNavigation();
   const [location, setLocation] = useState();
 
   const handleGetLocations = async () => {
@@ -178,6 +179,11 @@ export default () => {
       <ViewLogo>
         <Logo width="250" height="90" />
       </ViewLogo>
+
+      <IconReturn onPress={() => goBack()}>
+        <Icon name="chevron-left-circle" size={25} color="white" />
+      </IconReturn>
+
       <InputArea>
         <TextTitle>PESQUISAR CONVITES</TextTitle>
         <InvitationOptions>

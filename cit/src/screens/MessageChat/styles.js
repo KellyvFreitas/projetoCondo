@@ -84,4 +84,10 @@ export const ViewInput = styled.TouchableOpacity`
   bottom: 0;
   width: 100%;
   margin: 18px;
+  flex-direction: row;
+`;
+
+export const IconReturn = styled.TouchableOpacity`
+  margin: 8px -35px;
+  z-index: 100;
 `;

@@ -123,13 +123,13 @@ export default () => {
         )}
       />
       <IconView>
-        <IconImageView onPress={() => navigate('Calling')}>
+        <IconImageView onPress={() => navigate('Contact')}>
           <IconColorCallView>
             <Icon name="phone" size={70} color="white" />
           </IconColorCallView>
           <IconCallText>LIGAR</IconCallText>
         </IconImageView>
-        <IconTextView>
+        <IconTextView onPress={() => navigate('InviteListAdmin')}>
           <IconColorMessageView>
             <Icon name="message-processing-outline" size={70} color="white" />
           </IconColorMessageView>

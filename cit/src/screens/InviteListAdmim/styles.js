@@ -95,3 +95,7 @@ export const NameHourText = styled.Text`
   font-size: 12px;
   font-weight: 500;
 `;
+
+export const IconReturn = styled.TouchableOpacity`
+  padding: 10px;
+`;
