@@ -20,6 +20,8 @@ import ReceivingCall from '../screens/ReceivingCall';
 import Recordings from '../screens/Recordings';
 import FAQMorador from '../screens/FAQMorador';
 import Contact from '../screens/Contact';
+import InviteListMorador from '../screens/InviteListMorador';
+import MessageChatMorador from '../screens/MessageChatMorador';
 
 const Stack = createStackNavigator();
 
@@ -53,5 +55,7 @@ export default () => (
     <Stack.Screen name="Recordings" component={Recordings} />
     <Stack.Screen name="FAQMorador" component={FAQMorador} />
     <Stack.Screen name="Contact" component={Contact} />
+    <Stack.Screen name="InviteListMorador" component={InviteListMorador} />
+    <Stack.Screen name="MessageChatMorador" component={MessageChatMorador} />
   </Stack.Navigator>
 );

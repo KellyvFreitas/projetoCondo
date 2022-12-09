@@ -2,7 +2,7 @@ export const generallocations = {
   locations: [
     {
       id: 1,
-      title: 'Condomínio Alpes do Himalaia',
+      title: 'CONDOMÍNIO ALPES DO HIMALAIA',
       cnpj: '08.988.546/0001-20',
       code: '84322-2',
       image:
@@ -13,7 +13,7 @@ export const generallocations = {
     },
     {
       id: 2,
-      title: 'Condomínio Mendonza',
+      title: 'CONDOMÍNIO MENDONZA',
       cnpj: '02.433.596/0001-41',
       code: '84462-1',
       image:

@@ -23,9 +23,10 @@ import {
   ImgCaller,
 } from './styles';
 
-export default () => {
+export default ({route}) => {
   const {navigate, goBack} = useNavigation();
   const [location, setLocation] = useState();
+  const contact = route.params;
 
   const handleGetLocations = async () => {
     const response = await generallocations.locations;
@@ -46,12 +47,12 @@ export default () => {
       </ViewLogo>
       <IconView>
         <TitleText>RECEBENDO CHAMADA</TitleText>
-        <AdressText>Condominio Alpes do Himalaia</AdressText>
+        <AdressText>{contact.title}</AdressText>
       </IconView>
       <ImageUser>
         <ImgCaller
           source={{
-            uri: 'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+            uri: contact.image,
           }}
         />
       </ImageUser>

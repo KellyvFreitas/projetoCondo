@@ -6,7 +6,11 @@ export const Container = styled.SafeAreaView`
   padding: 15px;
 `;
 
-export const TitleText = styled.Text``;
+export const TitleText = styled.Text`
+  color: white;
+  font-weight: bold;
+  padding-left: 15px;
+`;
 
 export const ViewLogo = styled.View`
   align-items: center;
@@ -34,9 +38,28 @@ export const ButtonPort = styled.TouchableOpacity`
   width: 95%;
   height: 45px;
   margin: 5px 0;
+  flex-direction: row;
+  align-items: center;
+  padding-left: 15px;
 `;
 
 export const TextButton = styled.Text`
   color: white;
-  font-size: 17px;
+  font-size: 15px;
+  margin: 0 10px;
+`;
+
+export const ViewCallPanel = styled.View`
+  background-color: #3b688a;
+  width: 95%;
+  height: 45px;
+  margin: 5px 0;
+  border-radius: 5px;
+  padding-top: 10px;
+`;
+
+export const ViewTabBar = styled.View`
+  flex-direction: row;
+  background-color: ${Colors.backgroundInput};
+  height: 70px;
 `;
