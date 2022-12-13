@@ -99,7 +99,7 @@ export default () => {
       icon: (
         <Icon name="account-outline" size={33} color={Colors.ButtonSecondary} />
       ),
-      screen: 'ProfileResident',
+      screen: 'ProfileAdmin',
     },
   ];
 

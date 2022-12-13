@@ -2,7 +2,7 @@ import {useNavigation} from '@react-navigation/native';
 import React from 'react';
 //-----------------------Components---------------------------------
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import Logo from '../../assets/svg/Logo-noback.svg';
+import Logo from '../../assets/svg/LogoCITescuro.svg';
 import {Colors} from '../../config/Colors';
 //-----------------------Services---------------------------------
 //-----------------------Styles------------------------------------
@@ -37,7 +37,7 @@ export default () => {
       icon: (
         <Icon name="home-outline" size={33} color={Colors.ButtonSecondary} />
       ),
-      screen: 'HomeResident',
+      screen: 'HomeAdmin',
     },
     {
       id: 2,

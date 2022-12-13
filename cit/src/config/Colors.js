@@ -13,6 +13,6 @@ export const Colors = {
   panel: '#E5E5E5',
   gradientInitial: '#2E453F',
   gradientFinal: '#313536',
-  black: '#000'
-
+  black: '#000',
+  textcolorBack: '#3b688a',
 };

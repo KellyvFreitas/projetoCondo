@@ -32,6 +32,9 @@ import {
   ViewTabBar,
   ViewTitleTable,
   ViewTrashCan,
+  ButtonPort,
+  TextButton,
+  PasswordButtonOpacity1,
 } from './styles';
 
 //import for the animation of Collapse and Expand
@@ -84,7 +87,7 @@ export default () => {
           color={Colors.ButtonSecondary}
         />
       ),
-      screen: 'MessagesAdmin',
+      screen: 'InviteListAdmin',
     },
     {
       id: 4,
@@ -159,6 +162,7 @@ export default () => {
     );
   };
 
+  const [hidePass, setHidePass] = useState(true);
   const renderContent = (section, _, isActive) => {
     //Accordion Content view
     return (
@@ -169,19 +173,29 @@ export default () => {
         <Animatable.Text animation={isActive ? 'bounceIn' : undefined}>
           <ButtonPasswordView>
             <PasswordButtonOpacity>
+              <Icon
+                name="eye-outline"
+                size={23}
+                color="gray"
+                style={{marginTop: 10, marginRight: 10}}
+              />
               <InputPassword
                 typeInput="password"
                 placeholder="Nova Senha"
-                secureTextEntry
+                secureTextEntry={hidePass}
               />
             </PasswordButtonOpacity>
-            <PasswordButtonOpacity>
+            <PasswordButtonOpacity1>
               <InputPassword
                 typeInput="password"
                 placeholder="Confirmar nova senha"
                 secureTextEntry
               />
-            </PasswordButtonOpacity>
+            </PasswordButtonOpacity1>
+
+            <ButtonPort>
+              <TextButton>OK</TextButton>
+            </ButtonPort>
           </ButtonPasswordView>
         </Animatable.Text>
       </Animatable.View>

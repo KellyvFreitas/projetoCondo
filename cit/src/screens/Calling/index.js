@@ -23,6 +23,7 @@ import {
 export default () => {
   const {navigate, goBack} = useNavigation();
   const [location, setLocation] = useState();
+  const contact = route.params;
 
   const handleGetLocations = async () => {
     const response = await generallocations.locations;
@@ -44,7 +45,7 @@ export default () => {
 
       <IconView>
         <TitleText>DISCANDO...</TitleText>
-        <AdressText>Condominio Alpes do Himalaia</AdressText>
+        <AdressText>{contact.title}</AdressText>
 
         <IconImageView>
           <IconColorCallView>

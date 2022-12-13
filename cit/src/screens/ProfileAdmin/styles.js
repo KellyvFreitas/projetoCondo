@@ -28,7 +28,7 @@ export const InviteAndCallPanel = styled.View`
   width: 100%;
   height: 45px;
   align-items: center;
-  background-color: ${Colors.primary};
+  background-color: #303638;
   justify-content: space-around;
 `;
 
@@ -38,7 +38,7 @@ export const ButtonPanel = styled.TouchableOpacity`
   background-color: white;
   justify-content: center;
   align-items: center;
-  background-color: #0894c4;
+  background-color: gray;
   border-radius: 5px;
 `;
 
@@ -107,8 +107,9 @@ export const InvitationOptions = styled.TouchableOpacity`
   padding-left: 14px;
   padding-right: 14px;
   margin-top: 5px;
-  background-color: #0894c4;
+  background-color: #303638;
   border-radius: 5px;
+  margin: 5px;
 `;
 
 export const ButtonInviteText = styled.Text`

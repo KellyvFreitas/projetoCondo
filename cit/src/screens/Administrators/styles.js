@@ -30,14 +30,31 @@ export const InvitationOptions = styled.TouchableOpacity``;
 
 export const ButtonPasswordView = styled.View``;
 
+export const IconButton = styled.TouchableOpacity`
+  color: red;
+`;
+
 export const PasswordButtonOpacity = styled.View`
   background-color: ${Colors.backgroundInput};
   border-radius: 5px;
   margin-bottom: 7px;
-  width: 270px;
+  width: 300px;
   text-align: left;
   align-content: center;
   margin-left: 18px;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+`;
+
+export const PasswordButtonOpacity1 = styled.View`
+  background-color: ${Colors.backgroundInput};
+  border-radius: 5px;
+  margin-bottom: 7px;
+  width: 300px;
+  text-align: left;
+  align-content: center;
+
+  justify-content: space-between;
 `;
 
 export const InputPassword = styled.TextInput.attrs({})`
@@ -126,4 +143,20 @@ export const ViewTrashCan = styled.TouchableOpacity`
   margin-left: 6px;
   margin-right: 6px;
   border-radius: 5px;
+`;
+
+export const ButtonPort = styled.TouchableOpacity`
+  border-radius: 5px;
+  background-color: #636363;
+  width: 80px;
+  height: 30px;
+  margin: 5px 0;
+  align-items: center;
+  margin: 0 220px;
+`;
+
+export const TextButton = styled.Text`
+  color: white;
+  font-size: 15px;
+  margin: 0 10px;
 `;

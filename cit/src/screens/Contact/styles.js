@@ -3,7 +3,9 @@ import {Colors} from '../../config/Colors';
 import {Fonts} from '../../config/Fonts';
 
 export const Container = styled.SafeAreaView`
-  padding: 15px;
+  padding: 10px;
+  height: 100%;
+  margin-left: 8px;
 `;
 
 export const TitleText = styled.Text`
@@ -62,4 +64,28 @@ export const ViewTabBar = styled.View`
   flex-direction: row;
   background-color: ${Colors.backgroundInput};
   height: 70px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+`;
+export const ViewSelect = styled.View`
+  background-color: ${Colors.textcolorBack};
+  flex-direction: row-reverse;
+  justify-content: center;
+  align-items: center;
+  width: 95%;
+  border-radius: 5px;
+`;
+
+export const ViewPicker = styled.View``;
+
+export const TextPicker = styled.Text`
+  color: ${Colors.ButtonText};
+  padding: 5px;
+`;
+
+export const ButtonPort1 = styled.TouchableOpacity`
+  border-radius: 5px;
+  background-color: ${Colors.primary};
+  align-items: center;
 `;

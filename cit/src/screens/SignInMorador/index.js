@@ -1,6 +1,5 @@
 import React, {useState, useContext} from 'react';
 import {useNavigation} from '@react-navigation/native';
-import {Button, Keyboard} from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 //-----------------------Components---------------------------------
 import Eye from '../../assets/icons/eye.svg';

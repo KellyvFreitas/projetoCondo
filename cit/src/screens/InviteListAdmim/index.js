@@ -78,7 +78,7 @@ export default () => {
           color={Colors.ButtonSecondary}
         />
       ),
-      screen: 'MessagesAdmin',
+      screen: 'InviteListAdmin',
     },
     {
       id: 4,

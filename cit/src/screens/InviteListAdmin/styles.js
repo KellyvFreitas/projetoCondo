@@ -33,9 +33,9 @@ export const ViewText = styled.View``;
 
 export const ViewListChat = styled.View`
   background-color: #e7e7e7;
-  border-radius: 8px;
+  border-radius: 6px;
   margin: 10px;
-  height: 60%;
+  height: 40%;
 `;
 
 export const TitleMessage = styled.Text`

@@ -1,6 +1,7 @@
 import React, {useState, useEffect, useCallback} from 'react';
 import {useNavigation} from '@react-navigation/native';
-import {Keyboard} from 'react-native';
+import {Keyboard, Text} from 'react-native';
+import {Linking, ToastAndroid} from 'react-native';
 import {
   Container,
   ViewBack,
@@ -19,15 +20,11 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import Logo from '../../assets/svg/Logo.svg';
 import InputCustom from '../../components/InputCustom';
 import MaskedCell from '../../components/InputCellphone';
-
 import {apiServices} from '../../Services/Auth';
 import Mensagem from '../../Services/Mensagem';
 import Header from '../../components/Header';
 import BackIcon from '../../assets/icons/arrow-left.svg';
-
 import ButtonCustom from '../../components/ButtonCustom';
-
-import {Colors} from '../../config/Colors';
 
 export default () => {
   const {navigate, goBack} = useNavigation();
@@ -162,17 +159,21 @@ export default () => {
 
   return (
     <Container>
-      <ButtonBack onPress={handleBack}>
-        <Icon name="menu-left" size={35} color={Colors.textColorLight} />
-        <TextBack>Voltar</TextBack>
-      </ButtonBack>
       <LogoArea>
         <Logo width="100" height="100" />
       </LogoArea>
-      <Scroller>
-        <InputArea>
-          <TextInput>Nome</TextInput>
-          <InputCustom
+
+      <Text style={{fontSize: 16}}>
+        Para realizar um cadastro{' '}
+        <Text
+          onPress={() => {
+            Linking.openURL('https://centralcit.com.br/contrate/');
+          }}
+          style={{color: '#3b688a', fontWeight: 'bold'}}>
+          Clique aqui!
+        </Text>
+      </Text>
+      {/*<InputCustom
             placeholder="Digite seu nome"
             // value={farmaceutico.nome}
             // onChangeText={t => setFarmaceutico({ ...farmaceutico, nome: t })}
@@ -220,7 +221,7 @@ export default () => {
             onPress={() => setHidePass(!hidePass)}
           />
         </InputArea>
-      </Scroller>
+
       <ButtonArea>
         <ButtonCustom
           title="Criar Conta"
@@ -229,7 +230,7 @@ export default () => {
           color={Colors.black}
           onPress={handleBackButton}
         />
-      </ButtonArea>
+      </ButtonArea>*/}
     </Container>
   );
 };

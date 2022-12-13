@@ -160,7 +160,7 @@ export default () => {
               <Icon name="plus" size={24} color="white" />
             </IconView>
             <ButtonTextView>
-              <ButtonInviteTitleText>
+              <ButtonInviteTitleText onPress={() => navigate('SignUp')}>
                 Adicionar novo morador
               </ButtonInviteTitleText>
               <ButtonInviteText>Clique aqui</ButtonInviteText>
