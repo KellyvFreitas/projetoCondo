@@ -156,10 +156,10 @@ export default ({route}) => {
               setValue={setValue2}
               setItems={setItems2}
               style={{
-                width: 160,
+                width: 150,
                 margin: 5,
                 backgroundColor: Colors.ButtonText,
-                borderRadius: 10,
+                borderRadius: 8,
               }}
               containerStyle={{
                 width: 160,
@@ -188,10 +188,9 @@ export default ({route}) => {
               setValue={setValue}
               setItems={setItems}
               style={{
-                width: 100,
-                height: 5,
+                width: 93,
+                height: 3,
                 backgroundColor: Colors.ButtonText,
-                border: 'none',
                 borderRadius: 10,
               }}
               containerStyle={{
