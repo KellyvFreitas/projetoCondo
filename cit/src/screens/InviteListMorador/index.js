@@ -1,6 +1,7 @@
 import {useFocusEffect, useNavigation} from '@react-navigation/native';
 import {
   View,
+  Image,
   SafeAreaView,
   StyleSheet,
   Text,
@@ -10,7 +11,7 @@ import {
 import React, {useCallback, useState, useEffect} from 'react';
 //-----------------------Components---------------------------------
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import Logo from '../../assets/svg/LogoEscuro.svg';
+import Logo from '../../assets/images/Condominio.png';
 import InputCustom from '../../components/InputCustom';
 import InputIcon from '../../components/InputIcon';
 import TabBar from '../../components/TabBar';
@@ -49,6 +50,7 @@ import {
   CollapseBody,
   AccordionList,
 } from 'accordion-collapse-react-native';
+import LogoImage from "../../assets/images/Condominio.png";
 
 export default () => {
   const {navigate, goBack} = useNavigation();
@@ -234,7 +236,7 @@ export default () => {
   return (
     <Container>
       <ViewLogo>
-        <Logo width="250" height="90" />
+        <Image source={LogoImage} style={{ width: 250, height: 90, resizeMode: 'contain' }} />
       </ViewLogo>
 
       <IconReturn onPress={() => goBack()}>

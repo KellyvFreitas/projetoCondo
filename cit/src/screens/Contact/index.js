@@ -19,10 +19,10 @@ import {
   TextPicker,
   ButtonPort1,
 } from './styles';
-import Logo from '../../assets/svg/Logo-noback.svg';
+import Logo from '../../assets/images/Condominio.png';
 import {Colors} from '../../config/Colors';
 import TabBar from '../../components/TabBar';
-import {View, StyleSheet} from 'react-native';
+import {View, StyleSheet, Image} from 'react-native';
 
 export default ({route}) => {
   const {navigate} = useNavigation();
@@ -98,7 +98,7 @@ export default ({route}) => {
   return (
     <Container>
       <ViewLogo>
-        <Logo width="250" height="90" />
+        <Image source={Logo} style={{ width: 250, height: 90, resizeMode: 'contain' }}  />
       </ViewLogo>
       <IconView onPress={() => navigate('HomeResident')}>
         <Icon name="chevron-left-box" size={36} color={Colors.primary} />

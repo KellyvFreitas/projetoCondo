@@ -2,7 +2,8 @@ import {useNavigation} from '@react-navigation/native';
 import React from 'react';
 //-----------------------Components---------------------------------
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import Logo from '../../assets/svg/Logo-noback.svg';
+import Logo from '../../assets/images/Condominio.png';
+import { Image } from 'react-native';
 import {Colors} from '../../config/Colors';
 //-----------------------Services---------------------------------
 //-----------------------Styles------------------------------------
@@ -26,6 +27,7 @@ import InputCustom from '../../components/InputCustom';
 import {Platform} from 'react-native';
 import InputObs from '../../components/InputObs';
 import InputProfile from '../../components/InputProfile';
+import LogoImage from "../../assets/images/Condominio.png";
 
 export default () => {
   const {navigate} = useNavigation();
@@ -70,7 +72,7 @@ export default () => {
   return (
     <Container>
       <ViewLogo>
-        <Logo width="250" height="90" />
+        <Image source={LogoImage} style={{ width: 250, height: 90, resizeMode: 'contain' }} />
 
         <InviteAndCallPanel>
           <ButtonPanel onPress={() => navigate('HomeResident')}>

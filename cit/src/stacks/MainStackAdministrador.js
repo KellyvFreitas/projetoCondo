@@ -5,7 +5,6 @@ import {createStackNavigator} from '@react-navigation/stack';
 import SignIn from '../screens/SignIn';
 import SignUp from '../screens/SignUp';
 
-import Home from '../screens/Home';
 import TermsConditions from '../screens/TermsConditions';
 import HomeResident from '../screens/HomeResident';
 import FAQ from '../screens/FAQ';
@@ -36,7 +35,6 @@ export default () => (
     <Stack.Screen name="SignIn" component={SignIn} />
     <Stack.Screen name="ForgetPassword" component={ForgetPassword} />
     <Stack.Screen name="SignUp" component={SignUp} />
-    <Stack.Screen name="Home" component={Home} />
     <Stack.Screen name="Calling" component={Calling} />
     <Stack.Screen name="TermsConditions" component={TermsConditions} />
     <Stack.Screen

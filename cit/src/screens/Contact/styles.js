@@ -3,9 +3,10 @@ import {Colors} from '../../config/Colors';
 import {Fonts} from '../../config/Fonts';
 
 export const Container = styled.SafeAreaView`
-  padding: 10px;
-  height: 100%;
-  margin-left: 8px;
+    padding: 10px;
+    height: 100%;
+    margin-left: 8px;
+    background-color: white;
 `;
 
 export const TitleText = styled.Text`
@@ -58,6 +59,7 @@ export const ViewCallPanel = styled.View`
   margin: 5px 0;
   border-radius: 5px;
   padding-top: 10px;
+    margin-top: 40px;
 `;
 
 export const ViewTabBar = styled.View`

@@ -3,7 +3,7 @@ import {Colors} from '../../config/Colors';
 import {Fonts} from '../../config/Fonts';
 
 export const Container = styled.SafeAreaView`
-  background-color: ${Colors.primary};
+  background-color: white;
   height: 100%;
   padding: 0 10px;
 `;

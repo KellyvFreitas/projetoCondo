@@ -17,7 +17,8 @@ import Eye from '../../assets/icons/eye.svg';
 import EyeOff from '../../assets/icons/eyeOff.svg';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
-import Logo from '../../assets/svg/Logo.svg';
+import Logo from '../../assets/images/Condominio.png';
+import { Image } from 'react-native';
 import InputCustom from '../../components/InputCustom';
 import MaskedCell from '../../components/InputCellphone';
 import {apiServices} from '../../Services/Auth';
@@ -25,6 +26,7 @@ import Mensagem from '../../Services/Mensagem';
 import Header from '../../components/Header';
 import BackIcon from '../../assets/icons/arrow-left.svg';
 import ButtonCustom from '../../components/ButtonCustom';
+import LogoImage from "../../assets/images/Condominio.png";
 
 export default () => {
   const {navigate, goBack} = useNavigation();
@@ -160,7 +162,7 @@ export default () => {
   return (
     <Container>
       <LogoArea>
-        <Logo width="100" height="100" />
+        <Image source={LogoImage} style={{ width: 250, height: 90, resizeMode: 'contain' }} />
       </LogoArea>
 
       <Text style={{fontSize: 16}}>

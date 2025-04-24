@@ -10,11 +10,12 @@ import {
 import React, {useCallback, useState, useEffect} from 'react';
 //-----------------------Components---------------------------------
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import Logo from '../../assets/svg/LogoEscuro.svg';
+import Logo from '../../assets/images/Condominio.png';
 import InputCustom from '../../components/InputCustom';
 import InputIcon from '../../components/InputIcon';
 import TabBar from '../../components/TabBar';
 import {Colors} from '../../config/Colors';
+import { Image } from 'react-native';
 //-----------------------Services---------------------------------
 //-----------------------Styles------------------------------------
 import {generallocations} from '../../Services/Locations';
@@ -49,6 +50,7 @@ import {
   CollapseBody,
   AccordionList,
 } from 'accordion-collapse-react-native';
+import LogoImage from "../../assets/images/CondominioLogoEscuro.png";
 
 export default () => {
   const {navigate, goBack} = useNavigation();
@@ -234,8 +236,8 @@ export default () => {
   return (
     <Container>
       <ViewLogo>
-        <Logo width="250" height="90" />
-      </ViewLogo>
+        <Image source={LogoImage} style={{ width: 250, height: 90, resizeMode: 'contain' }} />
+    </ViewLogo>
 
       <IconReturn onPress={() => goBack()}>
         <Icon name="chevron-left-circle" size={25} color="white" />

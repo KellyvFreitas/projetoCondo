@@ -3,7 +3,7 @@ import React, {useCallback, useState} from 'react';
 import {Image, StyleSheet, View} from 'react-native';
 //-----------------------Components---------------------------------
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import Logo from '../../assets/svg/LogoEscuro.svg';
+import Logo from '../../assets/images/Condominio.png';
 //-----------------------Services---------------------------------
 //-----------------------Styles------------------------------------
 import {generallocations} from '../../Services/Locations';
@@ -22,6 +22,7 @@ import {
   ImageUser,
   ImgCaller,
 } from './styles';
+import LogoImage from "../../assets/images/Condominio.png";
 
 export default ({route}) => {
   const {navigate, goBack} = useNavigation();
@@ -42,8 +43,8 @@ export default ({route}) => {
 
   return (
     <Container>
-      <ViewLogo>
-        <Logo width="250" height="90" />
+      <ViewLogo>squisar convites
+        <Image source={LogoImage} style={{ width: 250, height: 90, resizeMode: 'contain' }} />
       </ViewLogo>
       <IconView>
         <TitleText>RECEBENDO CHAMADA</TitleText>

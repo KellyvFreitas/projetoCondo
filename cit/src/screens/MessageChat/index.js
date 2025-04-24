@@ -1,7 +1,8 @@
 import React from 'react';
 import {useFocusEffect, useNavigation} from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import Logo from '../../assets/svg/LogoEscuro.svg';
+import Logo from '../../assets/images/Condominio.png';
+import { Image } from 'react-native';
 import InputCustom from '../../components/InputCustom';
 
 import {
@@ -21,6 +22,7 @@ import {
   IconReturn,
 } from './styles';
 import {View} from 'react-native';
+import LogoImage from "../../assets/images/Condominio.png";
 
 export default ({route, navigation}) => {
   const {navigate} = useNavigation();
@@ -33,7 +35,7 @@ export default ({route, navigation}) => {
   return (
     <Container>
       <ViewLogo>
-        <Logo width="260" height="90" />
+          <Image source={LogoImage} style={{ width: 250, height: 90, resizeMode: 'contain' }} />
       </ViewLogo>
       <IconView>
         <Icon

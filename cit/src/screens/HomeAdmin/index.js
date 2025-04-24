@@ -2,7 +2,8 @@ import {useFocusEffect, useNavigation} from '@react-navigation/native';
 import React, {useCallback, useState} from 'react';
 //-----------------------Components---------------------------------
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import Logo from '../../assets/svg/LogoCITescuro';
+import Logo from '../../assets/images/Condominio.png';
+import { Image } from 'react-native';
 
 import {Colors} from '../../config/Colors';
 //-----------------------Services---------------------------------
@@ -35,6 +36,7 @@ import {
 } from './styles';
 import TabBarLocations from '../../components/TabBarLocations';
 import {generallocations} from '../../Services/Locations';
+import LogoImage from "../../assets/images/Condominio.png";
 
 export default () => {
   const {navigate} = useNavigation();
@@ -80,7 +82,7 @@ export default () => {
   return (
     <Container>
       <ViewLogo>
-        <Logo width="250" height="90" />
+        <Image source={LogoImage} style={{ width: 250, height: 90, resizeMode: 'contain' }} />
 
         <InviteAndCallPanel>
           <ButtonADMPanel>

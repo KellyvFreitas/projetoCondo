@@ -1,10 +1,10 @@
 import {useFocusEffect, useNavigation} from '@react-navigation/native';
 import React, {useCallback, useState} from 'react';
-import {ScrollView, StyleSheet, TouchableOpacity} from 'react-native';
+import {Image, ScrollView, StyleSheet, TouchableOpacity} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 //-----------------------Components---------------------------------
 
-import Logo from '../../assets/svg/LogoEscuro.svg';
+import Logo from '../../assets/images/Condominio.png';
 import WaveSound from '../../assets/svg/wave.svg';
 import InputIcon from '../../components/InputIcon';
 import TabBar from '../../components/TabBar';
@@ -42,6 +42,7 @@ import {
 import Lupa from '../../assets/svg/lupa.svg';
 import * as Animatable from 'react-native-animatable';
 import Accordion from 'react-native-collapsible/Accordion';
+import LogoImage from "../../assets/images/CondominioLogoEscuro.png";
 
 export default () => {
   const {navigate, goBack} = useNavigation();
@@ -199,7 +200,7 @@ export default () => {
   return (
     <Container>
       <ViewLogo>
-        <Logo width="250" height="90" />
+        <Image source={LogoImage} style={{ width: 250, height: 90, resizeMode: 'contain' }} />
       </ViewLogo>
 
       <IconReturn onPress={() => goBack()}>

@@ -5,7 +5,6 @@ import SelectProfile from '../screens/SelectProfile';
 import SignInMorador from '../screens/SignInMorador';
 import SignUp from '../screens/SignUp';
 
-import Home from '../screens/Home';
 import TermsConditionsMorador from '../screens/TermsConditionsMorador';
 import HomeResident from '../screens/HomeResident';
 import FAQ from '../screens/FAQ';
@@ -35,7 +34,7 @@ export default () => (
     <Stack.Screen name="SignInMorador" component={SignInMorador} />
     <Stack.Screen name="ForgetPassword" component={ForgetPassword} />
     <Stack.Screen name="SignUp" component={SignUp} />
-    <Stack.Screen name="Home" component={Home} />
+
     <Stack.Screen name="Calling" component={Calling} />
     <Stack.Screen
       name="TermsConditionsMorador"

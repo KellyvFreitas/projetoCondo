@@ -2,7 +2,7 @@ import {useNavigation} from '@react-navigation/native';
 import React from 'react';
 //-----------------------Components---------------------------------
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import Logo from '../../assets/svg/Logo-noback.svg';
+import Logo from '../../assets/images/Condominio.png';
 import {Colors} from '../../config/Colors';
 //-----------------------Services---------------------------------
 //-----------------------Styles------------------------------------
@@ -22,6 +22,8 @@ import {
   InputArea,
   TextTitleAdmin,
 } from './styles';
+import {Image} from "react-native";
+import LogoImage from "../../assets/images/Condominio.png";
 
 export default () => {
   const {navigate} = useNavigation();
@@ -68,7 +70,7 @@ export default () => {
   return (
     <Container>
       <ViewLogo>
-        <Logo width="250" height="90" />
+        <Image source={LogoImage} style={{ width: 250, height: 90, resizeMode: 'contain', marginTop: 10 }} />
 
         <InviteAndCallPanel>
           <ButtonPanel onPress={() => navigate('HomeResident')}>
@@ -81,7 +83,7 @@ export default () => {
       </ViewLogo>
 
       <ViewTermsAndConditions>
-        <TextTitle>Duvidas Frequentes</TextTitle>
+        <TextTitle>Dúvidas Frequentes</TextTitle>
         <QuestionsView>
           <Icon name="arrow-right-drop-circle" size={25} />
           <TextTerms>Como posso resetar a minha senha?</TextTerms>

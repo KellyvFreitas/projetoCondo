@@ -1,9 +1,8 @@
 import {useFocusEffect, useNavigation} from '@react-navigation/native';
 import React, {useCallback, useState} from 'react';
-import {FlatList} from 'react-native';
-//-----------------------Components---------------------------------
+import {FlatList, Image} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import Logo from '../../assets/svg/LogoEscuro.svg';
+import Logo from '../../assets/images/Condominio.png';
 import InputIcon from '../../components/InputIcon';
 import TabBar from '../../components/TabBar';
 import ResidentList from '../../components/ResidentList';
@@ -30,6 +29,7 @@ import {
 } from './styles';
 
 import Lupa from '../../assets/svg/lupa.svg';
+import LogoImage from "../../assets/images/Condominio.png";
 
 export default () => {
   const {navigate, goBack} = useNavigation();
@@ -120,7 +120,7 @@ export default () => {
   return (
     <Container>
       <ViewLogo>
-        <Logo width="250" height="90" />
+        <Image source={LogoImage} style={{ width: 250, height: 90, resizeMode: 'contain' }} />
       </ViewLogo>
 
       <IconReturn onPress={() => goBack()}>

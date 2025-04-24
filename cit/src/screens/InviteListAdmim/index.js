@@ -3,7 +3,7 @@ import React, {useCallback, useState} from 'react';
 import {Image, ScrollView, StyleSheet, TouchableOpacity} from 'react-native';
 //-----------------------Components---------------------------------
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import Logo from '../../assets/svg/LogoEscuro.svg';
+import Logo from '../../assets/images/CondominioLogoEscuro.png';
 import InputIcon from '../../components/InputIcon';
 import TabBar from '../../components/TabBar';
 import {Colors} from '../../config/Colors';
@@ -36,6 +36,7 @@ import Lupa from '../../assets/svg/lupa.svg';
 import * as Animatable from 'react-native-animatable';
 
 import Accordion from 'react-native-collapsible/Accordion';
+import LogoImage from "../../assets/images/CondominioLogoEscuro.png";
 
 export default () => {
   const {navigate, goBack} = useNavigation();
@@ -177,7 +178,7 @@ export default () => {
   return (
     <Container>
       <ViewLogo>
-        <Logo width="250" height="90" />
+        <Image source={LogoImage} style={{ width: 250, height: 90, resizeMode: 'contain' }} />
       </ViewLogo>
 
       <IconReturn onPress={() => goBack()}>

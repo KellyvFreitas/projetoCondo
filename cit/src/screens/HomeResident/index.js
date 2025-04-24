@@ -2,7 +2,8 @@ import {useFocusEffect, useNavigation} from '@react-navigation/native';
 import React, {useCallback, useState} from 'react';
 //-----------------------Components---------------------------------
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import Logo from '../../assets/svg/Logo-noback.svg';
+import Logo from '../../assets/images/Condominio.png';
+import { Image } from 'react-native';
 
 import {Colors} from '../../config/Colors';
 //-----------------------Services---------------------------------
@@ -94,7 +95,10 @@ export default () => {
   return (
     <Container>
       <ViewLogo>
-        <Logo width="250" height="90" />
+        <Image
+          source={Logo}
+          style={{width: 250, height: 90, rezideMode: 'contain', marginTop: 10}}
+        />
 
         <InviteAndCallPanel>
           <TitleText>SELECIONE O CONDOMINIO</TitleText>

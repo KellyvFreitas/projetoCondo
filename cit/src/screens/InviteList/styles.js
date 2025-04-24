@@ -28,18 +28,18 @@ export const InviteAndCallPanel = styled.View`
   width: 100%;
   height: 45px;
   align-items: center;
-  background-color: ${Colors.primary};
+    background-color: #165c62;
   justify-content: space-around;
 `;
 
 export const ButtonPanel = styled.TouchableOpacity`
-  width: 110px;
-  height: 30px;
-  background-color: white;
-  justify-content: center;
-  align-items: center;
-  background-color: #0894c4;
-  border-radius: 5px;
+    width: 110px;
+    height: 30px;
+    background-color: white;
+    justify-content: center;
+    align-items: center;
+    background-color: #3ed0dd;
+    border-radius: 5px;
 `;
 
 export const ButtonText = styled.Text`

@@ -5,8 +5,9 @@ import {useNavigation} from '@react-navigation/native';
 import Mensagem from '../../Services/Mensagem';
 import {apiServices} from '../../Services/Auth';
 import {Colors} from '../../config/Colors';
-import Logo from '../../assets/svg/Logo.svg';
+import Logo from '../../assets/images/Condominio.png';
 import {Container, LoadingIcon} from './styles';
+import { Image } from 'react-native';
 
 export default () => {
   const {dispatch: userDispatch} = useContext(UserContext);
@@ -51,7 +52,7 @@ export default () => {
 
   return (
     <Container>
-      <Logo width="250" height="250" />
+      <Image source={Logo} style={{ width: 250, height: 90, resizeMode: 'contain' }} />
       <LoadingIcon size="large" color={Colors.primary} />
     </Container>
   );

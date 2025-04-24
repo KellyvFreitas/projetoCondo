@@ -16,8 +16,9 @@ export const InviteAndCallPanel = styled.View`
   width: 100%;
   height: 45px;
   align-items: center;
-  background-color: ${Colors.primary};
+  background-color:#165c62;
   justify-content: space-around;
+    margin-top: 40px;
 `;
 
 export const ButtonPanel = styled.TouchableOpacity`

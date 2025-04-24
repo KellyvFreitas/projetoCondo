@@ -4,9 +4,10 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 //-----------------------Components---------------------------------
 import Eye from '../../assets/icons/eye.svg';
 import EyeOff from '../../assets/icons/eyeOff.svg';
+import { Image } from 'react-native';
 import {UserContext} from '../../contexts/UserContext';
 import {Colors} from '../../config/Colors';
-import Logo from '../../assets/svg/LogoCITcírculoEscuro.svg';
+import LogoImage from '../../assets/images/Condominio.png'
 import InputCustom from '../../components/InputCustom';
 import ButtonCustom from '../../components/ButtonCustom';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -17,6 +18,7 @@ import {notification} from '../../Services/notification';
 //-----------------------Styles------------------------------------
 import {
   Container,
+  Logo,
   ViewLogo,
   InputArea,
   ViewPassword,
@@ -127,7 +129,7 @@ export default () => {
   return (
     <Container>
       <ViewLogo>
-        <Logo width="150" height="150" />
+        <Image source={LogoImage} style={{ width: 250, height: 90, resizeMode: 'contain' }} />
       </ViewLogo>
 
       <InputArea>

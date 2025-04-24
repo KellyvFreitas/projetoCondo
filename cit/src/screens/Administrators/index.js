@@ -10,7 +10,7 @@ import {Colors} from '../../config/Colors';
 import {generallocations} from '../../Services/Locations';
 //-----------------------Styles------------------------------------
 import Lupa from '../../assets/svg/lupa.svg';
-import Logo from '../../assets/svg/LogoEscuro.svg';
+import Logo from '../../assets/images/Condominio.png';
 import {
   ButtonPasswordView,
   Container,
@@ -43,6 +43,7 @@ import * as Animatable from 'react-native-animatable';
 //import for the Accordion view
 import Accordion from 'react-native-collapsible/Accordion';
 import ButtonCustom from '../../components/ButtonCustom';
+import LogoImage from "../../assets/images/CondominioLogoEscuro.png";
 
 export default () => {
   const {navigate} = useNavigation();
@@ -205,7 +206,7 @@ export default () => {
   return (
     <Container>
       <ViewLogo>
-        <Logo width="250" height="90" />
+        <Image source={LogoImage} style={{ width: 250, height: 90, resizeMode: 'contain' }} />
       </ViewLogo>
       <InputArea>
         <TextTitle>PESQUISAR ADMINISTRADORES</TextTitle>

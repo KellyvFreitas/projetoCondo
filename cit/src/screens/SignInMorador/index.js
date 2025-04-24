@@ -6,7 +6,7 @@ import Eye from '../../assets/icons/eye.svg';
 import EyeOff from '../../assets/icons/eyeOff.svg';
 import {UserContext} from '../../contexts/UserContext';
 import {Colors} from '../../config/Colors';
-import Logo from '../../assets/svg/Logo.svg';
+import Logo from '../../assets/images/Condominio.png';
 import InputCustom from '../../components/InputCustom';
 import ButtonCustomMorador from '../../components/ButtonCustomMorador';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -27,6 +27,8 @@ import {
   ButtonLogin,
 } from './styles';
 import TabBar from '../../components/TabBar';
+import {Image} from "react-native";
+import LogoImage from "../../assets/images/Condominio.png";
 
 export default () => {
   const navigation = useNavigation();
@@ -127,7 +129,7 @@ export default () => {
   return (
     <Container>
       <ViewLogo>
-        <Logo width="150" height="150" />
+        <Image source={LogoImage} style={{ width: 250, height: 90, resizeMode: 'contain' }} />
       </ViewLogo>
 
       <InputArea>
