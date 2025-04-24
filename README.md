@@ -1,4 +1,4 @@
-# cit-aplicativo
+# condo-aplicativo
 
 
 
@@ -15,14 +15,14 @@ Already a pro? Just edit this README.md and make it your own. Want to make it ea
 
 ```
 cd existing_repo
-git remote add origin https://gitlab.com/jr-mendonca/cit/cit-aplicativo.git
+git remote add origin https://github.com/KellyvFreitas/projetoCondo.git
 git branch -M main
 git push -uf origin main
 ```
 
 ## Integrate with your tools
 
-- [ ] [Set up project integrations](https://gitlab.com/jr-mendonca/cit/cit-aplicativo/-/settings/integrations)
+- [ ] [Set up project integrations](https://github.com/KellyvFreitas/projetoCondo.git)
 
 ## Collaborate with your team
 
